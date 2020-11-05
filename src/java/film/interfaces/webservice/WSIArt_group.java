@@ -1,0 +1,31 @@
+package film.interfaces.webservice;
+
+import java.util.ArrayList;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+
+/**
+ *
+ * @author Franky Laseure
+ */
+//Service Endpoint Interface
+@WebService
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use=SOAPBinding.Use.LITERAL)
+public interface WSIArt_group {
+    
+    @WebMethod String getArt_groups();
+
+    @WebMethod String search(String json);
+
+    @WebMethod String getArt_group(String json);
+
+    @WebMethod void insertArt_group(String json);
+
+    @WebMethod void updateArt_group(String json);
+
+    @WebMethod void deleteArt_group(String json);
+
+
+}
+
