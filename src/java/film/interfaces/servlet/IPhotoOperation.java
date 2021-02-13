@@ -2,7 +2,7 @@
  * IPhotoOperation.java
  *
  * Created on Dec 13, 2012, 12:22 PM
- * Generated on 25.9.2020 11:35
+ * Generated on 4.1.2021 12:6
  *
  */
 
@@ -40,6 +40,7 @@ public interface IPhotoOperation extends IDataServlet {
     public static final byte SELECT_SMALLIMAGE = 7;
     public static final byte SELECT_CROPPEDIMAGE = 8;
     public static final byte SELECT_SEARCHAUTH = 9;
+    
     public static final byte SELECT_LOCATION = 12;
     public static final byte DOWNLOAD_SMALLIMAGE = 13;
     public static final byte SECURESELECT_SEARCH = 14;
@@ -47,6 +48,10 @@ public interface IPhotoOperation extends IDataServlet {
     public static final byte SECURESELECT_DESCRIPTIONS = 16;
     public static final byte SECURESELECT_COUNT = 17;
     public static final byte SECURESELECT_DATE = 18;
+    
+    public static final byte GETTHUMBNAIL = 20;
+    public static final byte GETSMALL = 21;
+    
 //Custom code, do not change this line   
 
     //UPDATE OPERATIONS
@@ -55,6 +60,7 @@ public interface IPhotoOperation extends IDataServlet {
 //add here custom operations
     public static final byte UPDATE_PROPERTIES = 11;
     public static final byte UPDATE_GEOLOCATION = 16;
+    public static final byte UPDATE_COPYPREVGEOLOCATION = 17;
 //Custom code, do not change this line   
 
     //INSERT OPERATIONS
