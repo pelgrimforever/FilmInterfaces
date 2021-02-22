@@ -48,6 +48,7 @@ public interface IPhotoOperation extends IDataServlet {
     public static final byte SECURESELECT_DESCRIPTIONS = 16;
     public static final byte SECURESELECT_COUNT = 17;
     public static final byte SECURESELECT_DATE = 18;
+    public static final byte SELECT_LOCATIONS = 19;
     
     public static final byte GETTHUMBNAIL = 20;
     public static final byte GETSMALL = 21;
@@ -61,6 +62,7 @@ public interface IPhotoOperation extends IDataServlet {
     public static final byte UPDATE_PROPERTIES = 11;
     public static final byte UPDATE_GEOLOCATION = 16;
     public static final byte UPDATE_COPYPREVGEOLOCATION = 17;
+    public static final byte UPDATE_COPYPHOTOGEOLOCATION = 18;
 //Custom code, do not change this line   
 
     //INSERT OPERATIONS

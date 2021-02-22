@@ -55,6 +55,7 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
     public static final String SQLWherePublic = " public = :public: ";
     public static final String SQLSelectAll4Public = "select * from photo where " + SQLWherePublic + OrderBy;
 
+    public static final String SQLSelect4photo_sorted = "select * from photo" + OrderBy;
     public static final String SQLSelect4photo_film_sorted = "select * from photo where film = :film.id:" + OrderBy;
     public static final String SQLSelect4photo_filmpublic_sorted = "select * from photo where " + SQLWherefilm + " and " + SQLWherePublic + OrderBy;
 
