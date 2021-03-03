@@ -43,7 +43,7 @@ public interface IPhotoOperation extends IDataServlet {
     
     public static final byte SELECT_LOCATION = 12;
     public static final byte DOWNLOAD_SMALLIMAGE = 13;
-    public static final byte SECURESELECT_SEARCH = 14;
+    public static final byte SELECT_SEARCHWITHIMAGESBASE64 = 14;
     public static final byte SECURESELECT_SEARCHCOUNT = 15;
     public static final byte SECURESELECT_DESCRIPTIONS = 16;
     public static final byte SECURESELECT_COUNT = 17;
@@ -52,6 +52,7 @@ public interface IPhotoOperation extends IDataServlet {
     
     public static final byte GETTHUMBNAIL = 20;
     public static final byte GETSMALL = 21;
+    public static final byte SELECT_FilmWITHIMAGESBASE64 = 22;
     
 //Custom code, do not change this line   
 

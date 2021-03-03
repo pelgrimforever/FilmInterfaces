@@ -77,7 +77,7 @@ public class JSONPhoto {
         json.put("streetnumber", photo.getStreetnumber());
         json.put("formattedaddress", photo.getFormattedaddress());
 //Custom code, do not change this line
-        json.put("smallfilepath", photo.getSmallfilepath());
+        json.put("imagebase64", photo.getImagebase64());
 //Custom code, do not change this line
         return json;
     }

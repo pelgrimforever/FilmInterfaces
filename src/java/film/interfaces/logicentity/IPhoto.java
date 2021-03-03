@@ -302,6 +302,10 @@ public interface IPhoto extends LogicEntity {
 //Put custom functions here
     public void setThumbnailimage(Filedata thumbnailimage);
 
+    public void setImagebase64(String imagebase64);
+    
+    public String getImagebase64();
+    
     public Filedata getThumbnail();
 
     public void setSmallimage(Filedata smallimage);
@@ -321,10 +325,6 @@ public interface IPhoto extends LogicEntity {
     public boolean isLocationUpdated();
     
     public boolean isReversegeocodeUpdated();
-    
-    public String getSmallfilepath();
-
-    public void setSmallfilepath(String smallfilepath);
     
     /**
      * @return Entity string representation

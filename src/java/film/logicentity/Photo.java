@@ -86,8 +86,8 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
     private Filedata smallimage;
     private Filedata croppedimage;
     private Filedata rootimage;
-    
-    private String smallfilepath;
+
+    private String imagebase64 = "";
 //Custom code, do not change this line
 
     public static final String SQLSelect4route = "select * from photo where " + SQLWhereroute + OrderBy;
@@ -129,6 +129,14 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
         return new StringBuffer(Film.getDirectoryName(photoPK.getFilmPK())).append("_").append(photoid).toString();
     }
 
+    public void setImagebase64(String imagebase64) {
+        this.imagebase64 = imagebase64;
+    }
+    
+    public String getImagebase64() {
+        return this.imagebase64;
+    }
+    
     public void setThumbnailimage(Filedata thumbnailimage) {
         this.thumbnailimage = thumbnailimage;
     }
@@ -185,14 +193,6 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
         return updates.containsKey(IPhoto.REVERSEGEOCODE);
     }
 
-    public String getSmallfilepath() {
-        return smallfilepath;
-    }
-
-    public void setSmallfilepath(String smallfilepath) {
-        this.smallfilepath = smallfilepath;
-    }
-    
     public String toString() {
         return this.photoPK.getFilm() + " " + this.photoPK.getId();
     }
