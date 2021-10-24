@@ -2,7 +2,7 @@
  * View_subjects_for_photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_subjects_for_photosearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_subjects_for_photo;
+import film.logicview.View_subjects_for_photo;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,6 +31,13 @@ public class View_subjects_for_photosearch extends Tablesearch implements IView_
     Numbersearch id = new Numbersearch("view_subjects_for_photo.id");
     Stringsearch subject = new Stringsearch("view_subjects_for_photo.subject");
     Stringsearch description = new Stringsearch("view_subjects_for_photo.description");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_subjects_for_photo.table;
+    }
 
     /**
      * Constructor

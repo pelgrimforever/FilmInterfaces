@@ -2,13 +2,14 @@
  * eGeography_columns.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eGeography_columns implements EntityViewInterface {
+public class eGeography_columns implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "geography_columns";
     private java.lang.String f_table_catalog;
     private java.lang.String f_table_schema;
     private java.lang.String f_table_name;
@@ -36,20 +38,27 @@ public class eGeography_columns implements EntityViewInterface {
     private int srid;
     private java.lang.String type;
 	  
-    public static final String table = "geography_columns";
-    public static final String SQLSelectAll = "select geography_columns.* from geography_columns";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eGeography_columns.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eGeography_columns.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for Geography_columns
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all Geography_columnss
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

@@ -2,7 +2,7 @@
  * Raster_overviewssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IRaster_overviewssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eRaster_overviews;
+import film.logicview.Raster_overviews;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -33,6 +33,13 @@ public class Raster_overviewssearch extends Tablesearch implements IRaster_overv
     Stringsearch r_table_name = new Stringsearch("raster_overviews.r_table_name");
     Stringsearch r_raster_column = new Stringsearch("raster_overviews.r_raster_column");
     Numbersearch overview_factor = new Numbersearch("raster_overviews.overview_factor");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return Raster_overviews.table;
+    }
 
     /**
      * Constructor

@@ -2,7 +2,7 @@
  * Subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSubject;
+import film.logicentity.Subject;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,10 +31,17 @@ public class Subjectsearch extends Tablesearch implements ISubjectsearch {
     Foreignkeysearch subjectcatCat1searcher = new Foreignkeysearch("subjectcat", ISubject.subjectcatCat1PKfields, ISubject.subjectcatCat1FKfields);
     Foreignkeysearch tree7subjectsearcher = new Foreignkeysearch("tree7subject", ISubject.tree7subjectPKfields, ISubject.tree7subjectFKfields);
     Foreignkeysearch subjectcatCat2searcher = new Foreignkeysearch("subjectcat", ISubject.subjectcatCat2PKfields, ISubject.subjectcatCat2FKfields);
-    Primarykeysearch filmsubjectssearcher = new Primarykeysearch(":extablename_o:", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
+    Primarykeysearch filmsubjectssearcher = new Primarykeysearch("filmsubjects", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
     Relationalkeysearch filmsearcher = new Relationalkeysearch("filmsubjects", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields, "film", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields);
-    Primarykeysearch photosubjectssearcher = new Primarykeysearch(":extablename_o:", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
+    Primarykeysearch photosubjectssearcher = new Primarykeysearch("photosubjects", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
     Relationalkeysearch photosearcher = new Relationalkeysearch("photosubjects", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields, "photo", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Subject.table;
+    }
 
     /**
      * Constructor

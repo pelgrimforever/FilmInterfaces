@@ -2,7 +2,7 @@
  * Photosubjects.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IPhotosubjectsPK;
 import film.interfaces.logicentity.*;
@@ -36,18 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Photosubjects extends film.entity.ePhotosubjects implements IPhotosubjects {
 
-    public static final String SQLSelect = "select photosubjects.* from photosubjects";
-    public static final String SQLWherephoto = "film = :photo.film: and id = :photo.id:";
-    public static final String SQLWheresubject = "cat1 = :subject.cat1: and cat2 = :subject.cat2: and subject = :subject.id:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4photo = "select * from photosubjects where " + SQLWherephoto + OrderBy;
-    public static final String SQLDelete4photo = "delete from photosubjects where " + SQLWherephoto + OrderBy;
-    public static final String SQLSelect4subject = "select * from photosubjects where " + SQLWheresubject + OrderBy;
-    public static final String SQLDelete4subject = "delete from photosubjects where " + SQLWheresubject + OrderBy;
 
     /**
      * Constructor

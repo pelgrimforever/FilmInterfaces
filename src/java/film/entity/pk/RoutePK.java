@@ -2,18 +2,20 @@
  * RoutePK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.IRoute;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class RoutePK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class RoutePK implements EntityPKInterface, IRoutePK {
+public class RoutePK implements IRoutePK {
 
     private ISublocalityPK sublocalityPK = new SublocalityPK();
     private java.lang.String routecode;
@@ -45,9 +47,9 @@ public class RoutePK implements EntityPKInterface, IRoutePK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"route.countrycode", sublocalityPK.getCountrycode()}, 
             {"route.postalcode", sublocalityPK.getPostalcode()}, 
@@ -55,14 +57,14 @@ public class RoutePK implements EntityPKInterface, IRoutePK {
             {"route.sublocality", sublocalityPK.getSublocality()}, 
             {"route.routecode", routecode}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IRoute.COUNTRYCODE, sublocalityPK.getCountrycode()}, 
             {IRoute.POSTALCODE, sublocalityPK.getPostalcode()}, 
@@ -70,7 +72,7 @@ public class RoutePK implements EntityPKInterface, IRoutePK {
             {IRoute.SUBLOCALITY, sublocalityPK.getSublocality()}, 
             {IRoute.ROUTECODE, routecode}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

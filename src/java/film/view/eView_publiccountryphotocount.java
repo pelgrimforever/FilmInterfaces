@@ -2,13 +2,14 @@
  * eView_publiccountryphotocount.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,26 +27,34 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eView_publiccountryphotocount implements EntityViewInterface {
+public class eView_publiccountryphotocount implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "view_publiccountryphotocount";
     private java.lang.String code;
     private java.lang.String name;
     private long photocount;
 	  
-    public static final String table = "view_publiccountryphotocount";
-    public static final String SQLSelectAll = "select view_publiccountryphotocount.* from view_publiccountryphotocount";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eView_publiccountryphotocount.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eView_publiccountryphotocount.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for View_publiccountryphotocount
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all View_publiccountryphotocounts
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

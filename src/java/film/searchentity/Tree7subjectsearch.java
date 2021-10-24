@@ -2,7 +2,7 @@
  * Tree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eTree7subject;
+import film.logicentity.Tree7subject;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -30,8 +30,15 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     Stringsearch subject = new Stringsearch("tree7subject.subject");
     Numbersearch treestep = new Numbersearch("tree7subject.treestep");
     Foreignkeysearch tree7subjectParentsubjectidsearcher = new Foreignkeysearch("tree7subject", ITree7subject.tree7subjectParentsubjectidPKfields, ITree7subject.tree7subjectParentsubjectidFKfields);
-    Primarykeysearch phototree7subjectsearcher = new Primarykeysearch(":extablename_o:", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
+    Primarykeysearch phototree7subjectsearcher = new Primarykeysearch("phototree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
     Relationalkeysearch photosearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields, "photo", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Tree7subject.table;
+    }
 
     /**
      * Constructor

@@ -2,7 +2,7 @@
  * Photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.ePhoto;
+import film.logicentity.Photo;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -44,12 +44,19 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     Foreignkeysearch routesearcher = new Foreignkeysearch("route", IPhoto.routePKfields, IPhoto.routeFKfields);
     Foreignkeysearch creatorsearcher = new Foreignkeysearch("creator", IPhoto.creatorPKfields, IPhoto.creatorFKfields);
     Foreignkeysearch filmsearcher = new Foreignkeysearch("film", IPhoto.filmPKfields, IPhoto.filmFKfields);
-    Primarykeysearch phototree7subjectsearcher = new Primarykeysearch(":extablename_o:", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
+    Primarykeysearch phototree7subjectsearcher = new Primarykeysearch("phototree7subject", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
     Relationalkeysearch tree7subjectsearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields, "tree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
-    Primarykeysearch art_photosearcher = new Primarykeysearch(":extablename_o:", IArt_photo.photoPKfields, IArt_photo.photoFKfields);
-    Primarykeysearch photosubjectssearcher = new Primarykeysearch(":extablename_o:", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
+    Primarykeysearch art_photosearcher = new Primarykeysearch("art_photo", IArt_photo.photoPKfields, IArt_photo.photoFKfields);
+    Primarykeysearch photosubjectssearcher = new Primarykeysearch("photosubjects", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
     Relationalkeysearch subjectsearcher = new Relationalkeysearch("photosubjects", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields, "subject", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
-    Primarykeysearch phototagssearcher = new Primarykeysearch(":extablename_o:", IPhototags.photoPKfields, IPhototags.photoFKfields);
+    Primarykeysearch phototagssearcher = new Primarykeysearch("phototags", IPhototags.photoPKfields, IPhototags.photoFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Photo.table;
+    }
 
     /**
      * Constructor

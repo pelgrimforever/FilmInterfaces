@@ -2,7 +2,7 @@
  * Mainmenu.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IMainmenuPK;
 import film.interfaces.logicentity.*;
@@ -36,14 +37,10 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Mainmenu extends film.entity.eMainmenu implements IMainmenu {
 
-    public static final String SQLSelect = "select mainmenu.* from mainmenu";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
     public static final String EMPTYICON = "buttons/empty.png";
     public static final String SUBJECTSICON = "buttons/menu.png";
 //Custom code, do not change this line
-
 
     /**
      * Constructor

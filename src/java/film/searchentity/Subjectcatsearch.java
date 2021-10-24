@@ -2,7 +2,7 @@
  * Subjectcatsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSubjectcat;
+import film.logicentity.Subjectcat;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -28,8 +28,15 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     Stringsearch cat = new Stringsearch("subjectcat.cat");
     Numbersearch catno = new Numbersearch("subjectcat.catno");
     Stringsearch description = new Stringsearch("subjectcat.description");
-    Primarykeysearch subjectCat1searcher = new Primarykeysearch(":extablename_o:", ISubject.subjectcatCat1PKfields, ISubject.subjectcatCat1FKfields);
-    Primarykeysearch subjectCat2searcher = new Primarykeysearch(":extablename_o:", ISubject.subjectcatCat2PKfields, ISubject.subjectcatCat2FKfields);
+    Primarykeysearch subjectCat1searcher = new Primarykeysearch("subject", ISubject.subjectcatCat1PKfields, ISubject.subjectcatCat1FKfields);
+    Primarykeysearch subjectCat2searcher = new Primarykeysearch("subject", ISubject.subjectcatCat2PKfields, ISubject.subjectcatCat2FKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Subjectcat.table;
+    }
 
     /**
      * Constructor

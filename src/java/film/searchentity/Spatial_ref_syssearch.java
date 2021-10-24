@@ -2,7 +2,7 @@
  * Spatial_ref_syssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSpatial_ref_sys;
+import film.logicentity.Spatial_ref_sys;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -30,6 +30,13 @@ public class Spatial_ref_syssearch extends Tablesearch implements ISpatial_ref_s
     Numbersearch auth_srid = new Numbersearch("spatial_ref_sys.auth_srid");
     Stringsearch srtext = new Stringsearch("spatial_ref_sys.srtext");
     Stringsearch proj4text = new Stringsearch("spatial_ref_sys.proj4text");
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Spatial_ref_sys.table;
+    }
 
     /**
      * Constructor

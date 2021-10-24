@@ -2,7 +2,7 @@
  * ILocality.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,6 +12,7 @@ import data.gis.shape.*;
 import data.interfaces.Datatypes;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.interfaces.entity.pk.*;
 import film.entity.pk.*;
 import java.awt.image.BufferedImage;

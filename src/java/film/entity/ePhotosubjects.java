@@ -2,16 +2,18 @@
  * ePhotosubjects.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IPhotosubjects;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Photosubjects
@@ -31,15 +35,11 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class ePhotosubjects extends AbstractEntity implements EntityInterface {
+public class ePhotosubjects extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected PhotosubjectsPK photosubjectsPK;
 	  
     public static final String table = "photosubjects";
-    public static final String SQLWhere1 = "film = :photosubjects.film: and id = :photosubjects.id: and cat1 = :photosubjects.cat1: and cat2 = :photosubjects.cat2: and subject = :photosubjects.subject:";
-    public static final String SQLSelect1 = "select photosubjects.* from photosubjects where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from photosubjects where " + SQLWhere1;
-    public static final String SQLSelectAll = "select photosubjects.* from photosubjects";
 	  
     public String getFieldname(short fieldconstant) {
         return IPhotosubjects.fieldnames[fieldconstant-1];
@@ -50,35 +50,26 @@ public class ePhotosubjects extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return ePhotosubjects.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return ePhotosubjects.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Photosubjects
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Photosubjects (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Photosubjects (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Photosubjectss
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -119,40 +110,43 @@ public class ePhotosubjects extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.photosubjectsPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.photosubjectsPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.photosubjectsPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.photosubjectsPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return PhotosubjectsPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return PhotosubjectsPK
      */
+    @Override
     public PhotosubjectsPK getPrimaryKey() {
         return this.photosubjectsPK;
     }
@@ -161,6 +155,7 @@ public class ePhotosubjects extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

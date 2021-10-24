@@ -2,7 +2,7 @@
  * View_locality_photolocationssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_locality_photolocationssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_locality_photolocations;
+import film.logicview.View_locality_photolocations;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class View_locality_photolocationssearch extends Tablesearch implements I
     Stringsearch countrycode = new Stringsearch("view_locality_photolocations.countrycode");
     Stringsearch locality = new Stringsearch("view_locality_photolocations.locality");
     Stringsearch location = new Stringsearch("view_locality_photolocations.location");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_locality_photolocations.table;
+    }
 
     /**
      * Constructor

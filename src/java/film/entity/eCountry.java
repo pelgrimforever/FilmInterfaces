@@ -2,16 +2,18 @@
  * eCountry.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.ICountry;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Country
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eCountry extends AbstractEntity implements EntityInterface {
+public class eCountry extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected CountryPK countryPK;
     private java.lang.String name;
@@ -44,10 +48,6 @@ public class eCountry extends AbstractEntity implements EntityInterface {
     private boolean hasarealevel3;
 	  
     public static final String table = "country";
-    public static final String SQLWhere1 = "code = :country.code:";
-    public static final String SQLSelect1 = "select country.* from country where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from country where " + SQLWhere1;
-    public static final String SQLSelectAll = "select country.* from country";
 	  
     public String getFieldname(short fieldconstant) {
         return ICountry.fieldnames[fieldconstant-1];
@@ -58,35 +58,26 @@ public class eCountry extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eCountry.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eCountry.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Country
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Country (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Country (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Countrys
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -127,27 +118,28 @@ public class eCountry extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.countryPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.countryPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.countryPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.countryPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(ICountry.NAME, name);
         updates.put(ICountry.LOCATION, location);
         updates.put(ICountry.BOUNDS, bounds);
@@ -159,16 +151,18 @@ public class eCountry extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return CountryPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return CountryPK
      */
+    @Override
     public CountryPK getPrimaryKey() {
         return this.countryPK;
     }
@@ -302,9 +296,7 @@ public class eCountry extends AbstractEntity implements EntityInterface {
      * @param approximate: new value
      */
     public void setApproximate(boolean approximate) {
-	if(approximate!=this.approximate) {
-            updates.put(ICountry.APPROXIMATE, approximate);
-        }
+        updates.put(ICountry.APPROXIMATE, approximate);
         this.approximate = approximate;
     }
 
@@ -329,9 +321,7 @@ public class eCountry extends AbstractEntity implements EntityInterface {
      * @param hasarealevel1: new value
      */
     public void setHasarealevel1(boolean hasarealevel1) {
-	if(hasarealevel1!=this.hasarealevel1) {
-            updates.put(ICountry.HASAREALEVEL1, hasarealevel1);
-        }
+        updates.put(ICountry.HASAREALEVEL1, hasarealevel1);
         this.hasarealevel1 = hasarealevel1;
     }
 
@@ -356,9 +346,7 @@ public class eCountry extends AbstractEntity implements EntityInterface {
      * @param hasarealevel2: new value
      */
     public void setHasarealevel2(boolean hasarealevel2) {
-	if(hasarealevel2!=this.hasarealevel2) {
-            updates.put(ICountry.HASAREALEVEL2, hasarealevel2);
-        }
+        updates.put(ICountry.HASAREALEVEL2, hasarealevel2);
         this.hasarealevel2 = hasarealevel2;
     }
 
@@ -383,9 +371,7 @@ public class eCountry extends AbstractEntity implements EntityInterface {
      * @param hasarealevel3: new value
      */
     public void setHasarealevel3(boolean hasarealevel3) {
-	if(hasarealevel3!=this.hasarealevel3) {
-            updates.put(ICountry.HASAREALEVEL3, hasarealevel3);
-        }
+        updates.put(ICountry.HASAREALEVEL3, hasarealevel3);
         this.hasarealevel3 = hasarealevel3;
     }
 
@@ -393,6 +379,7 @@ public class eCountry extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

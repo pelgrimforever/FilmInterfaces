@@ -2,7 +2,7 @@
  * View_photodatessearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_photodatessearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_photodates;
+import film.logicview.View_photodates;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -26,6 +26,13 @@ public class View_photodatessearch extends Tablesearch implements IView_photodat
 
     Datesearch photodate = new Datesearch("view_photodates.photodate");
     Numbersearch photos = new Numbersearch("view_photodates.photos");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_photodates.table;
+    }
 
     /**
      * Constructor

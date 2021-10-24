@@ -2,18 +2,20 @@
  * SecurityuserprofilePK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.ISecurityuserprofile;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class SecurityuserprofilePK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class SecurityuserprofilePK implements EntityPKInterface, ISecurityuserprofilePK {
+public class SecurityuserprofilePK implements ISecurityuserprofilePK {
 
     private ISecurityprofilePK securityprofilePK = new SecurityprofilePK();
     private java.lang.String siteusername;
@@ -45,26 +47,26 @@ public class SecurityuserprofilePK implements EntityPKInterface, ISecurityuserpr
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"securityuserprofile.userprofile", securityprofilePK.getUserprofile()}, 
             {"securityuserprofile.siteusername", siteusername}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISecurityuserprofile.USERPROFILE, securityprofilePK.getUserprofile()}, 
             {ISecurityuserprofile.SITEUSERNAME, siteusername}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

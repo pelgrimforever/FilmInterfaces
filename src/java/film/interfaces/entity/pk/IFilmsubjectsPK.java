@@ -2,15 +2,15 @@
  * IFilmsubjectsPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.interfaces.entity.pk;
 
 import java.io.Serializable;
-
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
+import db.SQLparameters;
 
 /**
  * Primary Key class FilmsubjectsPK for entity class Filmsubjects
@@ -19,13 +19,7 @@ import data.interfaces.db.EntityPKInterface;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public interface IFilmsubjectsPK extends EntityPKInterface, Serializable {
-
-    /**
-     *
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
-     */
-    public Object[][] getKeyFields();
+public interface IFilmsubjectsPK extends EntityPK, Serializable {
 
     /**
      * 
@@ -97,11 +91,6 @@ public interface IFilmsubjectsPK extends EntityPKInterface, Serializable {
      */
     public void setSubject(int subject);
 
-    /**
-     *
-     * @return primary key in one formatted string
-     */
-    public String getKeystring();
 
     /**
      * compare this primary key with second primary key

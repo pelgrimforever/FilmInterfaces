@@ -2,18 +2,20 @@
  * Arealevel1PK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.IArealevel1;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class Arealevel1PK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class Arealevel1PK implements EntityPKInterface, IArealevel1PK {
+public class Arealevel1PK implements IArealevel1PK {
 
     private ICountryPK countryPK = new CountryPK();
     private java.lang.String al1code;
@@ -45,26 +47,26 @@ public class Arealevel1PK implements EntityPKInterface, IArealevel1PK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"arealevel1.countrycode", countryPK.getCode()}, 
             {"arealevel1.al1code", al1code}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IArealevel1.COUNTRYCODE, countryPK.getCode()}, 
             {IArealevel1.AL1CODE, al1code}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

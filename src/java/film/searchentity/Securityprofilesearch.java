@@ -2,7 +2,7 @@
  * Securityprofilesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSecurityprofile;
+import film.logicentity.Securityprofile;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,7 +27,14 @@ public class Securityprofilesearch extends Tablesearch implements ISecurityprofi
 
     Stringsearch userprofile = new Stringsearch("securityprofile.userprofile");
     Booleansearch privateaccess = new Booleansearch("securityprofile.privateaccess");
-    Primarykeysearch securityuserprofilesearcher = new Primarykeysearch(":extablename_o:", ISecurityuserprofile.securityprofilePKfields, ISecurityuserprofile.securityprofileFKfields);
+    Primarykeysearch securityuserprofilesearcher = new Primarykeysearch("securityuserprofile", ISecurityuserprofile.securityprofilePKfields, ISecurityuserprofile.securityprofileFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Securityprofile.table;
+    }
 
     /**
      * Constructor

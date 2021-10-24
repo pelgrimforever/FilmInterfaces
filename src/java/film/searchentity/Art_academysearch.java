@@ -2,7 +2,7 @@
  * Art_academysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArt_academy;
+import film.logicentity.Art_academy;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -28,6 +28,13 @@ public class Art_academysearch extends Tablesearch implements IArt_academysearch
     Numbersearch academyid = new Numbersearch("art_academy.academyid");
     Stringsearch academy = new Stringsearch("art_academy.academy");
     Stringsearch academylocation = new Stringsearch("art_academy.academylocation");
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Art_academy.table;
+    }
 
     /**
      * Constructor

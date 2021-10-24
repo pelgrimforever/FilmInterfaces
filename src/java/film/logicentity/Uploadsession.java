@@ -2,7 +2,7 @@
  * Uploadsession.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IUploadsessionPK;
 import film.interfaces.logicentity.*;
@@ -36,19 +37,9 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Uploadsession extends film.entity.eUploadsession implements IUploadsession {
 
-    public static final String SQLSelect = "select uploadsession.* from uploadsession";
-    public static final String SQLWherecreator = "creator = :creator.creatorid:";
-
 //Custom code, do not change this line
-    public static final String SQLdeleteall = "delete from uploadsession";
-    public static final String OrderBy = " order by filename";
-    public static final String SQLSelectAllsorded = "select * from uploadsession" + OrderBy;
-
     private ArrayList subjects = null;
 //Custom code, do not change this line
-
-    public static final String SQLSelect4creator = "select * from uploadsession where " + SQLWherecreator + OrderBy;
-    public static final String SQLDelete4creator = "delete from uploadsession where " + SQLWherecreator + OrderBy;
 
     /**
      * Constructor

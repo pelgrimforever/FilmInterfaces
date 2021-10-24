@@ -2,7 +2,7 @@
  * Filmsubjects.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IFilmsubjectsPK;
 import film.interfaces.logicentity.*;
@@ -36,18 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Filmsubjects extends film.entity.eFilmsubjects implements IFilmsubjects {
 
-    public static final String SQLSelect = "select filmsubjects.* from filmsubjects";
-    public static final String SQLWheresubject = "cat1 = :subject.cat1: and cat2 = :subject.cat2: and subject = :subject.id:";
-    public static final String SQLWherefilm = "film = :film.id:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4subject = "select * from filmsubjects where " + SQLWheresubject + OrderBy;
-    public static final String SQLDelete4subject = "delete from filmsubjects where " + SQLWheresubject + OrderBy;
-    public static final String SQLSelect4film = "select * from filmsubjects where " + SQLWherefilm + OrderBy;
-    public static final String SQLDelete4film = "delete from filmsubjects where " + SQLWherefilm + OrderBy;
 
     /**
      * Constructor

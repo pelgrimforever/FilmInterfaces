@@ -2,18 +2,20 @@
  * SubjectcatPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.ISubjectcat;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class SubjectcatPK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class SubjectcatPK implements EntityPKInterface, ISubjectcatPK {
+public class SubjectcatPK implements ISubjectcatPK {
 
     private java.lang.String cat;
   
@@ -43,24 +45,24 @@ public class SubjectcatPK implements EntityPKInterface, ISubjectcatPK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"subjectcat.cat", cat}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISubjectcat.CAT, cat}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

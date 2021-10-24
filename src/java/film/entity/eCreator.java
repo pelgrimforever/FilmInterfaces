@@ -2,16 +2,18 @@
  * eCreator.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.ICreator;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Creator
@@ -31,17 +35,13 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eCreator extends AbstractEntity implements EntityInterface {
+public class eCreator extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected CreatorPK creatorPK;
     private java.lang.String name;
     private java.lang.String surname;
 	  
     public static final String table = "creator";
-    public static final String SQLWhere1 = "creatorid = :creator.creatorid:";
-    public static final String SQLSelect1 = "select creator.* from creator where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from creator where " + SQLWhere1;
-    public static final String SQLSelectAll = "select creator.* from creator";
 	  
     public String getFieldname(short fieldconstant) {
         return ICreator.fieldnames[fieldconstant-1];
@@ -52,35 +52,26 @@ public class eCreator extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eCreator.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eCreator.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Creator
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Creator (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Creator (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Creators
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -121,42 +112,45 @@ public class eCreator extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.creatorPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.creatorPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.creatorPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.creatorPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(ICreator.NAME, name);
         updates.put(ICreator.SURNAME, surname);
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return CreatorPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return CreatorPK
      */
+    @Override
     public CreatorPK getPrimaryKey() {
         return this.creatorPK;
     }
@@ -219,6 +213,7 @@ public class eCreator extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

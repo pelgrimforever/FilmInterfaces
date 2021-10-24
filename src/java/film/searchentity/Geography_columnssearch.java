@@ -2,7 +2,7 @@
  * Geography_columnssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IGeography_columnssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eGeography_columns;
+import film.logicview.Geography_columns;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,6 +31,13 @@ public class Geography_columnssearch extends Tablesearch implements IGeography_c
     Numbersearch coord_dimension = new Numbersearch("geography_columns.coord_dimension");
     Numbersearch srid = new Numbersearch("geography_columns.srid");
     Stringsearch type = new Stringsearch("geography_columns.type");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return Geography_columns.table;
+    }
 
     /**
      * Constructor

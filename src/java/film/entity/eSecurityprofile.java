@@ -2,16 +2,18 @@
  * eSecurityprofile.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.ISecurityprofile;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Securityprofile
@@ -31,16 +35,12 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eSecurityprofile extends AbstractEntity implements EntityInterface {
+public class eSecurityprofile extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected SecurityprofilePK securityprofilePK;
     private boolean privateaccess;
 	  
     public static final String table = "securityprofile";
-    public static final String SQLWhere1 = "userprofile = :securityprofile.userprofile:";
-    public static final String SQLSelect1 = "select securityprofile.* from securityprofile where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from securityprofile where " + SQLWhere1;
-    public static final String SQLSelectAll = "select securityprofile.* from securityprofile";
 	  
     public String getFieldname(short fieldconstant) {
         return ISecurityprofile.fieldnames[fieldconstant-1];
@@ -51,35 +51,26 @@ public class eSecurityprofile extends AbstractEntity implements EntityInterface 
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eSecurityprofile.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eSecurityprofile.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Securityprofile
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Securityprofile (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Securityprofile (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Securityprofiles
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -120,41 +111,44 @@ public class eSecurityprofile extends AbstractEntity implements EntityInterface 
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.securityprofilePK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.securityprofilePK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.securityprofilePK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.securityprofilePK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(ISecurityprofile.PRIVATEACCESS, privateaccess);
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return SecurityprofilePK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return SecurityprofilePK
      */
+    @Override
     public SecurityprofilePK getPrimaryKey() {
         return this.securityprofilePK;
     }
@@ -180,9 +174,7 @@ public class eSecurityprofile extends AbstractEntity implements EntityInterface 
      * @param privateaccess: new value
      */
     public void setPrivateaccess(boolean privateaccess) {
-	if(privateaccess!=this.privateaccess) {
-            updates.put(ISecurityprofile.PRIVATEACCESS, privateaccess);
-        }
+        updates.put(ISecurityprofile.PRIVATEACCESS, privateaccess);
         this.privateaccess = privateaccess;
     }
 
@@ -190,6 +182,7 @@ public class eSecurityprofile extends AbstractEntity implements EntityInterface 
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

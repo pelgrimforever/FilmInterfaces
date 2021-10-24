@@ -2,7 +2,7 @@
  * View_backupstatussearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_backupstatussearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_backupstatus;
+import film.logicview.View_backupstatus;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -28,6 +28,13 @@ public class View_backupstatussearch extends Tablesearch implements IView_backup
     Numbersearch photocount = new Numbersearch("view_backupstatus.photocount");
     Numbersearch backupcount = new Numbersearch("view_backupstatus.backupcount");
     Numbersearch imagebackupcount = new Numbersearch("view_backupstatus.imagebackupcount");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_backupstatus.table;
+    }
 
     /**
      * Constructor

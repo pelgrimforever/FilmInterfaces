@@ -2,7 +2,7 @@
  * Arealevel2.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IArealevel2PK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Arealevel2 extends film.entity.eArealevel2 implements IArealevel2 {
 
-    public static final String SQLSelect = "select arealevel2.* from arealevel2";
-    public static final String SQLWherearealevel1 = "countrycode = :arealevel1.countrycode: and al1code = :arealevel1.al1code:";
-
 //Custom code, do not change this line
-public static final String OrderBy = " order by name";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4arealevel1 = "select * from arealevel2 where " + SQLWherearealevel1 + OrderBy;
-    public static final String SQLDelete4arealevel1 = "delete from arealevel2 where " + SQLWherearealevel1 + OrderBy;
 
     /**
      * Constructor

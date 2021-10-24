@@ -2,16 +2,18 @@
  * eTree7subject.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.ITree7subject;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Tree7subject
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eTree7subject extends AbstractEntity implements EntityInterface {
+public class eTree7subject extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected Tree7subjectPK tree7subjectPK;
     private Tree7subjectPK tree7subjectParentsubjectidPK;
@@ -40,10 +44,6 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
     private int treestep;
 	  
     public static final String table = "tree7subject";
-    public static final String SQLWhere1 = "subjectid = :tree7subject.subjectid:";
-    public static final String SQLSelect1 = "select tree7subject.* from tree7subject where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from tree7subject where " + SQLWhere1;
-    public static final String SQLSelectAll = "select tree7subject.* from tree7subject";
 	  
     public String getFieldname(short fieldconstant) {
         return ITree7subject.fieldnames[fieldconstant-1];
@@ -54,35 +54,26 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eTree7subject.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eTree7subject.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Tree7subject
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Tree7subject (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Tree7subject (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Tree7subjects
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -123,27 +114,28 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.tree7subjectPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.tree7subjectPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.tree7subjectPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.tree7subjectPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(ITree7subject.PARENTSUBJECTID, this.tree7subjectParentsubjectidPK.getSubjectid());
 
         updates.put(ITree7subject.TREE7ID, tree7id);
@@ -152,16 +144,18 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return Tree7subjectPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return Tree7subjectPK
      */
+    @Override
     public Tree7subjectPK getPrimaryKey() {
         return this.tree7subjectPK;
     }
@@ -241,9 +235,7 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
      * @param treestep: new value
      */
     public void setTreestep(int treestep) {
-	if(treestep!=this.treestep) {
-            updates.put(ITree7subject.TREESTEP, treestep);
-        }
+        updates.put(ITree7subject.TREESTEP, treestep);
         this.treestep = treestep;
     }
 
@@ -282,6 +274,7 @@ public class eTree7subject extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

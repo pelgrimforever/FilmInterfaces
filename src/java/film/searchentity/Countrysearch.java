@@ -2,7 +2,7 @@
  * Countrysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eCountry;
+import film.logicentity.Country;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -34,7 +34,14 @@ public class Countrysearch extends Tablesearch implements ICountrysearch {
     Booleansearch hasarealevel1 = new Booleansearch("country.hasarealevel1");
     Booleansearch hasarealevel2 = new Booleansearch("country.hasarealevel2");
     Booleansearch hasarealevel3 = new Booleansearch("country.hasarealevel3");
-    Primarykeysearch arealevel1searcher = new Primarykeysearch(":extablename_o:", IArealevel1.countryPKfields, IArealevel1.countryFKfields);
+    Primarykeysearch arealevel1searcher = new Primarykeysearch("arealevel1", IArealevel1.countryPKfields, IArealevel1.countryFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Country.table;
+    }
 
     /**
      * Constructor

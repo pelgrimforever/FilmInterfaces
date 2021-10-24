@@ -2,7 +2,7 @@
  * Filmtypesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eFilmtype;
+import film.logicentity.Filmtype;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class Filmtypesearch extends Tablesearch implements IFilmtypesearch {
 
     Stringsearch type = new Stringsearch("filmtype.type");
     Stringsearch description = new Stringsearch("filmtype.description");
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Filmtype.table;
+    }
 
     /**
      * Constructor

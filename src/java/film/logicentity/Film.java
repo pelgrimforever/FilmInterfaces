@@ -2,7 +2,7 @@
  * Film.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IFilmPK;
 import film.interfaces.logicentity.*;
@@ -36,30 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Film extends film.entity.eFilm implements IFilm {
 
-    public static final String SQLSelect = "select film.* from film";
-    public static final String SQLWherefilmtype = "type = :filmtype.type:";
-
 //Custom code, do not change this line
-        private static final String OrderBy = " order by id";
-        private static final String SQLWherePublic = " public = :public: ";
-	public static final String SQLSelectAll = film.entity.eFilm.SQLSelectAll + OrderBy;
-	public static final String SQLSelectAll4Public = "select * from film where " + SQLWherefilmtype + OrderBy;
-        public static final String SQLSelect4film_filmtype_orderby = "select * from film where " + SQLWherefilmtype + OrderBy;
-        public static final String SQLSelectGroups = "select * from film where "
-                + "id not like '0%' and "
-                + "id not like '1%' and "
-                + "id not like '2%' and "
-                + "id not like '3%' and "
-                + "id not like '4%' and "
-                + "id not like '5%' and "
-                + "id not like '6%' and "
-                + "id not like '7%' and "
-                + "id not like '8%' and "
-                + "id not like '9%' " + OrderBy;
 //Custom code, do not change this line
-
-    public static final String SQLSelect4filmtype = "select * from film where " + SQLWherefilmtype + OrderBy;
-    public static final String SQLDelete4filmtype = "delete from film where " + SQLWherefilmtype + OrderBy;
 
     /**
      * Constructor

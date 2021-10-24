@@ -2,7 +2,7 @@
  * View_localityphotocount.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -34,8 +34,6 @@ import javax.imageio.stream.ImageInputStream;
 public class View_localityphotocount extends film.view.eView_localityphotocount implements IView_localityphotocount {
 
 //Custom code, do not change this line
-    public static final String SQLwherecountrycode = " view_localityphotocount.countrycode = :countrycode: ";
-    public static final String SQLSelect4countrycode = "select view_localityphotocount.* from view_localityphotocount where " + SQLwherecountrycode;
 //Custom code, do not change this line
 
     /**

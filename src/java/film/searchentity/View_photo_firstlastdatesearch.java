@@ -2,7 +2,7 @@
  * View_photo_firstlastdatesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_photo_firstlastdatesearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_photo_firstlastdate;
+import film.logicview.View_photo_firstlastdate;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -26,6 +26,13 @@ public class View_photo_firstlastdatesearch extends Tablesearch implements IView
 
     Datesearch minphotodate = new Datesearch("view_photo_firstlastdate.minphotodate");
     Datesearch maxphotodate = new Datesearch("view_photo_firstlastdate.maxphotodate");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_photo_firstlastdate.table;
+    }
 
     /**
      * Constructor

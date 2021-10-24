@@ -2,16 +2,18 @@
  * eSubjectcat.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.ISubjectcat;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Subjectcat
@@ -31,17 +35,13 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eSubjectcat extends AbstractEntity implements EntityInterface {
+public class eSubjectcat extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected SubjectcatPK subjectcatPK;
     private int catno;
     private java.lang.String description;
 	  
     public static final String table = "subjectcat";
-    public static final String SQLWhere1 = "cat = :subjectcat.cat:";
-    public static final String SQLSelect1 = "select subjectcat.* from subjectcat where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from subjectcat where " + SQLWhere1;
-    public static final String SQLSelectAll = "select subjectcat.* from subjectcat";
 	  
     public String getFieldname(short fieldconstant) {
         return ISubjectcat.fieldnames[fieldconstant-1];
@@ -52,35 +52,26 @@ public class eSubjectcat extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eSubjectcat.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eSubjectcat.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Subjectcat
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Subjectcat (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Subjectcat (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Subjectcats
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -121,42 +112,45 @@ public class eSubjectcat extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.subjectcatPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.subjectcatPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.subjectcatPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.subjectcatPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(ISubjectcat.CATNO, catno);
         updates.put(ISubjectcat.DESCRIPTION, description);
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return SubjectcatPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return SubjectcatPK
      */
+    @Override
     public SubjectcatPK getPrimaryKey() {
         return this.subjectcatPK;
     }
@@ -182,9 +176,7 @@ public class eSubjectcat extends AbstractEntity implements EntityInterface {
      * @param catno: new value
      */
     public void setCatno(int catno) {
-	if(catno!=this.catno) {
-            updates.put(ISubjectcat.CATNO, catno);
-        }
+        updates.put(ISubjectcat.CATNO, catno);
         this.catno = catno;
     }
 
@@ -219,6 +211,7 @@ public class eSubjectcat extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

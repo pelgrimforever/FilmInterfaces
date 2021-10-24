@@ -2,13 +2,14 @@
  * eView_publiclocalityphotocount.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,27 +27,35 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eView_publiclocalityphotocount implements EntityViewInterface {
+public class eView_publiclocalityphotocount implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "view_publiclocalityphotocount";
     private java.lang.String countrycode;
     private java.lang.String locality;
     private piShape location;
     private long photocount;
 	  
-    public static final String table = "view_publiclocalityphotocount";
-    public static final String SQLSelectAll = "select view_publiclocalityphotocount.* from view_publiclocalityphotocount";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eView_publiclocalityphotocount.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eView_publiclocalityphotocount.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for View_publiclocalityphotocount
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all View_publiclocalityphotocounts
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

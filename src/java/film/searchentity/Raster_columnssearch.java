@@ -2,7 +2,7 @@
  * Raster_columnssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IRaster_columnssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eRaster_columns;
+import film.logicview.Raster_columns;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -41,6 +41,13 @@ public class Raster_columnssearch extends Tablesearch implements IRaster_columns
     Stringsearch out_db = new Stringsearch("raster_columns.out_db");
     Stringsearch extent = new Stringsearch("raster_columns.extent");
     Booleansearch spatial_index = new Booleansearch("raster_columns.spatial_index");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return Raster_columns.table;
+    }
 
     /**
      * Constructor

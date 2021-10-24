@@ -2,16 +2,18 @@
  * eMainmenu.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IMainmenu;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Mainmenu
@@ -31,17 +35,13 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eMainmenu extends AbstractEntity implements EntityInterface {
+public class eMainmenu extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected MainmenuPK mainmenuPK;
     private java.lang.String popuplabel;
     private java.lang.String icon;
 	  
     public static final String table = "mainmenu";
-    public static final String SQLWhere1 = "mainmenu = :mainmenu.mainmenu:";
-    public static final String SQLSelect1 = "select mainmenu.* from mainmenu where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from mainmenu where " + SQLWhere1;
-    public static final String SQLSelectAll = "select mainmenu.* from mainmenu";
 	  
     public String getFieldname(short fieldconstant) {
         return IMainmenu.fieldnames[fieldconstant-1];
@@ -52,35 +52,26 @@ public class eMainmenu extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eMainmenu.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eMainmenu.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Mainmenu
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Mainmenu (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Mainmenu (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Mainmenus
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -121,42 +112,45 @@ public class eMainmenu extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.mainmenuPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.mainmenuPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.mainmenuPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.mainmenuPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IMainmenu.POPUPLABEL, popuplabel);
         updates.put(IMainmenu.ICON, icon);
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return MainmenuPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return MainmenuPK
      */
+    @Override
     public MainmenuPK getPrimaryKey() {
         return this.mainmenuPK;
     }
@@ -219,6 +213,7 @@ public class eMainmenu extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

@@ -2,7 +2,7 @@
  * Postalcode.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IPostalcodePK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Postalcode extends film.entity.ePostalcode implements IPostalcode {
 
-    public static final String SQLSelect = "select postalcode.* from postalcode";
-    public static final String SQLWherearealevel3 = "countrycode = :arealevel3.countrycode: and al1code = :arealevel3.al1code: and al2code = :arealevel3.al2code: and al3code = :arealevel3.al3code:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = " order by countrycode, postalcode";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4arealevel3 = "select * from postalcode where " + SQLWherearealevel3 + OrderBy;
-    public static final String SQLDelete4arealevel3 = "delete from postalcode where " + SQLWherearealevel3 + OrderBy;
 
     /**
      * Constructor

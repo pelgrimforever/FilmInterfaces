@@ -2,16 +2,18 @@
  * eArt_photo.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IArt_photo;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Art_photo
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eArt_photo extends AbstractEntity implements EntityInterface {
+public class eArt_photo extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected Art_photoPK art_photoPK;
     private Art_subgroupPK art_subgroupPK;
@@ -47,10 +51,6 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
     private java.lang.String surrounddir;
 	  
     public static final String table = "art_photo";
-    public static final String SQLWhere1 = "film = :art_photo.film: and photo = :art_photo.photo:";
-    public static final String SQLSelect1 = "select art_photo.* from art_photo where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from art_photo where " + SQLWhere1;
-    public static final String SQLSelectAll = "select art_photo.* from art_photo";
 	  
     public String getFieldname(short fieldconstant) {
         return IArt_photo.fieldnames[fieldconstant-1];
@@ -61,35 +61,26 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eArt_photo.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eArt_photo.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Art_photo
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Art_photo (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Art_photo (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Art_photos
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -130,27 +121,28 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.art_photoPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.art_photoPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.art_photoPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.art_photoPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IArt_photo.PHOTOSUBGROUP, this.art_subgroupPK.getSubgroupid());
 
         updates.put(IArt_photo.ACADEMY, this.art_academyPK.getAcademyid());
@@ -168,16 +160,18 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return Art_photoPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return Art_photoPK
      */
+    @Override
     public Art_photoPK getPrimaryKey() {
         return this.art_photoPK;
     }
@@ -203,9 +197,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param selection: new value
      */
     public void setSelection(boolean selection) {
-	if(selection!=this.selection) {
-            updates.put(IArt_photo.SELECTION, selection);
-        }
+        updates.put(IArt_photo.SELECTION, selection);
         this.selection = selection;
     }
 
@@ -230,9 +222,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param width: new value
      */
     public void setWidth(int width) {
-	if(width!=this.width) {
-            updates.put(IArt_photo.WIDTH, width);
-        }
+        updates.put(IArt_photo.WIDTH, width);
         this.width = width;
     }
 
@@ -257,9 +247,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param height: new value
      */
     public void setHeight(int height) {
-	if(height!=this.height) {
-            updates.put(IArt_photo.HEIGHT, height);
-        }
+        updates.put(IArt_photo.HEIGHT, height);
         this.height = height;
     }
 
@@ -311,9 +299,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param seqno: new value
      */
     public void setSeqno(int seqno) {
-	if(seqno!=this.seqno) {
-            updates.put(IArt_photo.SEQNO, seqno);
-        }
+        updates.put(IArt_photo.SEQNO, seqno);
         this.seqno = seqno;
     }
 
@@ -338,9 +324,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param archive: new value
      */
     public void setArchive(boolean archive) {
-	if(archive!=this.archive) {
-            updates.put(IArt_photo.ARCHIVE, archive);
-        }
+        updates.put(IArt_photo.ARCHIVE, archive);
         this.archive = archive;
     }
 
@@ -365,9 +349,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * @param surround: new value
      */
     public void setSurround(boolean surround) {
-	if(surround!=this.surround) {
-            updates.put(IArt_photo.SURROUND, surround);
-        }
+        updates.put(IArt_photo.SURROUND, surround);
         this.surround = surround;
     }
 
@@ -495,6 +477,7 @@ public class eArt_photo extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

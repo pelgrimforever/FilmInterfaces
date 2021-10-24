@@ -2,18 +2,20 @@
  * Phototree7subjectPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.IPhototree7subject;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class Phototree7subjectPK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class Phototree7subjectPK implements EntityPKInterface, IPhototree7subjectPK {
+public class Phototree7subjectPK implements IPhototree7subjectPK {
 
     private ITree7subjectPK tree7subjectPK = new Tree7subjectPK();
     private IPhotoPK photoPK = new PhotoPK();
@@ -45,28 +47,28 @@ public class Phototree7subjectPK implements EntityPKInterface, IPhototree7subjec
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"phototree7subject.film", photoPK.getFilm()}, 
             {"phototree7subject.id", photoPK.getId()}, 
             {"phototree7subject.subjectid", tree7subjectPK.getSubjectid()}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IPhototree7subject.FILM, photoPK.getFilm()}, 
             {IPhototree7subject.ID, photoPK.getId()}, 
             {IPhototree7subject.SUBJECTID, tree7subjectPK.getSubjectid()}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

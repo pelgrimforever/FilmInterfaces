@@ -2,18 +2,20 @@
  * SublocalityPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.ISublocality;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class SublocalityPK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class SublocalityPK implements EntityPKInterface, ISublocalityPK {
+public class SublocalityPK implements ISublocalityPK {
 
     private ILocalityPK localityPK = new LocalityPK();
     private java.lang.String sublocality;
@@ -45,30 +47,30 @@ public class SublocalityPK implements EntityPKInterface, ISublocalityPK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"sublocality.countrycode", localityPK.getCountrycode()}, 
             {"sublocality.postalcode", localityPK.getPostalcode()}, 
             {"sublocality.locality", localityPK.getLocality()}, 
             {"sublocality.sublocality", sublocality}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISublocality.COUNTRYCODE, localityPK.getCountrycode()}, 
             {ISublocality.POSTALCODE, localityPK.getPostalcode()}, 
             {ISublocality.LOCALITY, localityPK.getLocality()}, 
             {ISublocality.SUBLOCALITY, sublocality}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

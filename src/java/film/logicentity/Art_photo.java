@@ -2,7 +2,7 @@
  * Art_photo.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IArt_photoPK;
 import film.interfaces.logicentity.*;
@@ -36,24 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Art_photo extends film.entity.eArt_photo implements IArt_photo {
 
-    public static final String SQLSelect = "select art_photo.* from art_photo";
-    public static final String SQLWherephoto = "film = :photo.film: and photo = :photo.id:";
-    public static final String SQLWhereart_subgroup = "photosubgroup = :art_subgroup.subgroupid:";
-    public static final String SQLWhereart_academy = "academy = :art_academy.academyid:";
-    public static final String SQLWhereart_group = "photogroup = :art_group.groupid:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4photo = "select * from art_photo where " + SQLWherephoto + OrderBy;
-    public static final String SQLDelete4photo = "delete from art_photo where " + SQLWherephoto + OrderBy;
-    public static final String SQLSelect4art_subgroup = "select * from art_photo where " + SQLWhereart_subgroup + OrderBy;
-    public static final String SQLDelete4art_subgroup = "delete from art_photo where " + SQLWhereart_subgroup + OrderBy;
-    public static final String SQLSelect4art_academy = "select * from art_photo where " + SQLWhereart_academy + OrderBy;
-    public static final String SQLDelete4art_academy = "delete from art_photo where " + SQLWhereart_academy + OrderBy;
-    public static final String SQLSelect4art_group = "select * from art_photo where " + SQLWhereart_group + OrderBy;
-    public static final String SQLDelete4art_group = "delete from art_photo where " + SQLWhereart_group + OrderBy;
 
     /**
      * Constructor

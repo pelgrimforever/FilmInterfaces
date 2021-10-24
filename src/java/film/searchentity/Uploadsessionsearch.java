@@ -2,7 +2,7 @@
  * Uploadsessionsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eUploadsession;
+import film.logicentity.Uploadsession;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,6 +32,13 @@ public class Uploadsessionsearch extends Tablesearch implements IUploadsessionse
     Stringsearch photosubjects = new Stringsearch("uploadsession.photosubjects");
     Stringsearch description = new Stringsearch("uploadsession.description");
     Foreignkeysearch creatorsearcher = new Foreignkeysearch("creator", IUploadsession.creatorPKfields, IUploadsession.creatorFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Uploadsession.table;
+    }
 
     /**
      * Constructor

@@ -2,7 +2,7 @@
  * Uploadsessionsettingssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eUploadsessionsettings;
+import film.logicentity.Uploadsessionsettings;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,6 +31,13 @@ public class Uploadsessionsettingssearch extends Tablesearch implements IUploads
     Numbersearch lastposition = new Numbersearch("uploadsessionsettings.lastposition");
     Stringsearch copymode = new Stringsearch("uploadsessionsettings.copymode");
     Numbersearch uploadingposition = new Numbersearch("uploadsessionsettings.uploadingposition");
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Uploadsessionsettings.table;
+    }
 
     /**
      * Constructor

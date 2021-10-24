@@ -2,18 +2,20 @@
  * LocalityPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.ILocality;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class LocalityPK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class LocalityPK implements EntityPKInterface, ILocalityPK {
+public class LocalityPK implements ILocalityPK {
 
     private IPostalcodePK postalcodePK = new PostalcodePK();
     private java.lang.String locality;
@@ -45,28 +47,28 @@ public class LocalityPK implements EntityPKInterface, ILocalityPK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"locality.countrycode", postalcodePK.getCountrycode()}, 
             {"locality.postalcode", postalcodePK.getPostalcode()}, 
             {"locality.locality", locality}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ILocality.COUNTRYCODE, postalcodePK.getCountrycode()}, 
             {ILocality.POSTALCODE, postalcodePK.getPostalcode()}, 
             {ILocality.LOCALITY, locality}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

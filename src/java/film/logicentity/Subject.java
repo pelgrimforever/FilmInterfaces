@@ -2,7 +2,7 @@
  * Subject.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.ISubjectPK;
 import film.interfaces.logicentity.*;
@@ -36,34 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Subject extends film.entity.eSubject implements ISubject {
 
-    public static final String SQLSelect = "select subject.* from subject";
-    public static final String SQLWheresubjectcatCat1 = "cat1 = :subjectcat.cat:";
-    public static final String SQLWheretree7subject = "tree7subjectid = :tree7subject.subjectid:";
-    public static final String SQLWheresubjectcatCat2 = "cat2 = :subjectcat.cat:";
-
 //Custom code, do not change this line
-        public static final String OrderBy = " order by subject";
-	public static final String SQLWherecat1cat2 = "cat1 = :cat1: and cat2 = :cat2:";
-	public static final String SQLSelect4cat1cat2 = "select * from subject where " + SQLWherecat1cat2 + OrderBy;
-	public static final String SQLWherephoto = "photosubjects.film = :photo.film: and photosubjects.id = :photo.id:";
-	public static final String SQLWherefilm = "filmsubjects.film = :film.id:";
-	public static final String SQLSelect4photo = "select subject.* from subject "
-                + "inner join photosubjects on subject.cat1 = photosubjects.cat1 and subject.cat2 = photosubjects.cat2 "
-                + "and subject.id = photosubjects.subject "
-                + " where " + SQLWherephoto + OrderBy;
-	public static final String SQLSelect4film = "select subject.* from subject "
-                + "inner join filmsubjects on subject.cat1 = filmsubjects.cat1 and subject.cat2 = filmsubjects.cat2 "
-                + "and subject.id = filmsubjects.subject "
-                + " where " + SQLWherefilm + OrderBy;
-        public static final String getMaxsubjectid = "select * from subject where id = (select max(id) from subject)";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4subjectcatCat1 = "select * from subject where " + SQLWheresubjectcatCat1 + OrderBy;
-    public static final String SQLDelete4subjectcatCat1 = "delete from subject where " + SQLWheresubjectcatCat1 + OrderBy;
-    public static final String SQLSelect4tree7subject = "select * from subject where " + SQLWheretree7subject + OrderBy;
-    public static final String SQLDelete4tree7subject = "delete from subject where " + SQLWheretree7subject + OrderBy;
-    public static final String SQLSelect4subjectcatCat2 = "select * from subject where " + SQLWheresubjectcatCat2 + OrderBy;
-    public static final String SQLDelete4subjectcatCat2 = "delete from subject where " + SQLWheresubjectcatCat2 + OrderBy;
 
     /**
      * Constructor

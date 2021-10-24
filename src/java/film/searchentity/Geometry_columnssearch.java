@@ -2,7 +2,7 @@
  * Geometry_columnssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IGeometry_columnssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eGeometry_columns;
+import film.logicview.Geometry_columns;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,6 +31,13 @@ public class Geometry_columnssearch extends Tablesearch implements IGeometry_col
     Numbersearch coord_dimension = new Numbersearch("geometry_columns.coord_dimension");
     Numbersearch srid = new Numbersearch("geometry_columns.srid");
     Stringsearch type = new Stringsearch("geometry_columns.type");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return Geometry_columns.table;
+    }
 
     /**
      * Constructor

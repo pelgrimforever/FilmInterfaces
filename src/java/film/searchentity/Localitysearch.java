@@ -2,7 +2,7 @@
  * Localitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eLocality;
+import film.logicentity.Locality;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,7 +32,14 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     Booleansearch approximate = new Booleansearch("locality.approximate");
     Booleansearch hassublocality = new Booleansearch("locality.hassublocality");
     Foreignkeysearch postalcodesearcher = new Foreignkeysearch("postalcode", ILocality.postalcodePKfields, ILocality.postalcodeFKfields);
-    Primarykeysearch sublocalitysearcher = new Primarykeysearch(":extablename_o:", ISublocality.localityPKfields, ISublocality.localityFKfields);
+    Primarykeysearch sublocalitysearcher = new Primarykeysearch("sublocality", ISublocality.localityPKfields, ISublocality.localityFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Locality.table;
+    }
 
     /**
      * Constructor

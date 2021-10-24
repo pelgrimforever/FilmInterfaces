@@ -2,13 +2,14 @@
  * eRaster_overviews.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eRaster_overviews implements EntityViewInterface {
+public class eRaster_overviews implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "raster_overviews";
     private java.lang.String o_table_catalog;
     private java.lang.String o_table_schema;
     private java.lang.String o_table_name;
@@ -38,20 +40,27 @@ public class eRaster_overviews implements EntityViewInterface {
     private java.lang.String r_raster_column;
     private int overview_factor;
 	  
-    public static final String table = "raster_overviews";
-    public static final String SQLSelectAll = "select raster_overviews.* from raster_overviews";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eRaster_overviews.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eRaster_overviews.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for Raster_overviews
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all Raster_overviewss
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

@@ -2,7 +2,7 @@
  * View_backupstatus.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -34,15 +34,6 @@ import javax.imageio.stream.ImageInputStream;
 public class View_backupstatus extends film.view.eView_backupstatus implements IView_backupstatus {
 
 //Custom code, do not change this line
-    public static final String OrderBy = " order by id";
-    public static final String WhereImagebackup = " imagebackupcount > 0 ";
-    public static final String WhereBackup = " backupcount > 0 ";
-    public static final String WhereAllBackup = WhereImagebackup + "or" + WhereBackup;
-
-    public static final String SQLSelectAll = "select * from view_backupstatus " + OrderBy;
-    public static final String SQLSelect4Imagebackup = "select * from view_backupstatus where " + WhereImagebackup + OrderBy;
-    public static final String SQLSelect4Backup = "select * from view_backupstatus where " + WhereBackup + OrderBy;
-    public static final String SQLSelect4AllBackup = "select * from view_backupstatus where " + WhereAllBackup + OrderBy;
 //Custom code, do not change this line
 
     /**

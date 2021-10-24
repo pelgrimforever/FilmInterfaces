@@ -2,7 +2,7 @@
  * Art_groupsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArt_group;
+import film.logicentity.Art_group;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class Art_groupsearch extends Tablesearch implements IArt_groupsearch {
 
     Numbersearch groupid = new Numbersearch("art_group.groupid");
     Stringsearch groupname = new Stringsearch("art_group.groupname");
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Art_group.table;
+    }
 
     /**
      * Constructor

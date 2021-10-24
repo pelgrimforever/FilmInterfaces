@@ -2,16 +2,18 @@
  * ePostalcode.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IPostalcode;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Postalcode
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class ePostalcode extends AbstractEntity implements EntityInterface {
+public class ePostalcode extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected PostalcodePK postalcodePK;
     private Arealevel3PK arealevel3PK;
@@ -41,10 +45,6 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
     private boolean approximate;
 	  
     public static final String table = "postalcode";
-    public static final String SQLWhere1 = "countrycode = :postalcode.countrycode: and postalcode = :postalcode.postalcode:";
-    public static final String SQLSelect1 = "select postalcode.* from postalcode where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from postalcode where " + SQLWhere1;
-    public static final String SQLSelectAll = "select postalcode.* from postalcode";
 	  
     public String getFieldname(short fieldconstant) {
         return IPostalcode.fieldnames[fieldconstant-1];
@@ -55,35 +55,26 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return ePostalcode.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return ePostalcode.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Postalcode
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Postalcode (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Postalcode (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Postalcodes
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -124,27 +115,28 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.postalcodePK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.postalcodePK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.postalcodePK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.postalcodePK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IPostalcode.COUNTRYCODE, this.arealevel3PK.getCountrycode());
         updates.put(IPostalcode.AL1CODE, this.arealevel3PK.getAl1code());
         updates.put(IPostalcode.AL2CODE, this.arealevel3PK.getAl2code());
@@ -157,16 +149,18 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return PostalcodePK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return PostalcodePK
      */
+    @Override
     public PostalcodePK getPrimaryKey() {
         return this.postalcodePK;
     }
@@ -273,9 +267,7 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
      * @param approximate: new value
      */
     public void setApproximate(boolean approximate) {
-	if(approximate!=this.approximate) {
-            updates.put(IPostalcode.APPROXIMATE, approximate);
-        }
+        updates.put(IPostalcode.APPROXIMATE, approximate);
         this.approximate = approximate;
     }
 
@@ -320,6 +312,7 @@ public class ePostalcode extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

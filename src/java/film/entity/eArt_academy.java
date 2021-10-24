@@ -2,16 +2,18 @@
  * eArt_academy.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IArt_academy;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Art_academy
@@ -31,17 +35,13 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eArt_academy extends AbstractEntity implements EntityInterface {
+public class eArt_academy extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected Art_academyPK art_academyPK;
     private java.lang.String academy;
     private java.lang.String academylocation;
 	  
     public static final String table = "art_academy";
-    public static final String SQLWhere1 = "academyid = :art_academy.academyid:";
-    public static final String SQLSelect1 = "select art_academy.* from art_academy where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from art_academy where " + SQLWhere1;
-    public static final String SQLSelectAll = "select art_academy.* from art_academy";
 	  
     public String getFieldname(short fieldconstant) {
         return IArt_academy.fieldnames[fieldconstant-1];
@@ -52,35 +52,26 @@ public class eArt_academy extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eArt_academy.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eArt_academy.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Art_academy
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Art_academy (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Art_academy (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Art_academys
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -121,42 +112,45 @@ public class eArt_academy extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.art_academyPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.art_academyPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.art_academyPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.art_academyPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IArt_academy.ACADEMY, academy);
         updates.put(IArt_academy.ACADEMYLOCATION, academylocation);
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return Art_academyPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return Art_academyPK
      */
+    @Override
     public Art_academyPK getPrimaryKey() {
         return this.art_academyPK;
     }
@@ -219,6 +213,7 @@ public class eArt_academy extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

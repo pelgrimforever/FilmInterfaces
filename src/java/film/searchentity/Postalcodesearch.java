@@ -2,7 +2,7 @@
  * Postalcodesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.ePostalcode;
+import film.logicentity.Postalcode;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,7 +32,14 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     Stringsearch viewport = new Stringsearch("postalcode.viewport");
     Booleansearch approximate = new Booleansearch("postalcode.approximate");
     Foreignkeysearch arealevel3searcher = new Foreignkeysearch("arealevel3", IPostalcode.arealevel3PKfields, IPostalcode.arealevel3FKfields);
-    Primarykeysearch localitysearcher = new Primarykeysearch(":extablename_o:", ILocality.postalcodePKfields, ILocality.postalcodeFKfields);
+    Primarykeysearch localitysearcher = new Primarykeysearch("locality", ILocality.postalcodePKfields, ILocality.postalcodeFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Postalcode.table;
+    }
 
     /**
      * Constructor

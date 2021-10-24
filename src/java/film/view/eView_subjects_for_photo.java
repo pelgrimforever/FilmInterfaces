@@ -2,13 +2,14 @@
  * eView_subjects_for_photo.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eView_subjects_for_photo implements EntityViewInterface {
+public class eView_subjects_for_photo implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "view_subjects_for_photo";
     private java.lang.String film;
     private int photoid;
     private java.lang.String cat1;
@@ -36,20 +38,27 @@ public class eView_subjects_for_photo implements EntityViewInterface {
     private java.lang.String subject;
     private java.lang.String description;
 	  
-    public static final String table = "view_subjects_for_photo";
-    public static final String SQLSelectAll = "select view_subjects_for_photo.* from view_subjects_for_photo";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eView_subjects_for_photo.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eView_subjects_for_photo.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for View_subjects_for_photo
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all View_subjects_for_photos
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

@@ -2,7 +2,7 @@
  * Securityuserprofilesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSecurityuserprofile;
+import film.logicentity.Securityuserprofile;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class Securityuserprofilesearch extends Tablesearch implements ISecurityu
 
     Stringsearch siteusername = new Stringsearch("securityuserprofile.siteusername");
     Foreignkeysearch securityprofilesearcher = new Foreignkeysearch("securityprofile", ISecurityuserprofile.securityprofilePKfields, ISecurityuserprofile.securityprofileFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Securityuserprofile.table;
+    }
 
     /**
      * Constructor

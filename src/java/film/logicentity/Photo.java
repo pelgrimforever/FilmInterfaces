@@ -2,7 +2,7 @@
  * Photo.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IPhotoPK;
 import film.interfaces.logicentity.*;
@@ -36,11 +37,6 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Photo extends film.entity.ePhoto implements IPhoto {
 
-    public static final String SQLSelect = "select photo.* from photo";
-    public static final String SQLWhereroute = "countrycode = :route.countrycode: and postalcode = :route.postalcode: and locality = :route.locality: and sublocality = :route.sublocality: and routecode = :route.routecode:";
-    public static final String SQLWherecreator = "creator = :creator.creatorid:";
-    public static final String SQLWherefilm = "film = :film.id:";
-
 //Custom code, do not change this line
     public static final String FILMTYPE_APS = "APS";
     public static final String FILMTYPE_CON = "CON";
@@ -49,39 +45,6 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
     public static final String FILMTYPE_INT = "INT";
     public static final String FILMTYPE_DIA = "DIA";
 
-    public static final String OrderBy = " order by id";
-    public static final String OrderByDateTime = " order by photodate, phototime, film, id";
-    public static final String OrderByDescription = " order by description";
-    public static final String SQLWherePublic = " public = :public: ";
-    public static final String SQLSelectAll4Public = "select * from photo where " + SQLWherePublic + OrderBy;
-
-    public static final String SQLSelect4photo_sorted = "select * from photo" + OrderBy;
-    public static final String SQLSelect4photo_film_sorted = "select * from photo where film = :film.id:" + OrderBy;
-    public static final String SQLSelect4photo_filmpublic_sorted = "select * from photo where " + SQLWherefilm + " and " + SQLWherePublic + OrderBy;
-
-    public static final String SQLjoinfilmtype = " inner join film on photo.film = film.id and film.type = :type: ";
-    public static final String SQLWhereLastPhotoinGroup = "film like :groupid:";
-    public static final String SQLSelectLastPhotoinGroup = "select * from photo where " + SQLWhereLastPhotoinGroup + " order by film desc, id desc";
-    public static final String SQLSelectLastPhotoinGroupAndFilmtype =
-        "select * from photo " + SQLjoinfilmtype + " where " + SQLWhereLastPhotoinGroup + " order by photo.film desc, photo.id desc";
-
-    public static final String SQLWherebackup = "backup";
-    public static final String SQLSelect4photo_film_backup = "select * from photo where " + SQLWherefilm + " and " + SQLWherebackup;
-    public static final String SQLWhereimagebackup = "imagebackup";
-    public static final String SQLSelect4photo_film_imagebackup = "select * from photo where " + SQLWherefilm + " and " + SQLWhereimagebackup;
-
-    public static final String SQLSelect4publiclocation = "select * from photo where location = :location: and " + SQLWherePublic + OrderByDateTime;
-    public static final String SQLSelect4location = "select * from photo where location = :location:" + OrderByDateTime;
-    
-    public static final String SQLSelect4publicdate = "select * from photo where photodate = :photodate: and " + SQLWherePublic + OrderByDateTime;
-    public static final String SQLSelect4date = "select * from photo where photodate = :photodate:" + OrderByDateTime;
-    
-    public static final String SQLSelectDescriptions = "select distinct description from photo where description like :description:";
-    
-    public static final String SQLSelectDataError = "select * from photo where public and (location is null or photodate is null) order by film, id";
-    
-    public static final String SQLUpdateBackup4Film = "update photo set backup = :backup: where " + SQLWherefilm;
-
     private Filedata thumbnailimage;
     private Filedata smallimage;
     private Filedata croppedimage;
@@ -89,13 +52,6 @@ public class Photo extends film.entity.ePhoto implements IPhoto {
 
     private String imagebase64 = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4route = "select * from photo where " + SQLWhereroute + OrderBy;
-    public static final String SQLDelete4route = "delete from photo where " + SQLWhereroute + OrderBy;
-    public static final String SQLSelect4creator = "select * from photo where " + SQLWherecreator + OrderBy;
-    public static final String SQLDelete4creator = "delete from photo where " + SQLWherecreator + OrderBy;
-    public static final String SQLSelect4film = "select * from photo where " + SQLWherefilm + OrderBy;
-    public static final String SQLDelete4film = "delete from photo where " + SQLWherefilm + OrderBy;
 
     /**
      * Constructor

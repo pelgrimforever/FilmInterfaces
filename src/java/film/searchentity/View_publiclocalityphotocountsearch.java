@@ -2,7 +2,7 @@
  * View_publiclocalityphotocountsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_publiclocalityphotocountsearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_publiclocalityphotocount;
+import film.logicview.View_publiclocalityphotocount;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -28,6 +28,13 @@ public class View_publiclocalityphotocountsearch extends Tablesearch implements 
     Stringsearch locality = new Stringsearch("view_publiclocalityphotocount.locality");
     Stringsearch location = new Stringsearch("view_publiclocalityphotocount.location");
     Numbersearch photocount = new Numbersearch("view_publiclocalityphotocount.photocount");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_publiclocalityphotocount.table;
+    }
 
     /**
      * Constructor

@@ -2,7 +2,7 @@
  * Routesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eRoute;
+import film.logicentity.Route;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,6 +32,13 @@ public class Routesearch extends Tablesearch implements IRoutesearch {
     Stringsearch viewport = new Stringsearch("route.viewport");
     Booleansearch approximate = new Booleansearch("route.approximate");
     Foreignkeysearch sublocalitysearcher = new Foreignkeysearch("sublocality", IRoute.sublocalityPKfields, IRoute.sublocalityFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Route.table;
+    }
 
     /**
      * Constructor

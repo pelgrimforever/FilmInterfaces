@@ -2,7 +2,7 @@
  * Sublocalitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eSublocality;
+import film.logicentity.Sublocality;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,7 +31,14 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     Stringsearch viewport = new Stringsearch("sublocality.viewport");
     Booleansearch approximate = new Booleansearch("sublocality.approximate");
     Foreignkeysearch localitysearcher = new Foreignkeysearch("locality", ISublocality.localityPKfields, ISublocality.localityFKfields);
-    Primarykeysearch routesearcher = new Primarykeysearch(":extablename_o:", IRoute.sublocalityPKfields, IRoute.sublocalityFKfields);
+    Primarykeysearch routesearcher = new Primarykeysearch("route", IRoute.sublocalityPKfields, IRoute.sublocalityFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Sublocality.table;
+    }
 
     /**
      * Constructor

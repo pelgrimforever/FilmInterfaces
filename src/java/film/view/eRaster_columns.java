@@ -2,13 +2,14 @@
  * eRaster_columns.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eRaster_columns implements EntityViewInterface {
+public class eRaster_columns implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "raster_columns";
     private java.lang.String r_table_catalog;
     private java.lang.String r_table_schema;
     private java.lang.String r_table_name;
@@ -46,20 +48,27 @@ public class eRaster_columns implements EntityViewInterface {
     private piShape extent;
     private boolean spatial_index;
 	  
-    public static final String table = "raster_columns";
-    public static final String SQLSelectAll = "select raster_columns.* from raster_columns";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eRaster_columns.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eRaster_columns.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for Raster_columns
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all Raster_columnss
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

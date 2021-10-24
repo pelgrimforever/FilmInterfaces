@@ -2,7 +2,7 @@
  * View_countryphotocountsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_countryphotocountsearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_countryphotocount;
+import film.logicview.View_countryphotocount;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class View_countryphotocountsearch extends Tablesearch implements IView_c
     Stringsearch code = new Stringsearch("view_countryphotocount.code");
     Stringsearch name = new Stringsearch("view_countryphotocount.name");
     Numbersearch photocount = new Numbersearch("view_countryphotocount.photocount");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_countryphotocount.table;
+    }
 
     /**
      * Constructor

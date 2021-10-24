@@ -2,7 +2,7 @@
  * Menuitem.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IMenuitemPK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Menuitem extends film.entity.eMenuitem implements IMenuitem {
 
-    public static final String SQLSelect = "select menuitem.* from menuitem";
-    public static final String SQLWheremenu = "mainmenu = :menu.mainmenu: and menu = :menu.menu:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4menu = "select * from menuitem where " + SQLWheremenu + OrderBy;
-    public static final String SQLDelete4menu = "delete from menuitem where " + SQLWheremenu + OrderBy;
 
     /**
      * Constructor

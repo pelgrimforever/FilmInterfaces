@@ -2,7 +2,7 @@
  * Art_subgroupsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArt_subgroup;
+import film.logicentity.Art_subgroup;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -29,6 +29,13 @@ public class Art_subgroupsearch extends Tablesearch implements IArt_subgroupsear
     Stringsearch subgroupname = new Stringsearch("art_subgroup.subgroupname");
     Numbersearch lastseqno = new Numbersearch("art_subgroup.lastseqno");
     Foreignkeysearch art_groupsearcher = new Foreignkeysearch("art_group", IArt_subgroup.art_groupPKfields, IArt_subgroup.art_groupFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Art_subgroup.table;
+    }
 
     /**
      * Constructor

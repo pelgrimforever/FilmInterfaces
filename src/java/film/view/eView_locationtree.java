@@ -2,13 +2,14 @@
  * eView_locationtree.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eView_locationtree implements EntityViewInterface {
+public class eView_locationtree implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "view_locationtree";
     private java.lang.String countrycode;
     private java.lang.String countryname;
     private java.lang.String postalcode;
@@ -43,20 +45,27 @@ public class eView_locationtree implements EntityViewInterface {
     private java.lang.String routecode;
     private java.lang.String routename;
 	  
-    public static final String table = "view_locationtree";
-    public static final String SQLSelectAll = "select view_locationtree.* from view_locationtree";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eView_locationtree.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eView_locationtree.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for View_locationtree
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all View_locationtrees
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

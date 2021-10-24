@@ -2,7 +2,7 @@
  * Phototagssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.ePhototags;
+import film.logicentity.Phototags;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -29,6 +29,13 @@ public class Phototagssearch extends Tablesearch implements IPhototagssearch {
     Stringsearch tagformat = new Stringsearch("phototags.tagformat");
     Stringsearch tagvalue = new Stringsearch("phototags.tagvalue");
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhototags.photoPKfields, IPhototags.photoFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Phototags.table;
+    }
 
     /**
      * Constructor

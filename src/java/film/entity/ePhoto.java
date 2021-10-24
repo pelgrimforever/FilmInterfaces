@@ -2,16 +2,18 @@
  * ePhoto.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IPhoto;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Photo
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class ePhoto extends AbstractEntity implements EntityInterface {
+public class ePhoto extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected PhotoPK photoPK;
     private RoutePK routePK;
@@ -53,10 +57,6 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
     private java.lang.String formattedaddress;
 	  
     public static final String table = "photo";
-    public static final String SQLWhere1 = "film = :photo.film: and id = :photo.id:";
-    public static final String SQLSelect1 = "select photo.* from photo where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from photo where " + SQLWhere1;
-    public static final String SQLSelectAll = "select photo.* from photo";
 	  
     public String getFieldname(short fieldconstant) {
         return IPhoto.fieldnames[fieldconstant-1];
@@ -67,35 +67,26 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return ePhoto.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return ePhoto.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Photo
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Photo (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Photo (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Photos
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -136,27 +127,28 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.photoPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.photoPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.photoPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.photoPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IPhoto.COUNTRYCODE, this.routePK.getCountrycode());
         updates.put(IPhoto.POSTALCODE, this.routePK.getPostalcode());
         updates.put(IPhoto.LOCALITY, this.routePK.getLocality());
@@ -183,16 +175,18 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return PhotoPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return PhotoPK
      */
+    @Override
     public PhotoPK getPrimaryKey() {
         return this.photoPK;
     }
@@ -326,9 +320,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param publicf_: new value
      */
     public void setPublic(boolean publicf_) {
-	if(publicf_!=this.publicf_) {
-            updates.put(IPhoto.PUBLIC, publicf_);
-        }
+        updates.put(IPhoto.PUBLIC, publicf_);
         this.publicf_ = publicf_;
     }
 
@@ -353,9 +345,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param composition: new value
      */
     public void setComposition(boolean composition) {
-	if(composition!=this.composition) {
-            updates.put(IPhoto.COMPOSITION, composition);
-        }
+        updates.put(IPhoto.COMPOSITION, composition);
         this.composition = composition;
     }
 
@@ -380,9 +370,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param rotation: new value
      */
     public void setRotation(float rotation) {
-	if(rotation!=this.rotation) {
-            updates.put(IPhoto.ROTATION, rotation);
-        }
+        updates.put(IPhoto.ROTATION, rotation);
         this.rotation = rotation;
     }
 
@@ -407,9 +395,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param backup: new value
      */
     public void setBackup(boolean backup) {
-	if(backup!=this.backup) {
-            updates.put(IPhoto.BACKUP, backup);
-        }
+        updates.put(IPhoto.BACKUP, backup);
         this.backup = backup;
     }
 
@@ -434,9 +420,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param imagebackup: new value
      */
     public void setImagebackup(boolean imagebackup) {
-	if(imagebackup!=this.imagebackup) {
-            updates.put(IPhoto.IMAGEBACKUP, imagebackup);
-        }
+        updates.put(IPhoto.IMAGEBACKUP, imagebackup);
         this.imagebackup = imagebackup;
     }
 
@@ -488,9 +472,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param exactlocation: new value
      */
     public void setExactlocation(boolean exactlocation) {
-	if(exactlocation!=this.exactlocation) {
-            updates.put(IPhoto.EXACTLOCATION, exactlocation);
-        }
+        updates.put(IPhoto.EXACTLOCATION, exactlocation);
         this.exactlocation = exactlocation;
     }
 
@@ -515,9 +497,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * @param locationradius: new value
      */
     public void setLocationradius(double locationradius) {
-	if(locationradius!=this.locationradius) {
-            updates.put(IPhoto.LOCATIONRADIUS, locationradius);
-        }
+        updates.put(IPhoto.LOCATIONRADIUS, locationradius);
         this.locationradius = locationradius;
     }
 
@@ -676,6 +656,7 @@ public class ePhoto extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

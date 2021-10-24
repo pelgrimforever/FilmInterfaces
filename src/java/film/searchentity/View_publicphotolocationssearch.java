@@ -2,7 +2,7 @@
  * View_publicphotolocationssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_publicphotolocationssearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_publicphotolocations;
+import film.logicview.View_publicphotolocations;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -34,6 +34,13 @@ public class View_publicphotolocationssearch extends Tablesearch implements IVie
     Stringsearch routecode = new Stringsearch("view_publicphotolocations.routecode");
     Stringsearch streetnumber = new Stringsearch("view_publicphotolocations.streetnumber");
     Numbersearch locationcount = new Numbersearch("view_publicphotolocations.locationcount");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_publicphotolocations.table;
+    }
 
     /**
      * Constructor

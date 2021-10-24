@@ -8,7 +8,7 @@
 
 package film.interfaces.logicentity;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 
 /**
  * Entity class ISECURITY
@@ -24,7 +24,7 @@ public interface ISECURITY {
      * @return Dummy Primary Key Object
      * needs to be overriden
      */
-    public EntityPKInterface getPrimaryKey();
+    public EntityPK getPrimaryKey();
 
     public static final int SIZE_USERNAME = 10;
     public static final int SIZE_FIRSTNAME = 25;

@@ -2,16 +2,18 @@
  * eUploadsession.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IUploadsession;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Uploadsession
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eUploadsession extends AbstractEntity implements EntityInterface {
+public class eUploadsession extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected UploadsessionPK uploadsessionPK;
     private CreatorPK creatorPK;
@@ -42,10 +46,6 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
     private java.lang.String description;
 	  
     public static final String table = "uploadsession";
-    public static final String SQLWhere1 = "filename = :uploadsession.filename:";
-    public static final String SQLSelect1 = "select uploadsession.* from uploadsession where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from uploadsession where " + SQLWhere1;
-    public static final String SQLSelectAll = "select uploadsession.* from uploadsession";
 	  
     public String getFieldname(short fieldconstant) {
         return IUploadsession.fieldnames[fieldconstant-1];
@@ -56,35 +56,26 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eUploadsession.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eUploadsession.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Uploadsession
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Uploadsession (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Uploadsession (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Uploadsessions
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -125,27 +116,28 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.uploadsessionPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.uploadsessionPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.uploadsessionPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.uploadsessionPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IUploadsession.CREATOR, this.creatorPK.getCreatorid());
 
         updates.put(IUploadsession.UPLOAD, upload);
@@ -156,16 +148,18 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return UploadsessionPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return UploadsessionPK
      */
+    @Override
     public UploadsessionPK getPrimaryKey() {
         return this.uploadsessionPK;
     }
@@ -191,9 +185,7 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
      * @param upload: new value
      */
     public void setUpload(boolean upload) {
-	if(upload!=this.upload) {
-            updates.put(IUploadsession.UPLOAD, upload);
-        }
+        updates.put(IUploadsession.UPLOAD, upload);
         this.upload = upload;
     }
 
@@ -218,9 +210,7 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
      * @param rotation: new value
      */
     public void setRotation(float rotation) {
-	if(rotation!=this.rotation) {
-            updates.put(IUploadsession.ROTATION, rotation);
-        }
+        updates.put(IUploadsession.ROTATION, rotation);
         this.rotation = rotation;
     }
 
@@ -340,6 +330,7 @@ public class eUploadsession extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

@@ -2,13 +2,13 @@
  * IView_localityphotocountsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.interfaces.searchentity;
 
-import data.interfaces.db.ITablesearch;
+import data.interfaces.db.Tablesearcher;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -19,7 +19,7 @@ import film.interfaces.searchentity.*;
  * construct sql where part and parameter array from search parameters
  * @author Franky Laseure
  */
-public interface IView_localityphotocountsearch extends ITablesearch {
+public interface IView_localityphotocountsearch extends Tablesearcher {
 
 	/**
 	 * add String search values for field countrycode, default OR and LIKE operators are used

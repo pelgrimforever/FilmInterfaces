@@ -2,7 +2,7 @@
  * Photosubjectssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.ePhotosubjects;
+import film.logicentity.Photosubjects;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class Photosubjectssearch extends Tablesearch implements IPhotosubjectsse
 
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
     Foreignkeysearch subjectsearcher = new Foreignkeysearch("subject", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Photosubjects.table;
+    }
 
     /**
      * Constructor

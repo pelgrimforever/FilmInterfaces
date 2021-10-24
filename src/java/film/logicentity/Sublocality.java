@@ -2,7 +2,7 @@
  * Sublocality.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.ISublocalityPK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Sublocality extends film.entity.eSublocality implements ISublocality {
 
-    public static final String SQLSelect = "select sublocality.* from sublocality";
-    public static final String SQLWherelocality = "countrycode = :locality.countrycode: and postalcode = :locality.postalcode: and locality = :locality.locality:";
-
 //Custom code, do not change this line
-public static final String OrderBy = " order by sublocality.countrycode, sublocality.postalcode, sublocality.locality, sublocality.sublocality";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4locality = "select * from sublocality where " + SQLWherelocality + OrderBy;
-    public static final String SQLDelete4locality = "delete from sublocality where " + SQLWherelocality + OrderBy;
 
     /**
      * Constructor

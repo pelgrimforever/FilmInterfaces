@@ -2,7 +2,7 @@
  * Filmsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eFilm;
+import film.logicentity.Film;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -34,9 +34,16 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     Booleansearch publicf_ = new Booleansearch("film.public");
     Booleansearch backup = new Booleansearch("film.backup");
     Foreignkeysearch filmtypesearcher = new Foreignkeysearch("filmtype", IFilm.filmtypePKfields, IFilm.filmtypeFKfields);
-    Primarykeysearch filmsubjectssearcher = new Primarykeysearch(":extablename_o:", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields);
+    Primarykeysearch filmsubjectssearcher = new Primarykeysearch("filmsubjects", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields);
     Relationalkeysearch subjectsearcher = new Relationalkeysearch("filmsubjects", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields, "subject", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
-    Primarykeysearch photosearcher = new Primarykeysearch(":extablename_o:", IPhoto.filmPKfields, IPhoto.filmFKfields);
+    Primarykeysearch photosearcher = new Primarykeysearch("photo", IPhoto.filmPKfields, IPhoto.filmFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Film.table;
+    }
 
     /**
      * Constructor

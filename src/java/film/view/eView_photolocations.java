@@ -2,13 +2,14 @@
  * eView_photolocations.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.view;
 
-import data.interfaces.db.EntityViewInterface;
+import film.filmDatabaseproperties;
+import data.interfaces.db.EntityView;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
 import java.sql.ResultSet;
@@ -26,8 +27,9 @@ import java.util.Iterator;
  * 
  * @author Franky Laseure
  */
-public class eView_photolocations implements EntityViewInterface {
+public class eView_photolocations implements filmDatabaseproperties, EntityView {
 
+    public static final String table = "view_photolocations";
     private piShape location;
     private boolean exactlocation;
     private double locationradius;
@@ -39,20 +41,27 @@ public class eView_photolocations implements EntityViewInterface {
     private java.lang.String streetnumber;
     private long locationcount;
 	  
-    public static final String table = "view_photolocations";
-    public static final String SQLSelectAll = "select view_photolocations.* from view_photolocations";
-	  
+    /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eView_photolocations.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eView_photolocations.connectionpool;
+    }
+    
     /**
      * 
      * @return view name for View_photolocations
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL select statement for all View_photolocationss
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 

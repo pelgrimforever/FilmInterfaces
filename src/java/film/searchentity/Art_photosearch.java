@@ -2,7 +2,7 @@
  * Art_photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArt_photo;
+import film.logicentity.Art_photo;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -37,6 +37,13 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     Foreignkeysearch art_subgroupsearcher = new Foreignkeysearch("art_subgroup", IArt_photo.art_subgroupPKfields, IArt_photo.art_subgroupFKfields);
     Foreignkeysearch art_academysearcher = new Foreignkeysearch("art_academy", IArt_photo.art_academyPKfields, IArt_photo.art_academyFKfields);
     Foreignkeysearch art_groupsearcher = new Foreignkeysearch("art_group", IArt_photo.art_groupPKfields, IArt_photo.art_groupFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Art_photo.table;
+    }
 
     /**
      * Constructor

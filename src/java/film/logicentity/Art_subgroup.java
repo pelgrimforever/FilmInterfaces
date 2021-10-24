@@ -2,7 +2,7 @@
  * Art_subgroup.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IArt_subgroupPK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Art_subgroup extends film.entity.eArt_subgroup implements IArt_subgroup {
 
-    public static final String SQLSelect = "select art_subgroup.* from art_subgroup";
-    public static final String SQLWhereart_group = "groupid = :art_group.groupid:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4art_group = "select * from art_subgroup where " + SQLWhereart_group + OrderBy;
-    public static final String SQLDelete4art_group = "delete from art_subgroup where " + SQLWhereart_group + OrderBy;
 
     /**
      * Constructor

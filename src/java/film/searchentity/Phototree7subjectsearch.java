@@ -2,7 +2,7 @@
  * Phototree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.ePhototree7subject;
+import film.logicentity.Phototree7subject;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,6 +27,13 @@ public class Phototree7subjectsearch extends Tablesearch implements IPhototree7s
 
     Foreignkeysearch tree7subjectsearcher = new Foreignkeysearch("tree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Phototree7subject.table;
+    }
 
     /**
      * Constructor

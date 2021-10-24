@@ -2,7 +2,7 @@
  * Country.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.ICountryPK;
 import film.interfaces.logicentity.*;
@@ -36,13 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Country extends film.entity.eCountry implements ICountry {
 
-    public static final String SQLSelect = "select country.* from country";
-
 //Custom code, do not change this line
-    public static final String OrderBy = " order by name";
-    public static final String SQLSelectAll = "select country.* from country" + OrderBy;
 //Custom code, do not change this line
-
 
     /**
      * Constructor

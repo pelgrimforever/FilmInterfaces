@@ -2,18 +2,20 @@
  * Art_photoPK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.IArt_photo;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class Art_photoPK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class Art_photoPK implements EntityPKInterface, IArt_photoPK {
+public class Art_photoPK implements IArt_photoPK {
 
     private IPhotoPK photoPK = new PhotoPK();
   
@@ -43,26 +45,26 @@ public class Art_photoPK implements EntityPKInterface, IArt_photoPK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"art_photo.film", photoPK.getFilm()}, 
             {"art_photo.photo", photoPK.getId()}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IArt_photo.FILM, photoPK.getFilm()}, 
             {IArt_photo.PHOTO, photoPK.getId()}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

@@ -2,7 +2,7 @@
  * Mainmenusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eMainmenu;
+import film.logicentity.Mainmenu;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -28,7 +28,14 @@ public class Mainmenusearch extends Tablesearch implements IMainmenusearch {
     Stringsearch mainmenu = new Stringsearch("mainmenu.mainmenu");
     Stringsearch popuplabel = new Stringsearch("mainmenu.popuplabel");
     Stringsearch icon = new Stringsearch("mainmenu.icon");
-    Primarykeysearch menusearcher = new Primarykeysearch(":extablename_o:", IMenu.mainmenuPKfields, IMenu.mainmenuFKfields);
+    Primarykeysearch menusearcher = new Primarykeysearch("menu", IMenu.mainmenuPKfields, IMenu.mainmenuFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Mainmenu.table;
+    }
 
     /**
      * Constructor

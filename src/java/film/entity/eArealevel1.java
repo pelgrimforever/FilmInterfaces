@@ -2,16 +2,18 @@
  * eArealevel1.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IArealevel1;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Arealevel1
@@ -31,7 +35,7 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class eArealevel1 extends AbstractEntity implements EntityInterface {
+public class eArealevel1 extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected Arealevel1PK arealevel1PK;
     private java.lang.String name;
@@ -41,10 +45,6 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
     private boolean approximate;
 	  
     public static final String table = "arealevel1";
-    public static final String SQLWhere1 = "countrycode = :arealevel1.countrycode: and al1code = :arealevel1.al1code:";
-    public static final String SQLSelect1 = "select arealevel1.* from arealevel1 where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from arealevel1 where " + SQLWhere1;
-    public static final String SQLSelectAll = "select arealevel1.* from arealevel1";
 	  
     public String getFieldname(short fieldconstant) {
         return IArealevel1.fieldnames[fieldconstant-1];
@@ -55,35 +55,26 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return eArealevel1.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return eArealevel1.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Arealevel1
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Arealevel1 (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Arealevel1 (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Arealevel1s
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -124,27 +115,28 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.arealevel1PK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.arealevel1PK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.arealevel1PK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.arealevel1PK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         updates.put(IArealevel1.NAME, name);
         updates.put(IArealevel1.LOCATION, location);
         updates.put(IArealevel1.BOUNDS, bounds);
@@ -153,16 +145,18 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return Arealevel1PK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return Arealevel1PK
      */
+    @Override
     public Arealevel1PK getPrimaryKey() {
         return this.arealevel1PK;
     }
@@ -296,9 +290,7 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
      * @param approximate: new value
      */
     public void setApproximate(boolean approximate) {
-	if(approximate!=this.approximate) {
-            updates.put(IArealevel1.APPROXIMATE, approximate);
-        }
+        updates.put(IArealevel1.APPROXIMATE, approximate);
         this.approximate = approximate;
     }
 
@@ -306,6 +298,7 @@ public class eArealevel1 extends AbstractEntity implements EntityInterface {
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

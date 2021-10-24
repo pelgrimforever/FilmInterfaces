@@ -2,18 +2,20 @@
  * Arealevel3PK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity.pk;
 
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
 import film.interfaces.entity.pk.*;
 import film.interfaces.logicentity.IArealevel3;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import db.SQLparameters;
+import db.Entityvalues;
 
 /**
  * Primarykey class Arealevel3PK
@@ -22,7 +24,7 @@ import java.sql.Timestamp;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public class Arealevel3PK implements EntityPKInterface, IArealevel3PK {
+public class Arealevel3PK implements IArealevel3PK {
 
     private IArealevel2PK arealevel2PK = new Arealevel2PK();
     private java.lang.String al3code;
@@ -45,30 +47,30 @@ public class Arealevel3PK implements EntityPKInterface, IArealevel3PK {
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
-    public Object[][] getKeyFields() {
+    public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"arealevel3.countrycode", arealevel2PK.getCountrycode()}, 
             {"arealevel3.al1code", arealevel2PK.getAl1code()}, 
             {"arealevel3.al2code", arealevel2PK.getAl2code()}, 
             {"arealevel3.al3code", al3code}
         };
-        return keyfields;
+        return new SQLparameters(keyfields);
     }
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value) for sql insert statement
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
-    public Object[][] getInsertKeyFields() {
+    public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IArealevel3.COUNTRYCODE, arealevel2PK.getCountrycode()}, 
             {IArealevel3.AL1CODE, arealevel2PK.getAl1code()}, 
             {IArealevel3.AL2CODE, arealevel2PK.getAl2code()}, 
             {IArealevel3.AL3CODE, al3code}
         };
-        return keyfields;
+        return new Entityvalues(keyfields);
     }
 
     /**

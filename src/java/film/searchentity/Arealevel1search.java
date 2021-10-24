@@ -2,7 +2,7 @@
  * Arealevel1search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArealevel1;
+import film.logicentity.Arealevel1;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,7 +32,14 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     Stringsearch viewport = new Stringsearch("arealevel1.viewport");
     Booleansearch approximate = new Booleansearch("arealevel1.approximate");
     Foreignkeysearch countrysearcher = new Foreignkeysearch("country", IArealevel1.countryPKfields, IArealevel1.countryFKfields);
-    Primarykeysearch arealevel2searcher = new Primarykeysearch(":extablename_o:", IArealevel2.arealevel1PKfields, IArealevel2.arealevel1FKfields);
+    Primarykeysearch arealevel2searcher = new Primarykeysearch("arealevel2", IArealevel2.arealevel1PKfields, IArealevel2.arealevel1FKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Arealevel1.table;
+    }
 
     /**
      * Constructor

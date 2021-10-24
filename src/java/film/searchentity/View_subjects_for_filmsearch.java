@@ -2,7 +2,7 @@
  * View_subjects_for_filmsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_subjects_for_filmsearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_subjects_for_film;
+import film.logicview.View_subjects_for_film;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -30,6 +30,13 @@ public class View_subjects_for_filmsearch extends Tablesearch implements IView_s
     Numbersearch id = new Numbersearch("view_subjects_for_film.id");
     Stringsearch subject = new Stringsearch("view_subjects_for_film.subject");
     Stringsearch description = new Stringsearch("view_subjects_for_film.description");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_subjects_for_film.table;
+    }
 
     /**
      * Constructor

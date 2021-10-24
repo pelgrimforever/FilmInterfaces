@@ -2,7 +2,7 @@
  * View_locationtreesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -12,7 +12,7 @@ import film.interfaces.searchentity.IView_locationtreesearch;
 import data.interfaces.db.*;
 import film.interfaces.logicview.*;
 import film.interfaces.searchentity.*;
-import film.view.eView_locationtree;
+import film.logicview.View_locationtree;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -38,6 +38,13 @@ public class View_locationtreesearch extends Tablesearch implements IView_locati
     Stringsearch sublocality = new Stringsearch("view_locationtree.sublocality");
     Stringsearch routecode = new Stringsearch("view_locationtree.routecode");
     Stringsearch routename = new Stringsearch("view_locationtree.routename");
+
+    /**
+     * @return viewname
+     */
+    public String getTable() {
+        return View_locationtree.table;
+    }
 
     /**
      * Constructor

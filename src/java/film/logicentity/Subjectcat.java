@@ -2,7 +2,7 @@
  * Subjectcat.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.ISubjectcatPK;
 import film.interfaces.logicentity.*;
@@ -36,14 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Subjectcat extends film.entity.eSubjectcat implements ISubjectcat {
 
-    public static final String SQLSelect = "select subjectcat.* from subjectcat";
-
 //Custom code, do not change this line
-    public static final String OrderBy = " order by cat";
-    public static final String SQLWhereCatno = "catno = :catno:";
-    public static final String SQLSelectCatno = "select * from subjectcat where " + SQLWhereCatno + OrderBy;
 //Custom code, do not change this line
-
 
     /**
      * Constructor

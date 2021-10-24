@@ -2,7 +2,7 @@
  * Arealevel3search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eArealevel3;
+import film.logicentity.Arealevel3;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,6 +32,13 @@ public class Arealevel3search extends Tablesearch implements IArealevel3search {
     Stringsearch viewport = new Stringsearch("arealevel3.viewport");
     Booleansearch approximate = new Booleansearch("arealevel3.approximate");
     Foreignkeysearch arealevel2searcher = new Foreignkeysearch("arealevel2", IArealevel3.arealevel2PKfields, IArealevel3.arealevel2FKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Arealevel3.table;
+    }
 
     /**
      * Constructor

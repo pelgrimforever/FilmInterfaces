@@ -2,7 +2,7 @@
  * Menu.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.IMenuPK;
 import film.interfaces.logicentity.*;
@@ -36,15 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Menu extends film.entity.eMenu implements IMenu {
 
-    public static final String SQLSelect = "select menu.* from menu";
-    public static final String SQLWheremainmenu = "mainmenu = :mainmenu.mainmenu:";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
-    public static final String SQLSelect4mainmenu = "select * from menu where " + SQLWheremainmenu + OrderBy;
-    public static final String SQLDelete4mainmenu = "delete from menu where " + SQLWheremainmenu + OrderBy;
 
     /**
      * Constructor

@@ -2,15 +2,15 @@
  * IArealevel2PK.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.interfaces.entity.pk;
 
 import java.io.Serializable;
-
-import data.interfaces.db.EntityPKInterface;
+import data.interfaces.db.EntityPK;
+import db.SQLparameters;
 
 /**
  * Primary Key class Arealevel2PK for entity class Arealevel2
@@ -19,13 +19,7 @@ import data.interfaces.db.EntityPKInterface;
  * Methods: conversion to and from string for use in GUI
  * @author Franky Laseure
  */
-public interface IArealevel2PK extends EntityPKInterface, Serializable {
-
-    /**
-     *
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
-     */
-    public Object[][] getKeyFields();
+public interface IArealevel2PK extends EntityPK, Serializable {
 
     /**
      * 
@@ -74,11 +68,6 @@ public interface IArealevel2PK extends EntityPKInterface, Serializable {
      */
     public void setAl2code(java.lang.String al2code);
 
-    /**
-     *
-     * @return primary key in one formatted string
-     */
-    public String getKeystring();
 
     /**
      * compare this primary key with second primary key

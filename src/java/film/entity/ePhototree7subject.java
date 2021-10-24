@@ -2,16 +2,18 @@
  * ePhototree7subject.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
 package film.entity;
 
+import film.filmDatabaseproperties;
 import data.interfaces.db.AbstractEntity;
-import data.interfaces.db.EntityInterface;
+import data.interfaces.db.Entity;
 import data.interfaces.db.Filedata;
 import data.gis.shape.*;
+import data.json.piJson;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import film.entity.pk.*;
 import film.interfaces.logicentity.IPhototree7subject;
 import film.interfaces.entity.pk.*;
+import db.Entityvalues;
+import db.SQLparameters;
 
 /**
  * Entity class Phototree7subject
@@ -31,15 +35,11 @@ import film.interfaces.entity.pk.*;
  * 
  * @author Franky Laseure
  */
-public class ePhototree7subject extends AbstractEntity implements EntityInterface {
+public class ePhototree7subject extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected Phototree7subjectPK phototree7subjectPK;
 	  
     public static final String table = "phototree7subject";
-    public static final String SQLWhere1 = "film = :phototree7subject.film: and id = :phototree7subject.id: and subjectid = :phototree7subject.subjectid:";
-    public static final String SQLSelect1 = "select phototree7subject.* from phototree7subject where " + SQLWhere1;
-    public static final String SQLSelectPKexists = "select count(*) as count from phototree7subject where " + SQLWhere1;
-    public static final String SQLSelectAll = "select phototree7subject.* from phototree7subject";
 	  
     public String getFieldname(short fieldconstant) {
         return IPhototree7subject.fieldnames[fieldconstant-1];
@@ -50,35 +50,26 @@ public class ePhototree7subject extends AbstractEntity implements EntityInterfac
     }
         
     /**
+     * @return database tool name
+     */
+    @Override
+    public String getDbtool() {
+        return ePhototree7subject.databasetool;
+    }
+    
+    /**
+     * @return connection pool name
+     */
+    @Override
+    public String getConnectionpool() {
+        return ePhototree7subject.connectionpool;
+    }
+    
+    /**
      * 
      * @return table name for Phototree7subject
      */
     public String getTable() { return table; }
-
-    /**
-     * 
-     * @return SQL where clause for one Phototree7subject (=Primarykey)
-     */
-    public String getSQLWhere1() { return SQLWhere1; };
-
-    /**
-     * 
-     * @return SQL select statement for one Phototree7subject (=Primarykey)
-     */
-    public String getSQLSelect1() { return SQLSelect1; };
-
-    /**
-     * @return Select statement for Primary key, with count field as result
-     * count = 1: exists
-     * count = 0: not found
-     */
-    public String getSQLPKExcists() { return SQLSelectPKexists; };
-    
-    /**
-     * 
-     * @return SQL select statement for all Phototree7subjects
-     */
-    public String getSQLSelectAll() { return SQLSelectAll; };
 
     /**
      * 
@@ -119,40 +110,43 @@ public class ePhototree7subject extends AbstractEntity implements EntityInterfac
 
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldname, value) as a SQLparameters object
      */
     @Override
-    public Object[][] getKeyFields() {
-        return this.phototree7subjectPK.getKeyFields();	  
+    public SQLparameters getSQLprimarykey() {
+        return this.phototree7subjectPK.getSQLprimarykey();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with primarykey fields (fieldname, value)
+     * @return primarykey fields (fieldreference, value) as Entityvalues
      */
     @Override
-    public Object[][] getInsertKeyFields() {
-        return this.phototree7subjectPK.getInsertKeyFields();	  
+    public Entityvalues getPrimarykeyvalues() {
+        return this.phototree7subjectPK.getPrimarykeyvalues();	  
     }
   
     /**
      * 
-     * @return 2 dimentional Object array with all fields (fieldname, value)
+     * @return all fields (fieldname, value)
      */
-    public Object[][] getAll() {
+    @Override
+    public Entityvalues getAll() {
         return getAllFields();
     }
 	
-    /* (non-Javadoc)
-     * @see .interfaces.db.EntityInterface#getKey()
+    /**
+     * @return Phototree7subjectPK
      */
+    @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
     /**
-     * @return Primary Key Object
+     * @return Phototree7subjectPK
      */
+    @Override
     public Phototree7subjectPK getPrimaryKey() {
         return this.phototree7subjectPK;
     }
@@ -161,6 +155,7 @@ public class ePhototree7subject extends AbstractEntity implements EntityInterfac
      * 
      * @return Primarykey string value
      */
+    @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();
     }

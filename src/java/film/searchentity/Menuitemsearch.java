@@ -2,7 +2,7 @@
  * Menuitemsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eMenuitem;
+import film.logicentity.Menuitem;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -30,6 +30,13 @@ public class Menuitemsearch extends Tablesearch implements IMenuitemsearch {
     Stringsearch editpanel = new Stringsearch("menuitem.editpanel");
     Stringsearch servlet = new Stringsearch("menuitem.servlet");
     Foreignkeysearch menusearcher = new Foreignkeysearch("menu", IMenuitem.menuPKfields, IMenuitem.menuFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Menuitem.table;
+    }
 
     /**
      * Constructor

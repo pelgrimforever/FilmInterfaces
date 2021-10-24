@@ -2,7 +2,7 @@
  * Menusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -13,7 +13,7 @@ import film.interfaces.entity.pk.*;
 import data.interfaces.db.*;
 import film.interfaces.logicentity.*;
 import film.interfaces.searchentity.*;
-import film.entity.eMenu;
+import film.logicentity.Menu;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -27,7 +27,14 @@ public class Menusearch extends Tablesearch implements IMenusearch {
 
     Stringsearch menu = new Stringsearch("menu.menu");
     Foreignkeysearch mainmenusearcher = new Foreignkeysearch("mainmenu", IMenu.mainmenuPKfields, IMenu.mainmenuFKfields);
-    Primarykeysearch menuitemsearcher = new Primarykeysearch(":extablename_o:", IMenuitem.menuPKfields, IMenuitem.menuFKfields);
+    Primarykeysearch menuitemsearcher = new Primarykeysearch("menuitem", IMenuitem.menuPKfields, IMenuitem.menuFKfields);
+
+    /**
+     * @return tablename
+     */
+    public String getTable() {
+        return Menu.table;
+    }
 
     /**
      * Constructor

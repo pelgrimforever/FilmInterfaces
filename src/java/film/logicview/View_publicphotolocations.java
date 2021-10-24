@@ -2,7 +2,7 @@
  * View_publicphotolocations.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -34,8 +34,6 @@ import javax.imageio.stream.ImageInputStream;
 public class View_publicphotolocations extends film.view.eView_publicphotolocations implements IView_publicphotolocations {
 
 //Custom code, do not change this line
-    public static final String SQLWherelocality = "countrycode = :countrycode: and locality = :locality:";
-    public static final String SQLSelect4locality = SQLSelectAll + " where " + SQLWherelocality;
 //Custom code, do not change this line
 
     /**

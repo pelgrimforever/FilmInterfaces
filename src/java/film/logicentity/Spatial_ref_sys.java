@@ -2,7 +2,7 @@
  * Spatial_ref_sys.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -11,6 +11,7 @@ package film.logicentity;
 import data.gis.shape.*;
 import data.interfaces.db.LogicEntity;
 import data.interfaces.db.Filedata;
+import data.json.piJson;
 import film.entity.pk.*;
 import film.interfaces.entity.pk.ISpatial_ref_sysPK;
 import film.interfaces.logicentity.*;
@@ -36,12 +37,8 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Spatial_ref_sys extends film.entity.eSpatial_ref_sys implements ISpatial_ref_sys {
 
-    public static final String SQLSelect = "select spatial_ref_sys.* from spatial_ref_sys";
-
 //Custom code, do not change this line
-    public static final String OrderBy = "";
 //Custom code, do not change this line
-
 
     /**
      * Constructor

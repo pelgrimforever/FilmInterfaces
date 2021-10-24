@@ -2,7 +2,7 @@
  * View_locality_photolocations.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 4.1.2021 12:6
+ * Generated on 24.9.2021 14:50
  *
  */
 
@@ -34,7 +34,6 @@ import javax.imageio.stream.ImageInputStream;
 public class View_locality_photolocations extends film.view.eView_locality_photolocations implements IView_locality_photolocations {
 
 //Custom code, do not change this line
-    public static final String SQLSelect4location = "select * from " + table + " where countrycode = :countrycode: and locality = :locality:";
 //Custom code, do not change this line
 
     /**
