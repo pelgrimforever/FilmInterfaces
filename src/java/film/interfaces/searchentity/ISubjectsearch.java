@@ -2,7 +2,7 @@
  * ISubjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -72,45 +72,52 @@ public interface ISubjectsearch extends Tablesearcher {
 	public void description(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch subjectcatCat1 tablesearch
-	* @param subjectcatsearch: ISubjectcatsearch
-	*/
+   * foreign key
+	 * set subsearch subjectcatCat1 tablesearch
+	 * @param subjectcatsearch: ISubjectcatsearch
+	 */
 	public void subjectcatCat1(ISubjectcatsearch subjectcatsearch);
 	
 	/**
-	* set subsearch tree7subject tablesearch
-	* @param tree7subjectsearch: ITree7subjectsearch
-	*/
+   * foreign key
+	 * set subsearch tree7subject tablesearch
+	 * @param tree7subjectsearch: ITree7subjectsearch
+	 */
 	public void tree7subject(ITree7subjectsearch tree7subjectsearch);
 	
 	/**
-	* set subsearch subjectcatCat2 tablesearch
-	* @param subjectcatsearch: ISubjectcatsearch
-	*/
+   * foreign key
+	 * set subsearch subjectcatCat2 tablesearch
+	 * @param subjectcatsearch: ISubjectcatsearch
+	 */
 	public void subjectcatCat2(ISubjectcatsearch subjectcatsearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch filmsubjects tablesearch
      * @param filmsubjectssearch: IFilmsubjectssearch
      */
     public void filmsubjects(IFilmsubjectssearch filmsubjectssearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch film tablesearch
      * @param filmsearch: IFilmsearch
      */
-    public void film(IFilmsearch filmsearch);
+    public void relfilm(IFilmsearch filmsearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch photosubjects tablesearch
      * @param photosubjectssearch: IPhotosubjectssearch
      */
     public void photosubjects(IPhotosubjectssearch photosubjectssearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch photo tablesearch
      * @param photosearch: IPhotosearch
      */
-    public void photo(IPhotosearch photosearch);
+    public void relphoto(IPhotosearch photosearch);
     
 }

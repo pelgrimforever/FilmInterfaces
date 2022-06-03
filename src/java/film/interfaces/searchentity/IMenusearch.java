@@ -2,7 +2,7 @@
  * IMenusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -43,12 +43,14 @@ public interface IMenusearch extends Tablesearcher {
 	public void menu(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch mainmenu tablesearch
-	* @param mainmenusearch: IMainmenusearch
-	*/
+   * foreign key
+	 * set subsearch mainmenu tablesearch
+	 * @param mainmenusearch: IMainmenusearch
+	 */
 	public void mainmenu(IMainmenusearch mainmenusearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch menuitem tablesearch
      * @param menuitemsearch: IMenuitemsearch
      */

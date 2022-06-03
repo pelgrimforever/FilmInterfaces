@@ -2,7 +2,7 @@
  * Creatorsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,6 +28,8 @@ public class Creatorsearch extends Tablesearch implements ICreatorsearch {
     Stringsearch creatorid = new Stringsearch("creator.creatorid");
     Stringsearch name = new Stringsearch("creator.name");
     Stringsearch surname = new Stringsearch("creator.surname");
+//foreign keys
+//external foreign keys
 
     /**
      * @return tablename

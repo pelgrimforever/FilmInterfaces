@@ -2,7 +2,7 @@
  * IPhototree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -29,15 +29,17 @@ public interface IPhototree7subjectsearch extends Tablesearcher {
     public void addPrimarykey(IPhototree7subjectPK phototree7subjectPK);
 
 	/**
-	* set subsearch tree7subject tablesearch
-	* @param tree7subjectsearch: ITree7subjectsearch
-	*/
+   * foreign key
+	 * set subsearch tree7subject tablesearch
+	 * @param tree7subjectsearch: ITree7subjectsearch
+	 */
 	public void tree7subject(ITree7subjectsearch tree7subjectsearch);
 	
 	/**
-	* set subsearch photo tablesearch
-	* @param photosearch: IPhotosearch
-	*/
+   * foreign key
+	 * set subsearch photo tablesearch
+	 * @param photosearch: IPhotosearch
+	 */
 	public void photo(IPhotosearch photosearch);
 	
 }

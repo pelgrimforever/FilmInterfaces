@@ -2,7 +2,7 @@
  * Subjectcatsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,7 +28,11 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     Stringsearch cat = new Stringsearch("subjectcat.cat");
     Numbersearch catno = new Numbersearch("subjectcat.catno");
     Stringsearch description = new Stringsearch("subjectcat.description");
+//foreign keys
+//external foreign keys
+    //foreign key
     Primarykeysearch subjectCat1searcher = new Primarykeysearch("subject", ISubject.subjectcatCat1PKfields, ISubject.subjectcatCat1FKfields);
+    //foreign key
     Primarykeysearch subjectCat2searcher = new Primarykeysearch("subject", ISubject.subjectcatCat2PKfields, ISubject.subjectcatCat2FKfields);
 
     /**
@@ -137,7 +141,7 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     }
     
     /**
-     * set subsearch subject tablesearch
+     * set external key - foreign key subsearch ISubjectsearch
      * @param subjectsearch: ISubjectsearch
      */
     public void subjectCat1(ISubjectsearch subjectsearch) {
@@ -145,8 +149,8 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Subjectcat
+     * get external key - foreign key subsearch ISubjectsearch
+     * @return Tablesearch for ISubjectsearch
      */
     public ISubjectsearch getSubjectcat1search() {
         if(subjectCat1searcher.used()) {
@@ -157,7 +161,7 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     }
 
     /**
-     * set subsearch subject tablesearch
+     * set external key - foreign key subsearch ISubjectsearch
      * @param subjectsearch: ISubjectsearch
      */
     public void subjectCat2(ISubjectsearch subjectsearch) {
@@ -165,8 +169,8 @@ public class Subjectcatsearch extends Tablesearch implements ISubjectcatsearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Subjectcat
+     * get external key - foreign key subsearch ISubjectsearch
+     * @return Tablesearch for ISubjectsearch
      */
     public ISubjectsearch getSubjectcat2search() {
         if(subjectCat2searcher.used()) {

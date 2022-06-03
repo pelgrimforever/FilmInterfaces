@@ -2,7 +2,7 @@
  * Filmsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -33,9 +33,14 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     Stringsearch cd = new Stringsearch("film.cd");
     Booleansearch publicf_ = new Booleansearch("film.public");
     Booleansearch backup = new Booleansearch("film.backup");
+//foreign keys
     Foreignkeysearch filmtypesearcher = new Foreignkeysearch("filmtype", IFilm.filmtypePKfields, IFilm.filmtypeFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch filmsubjectssearcher = new Primarykeysearch("filmsubjects", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields);
-    Relationalkeysearch subjectsearcher = new Relationalkeysearch("filmsubjects", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields, "subject", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
+    //relational key
+    Relationalkeysearch relsubjectsearcher = new Relationalkeysearch("filmsubjects", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields, "subject", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
+    //foreign key
     Primarykeysearch photosearcher = new Primarykeysearch("photo", IPhoto.filmPKfields, IPhoto.filmFKfields);
 
     /**
@@ -78,7 +83,7 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
         addFieldsearcher(backup);
         addKeysearcher(filmtypesearcher);
         addKeysearcher(filmsubjectssearcher);
-        addKeysearcher(subjectsearcher);
+        addKeysearcher(relsubjectsearcher);
         addKeysearcher(photosearcher);
     }
 
@@ -227,7 +232,7 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
     
     /**
-     * set subsearch filmtype tablesearch
+     * set foreign key subsearch filmtype IFilmtypesearch
      * @param filmtypesearch: IFilmtypesearch
      */
     public void filmtype(IFilmtypesearch filmtypesearch) {
@@ -235,7 +240,7 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch filmtype IFilmtypesearch
      * @return Tablesearch for Film
      */
     public IFilmtypesearch getFilmtypesearch() {
@@ -256,7 +261,7 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
 
     /**
-     * set subsearch filmsubjects tablesearch
+     * set external key - foreign key subsearch IFilmsubjectssearch
      * @param filmsubjectssearch: IFilmsubjectssearch
      */
     public void filmsubjects(IFilmsubjectssearch filmsubjectssearch) {
@@ -264,8 +269,8 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Film
+     * get external key - foreign key subsearch IFilmsubjectssearch
+     * @return Tablesearch for IFilmsubjectssearch
      */
     public IFilmsubjectssearch getFilmsubjectssearch() {
         if(filmsubjectssearcher.used()) {
@@ -276,27 +281,27 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
 
     /**
-     * set relational subsearch subject tablesearch
+     * set external key - relational subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */
-    public void subject(ISubjectsearch subjectsearch) {
-        subjectsearcher.setTablesearch(subjectsearch);
+    public void relsubject(ISubjectsearch subjectsearch) {
+        relsubjectsearcher.setTablesearch(subjectsearch);
     }
     
     /**
-     * 
-     * @return Tablesearch for Film
+     * get external key - relational subsearch ISubjectsearch
+     * @return Tablesearch for ISubjectsearch
      */
-    public ISubjectsearch getSubjectsearch() {
-        if(subjectsearcher.used()) {
-            return (ISubjectsearch)subjectsearcher.getTablesearches().get(0);
+    public ISubjectsearch getRelSubjectsearch() {
+        if(relsubjectsearcher.used()) {
+            return (ISubjectsearch)relsubjectsearcher.getTablesearches().get(0);
         } else {
             return null;
         }
     }
 
     /**
-     * set subsearch photo tablesearch
+     * set external key - foreign key subsearch IPhotosearch
      * @param photosearch: IPhotosearch
      */
     public void photo(IPhotosearch photosearch) {
@@ -304,8 +309,8 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Film
+     * get external key - foreign key subsearch IPhotosearch
+     * @return Tablesearch for IPhotosearch
      */
     public IPhotosearch getPhotosearch() {
         if(photosearcher.used()) {

@@ -2,7 +2,7 @@
  * ITree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -87,21 +87,24 @@ public interface ITree7subjectsearch extends Tablesearcher {
 	public void treestep(Double[] values, byte[] operators, byte andor);
 	
 	/**
-	* set subsearch tree7subjectParentsubjectid tablesearch
-	* @param tree7subjectsearch: ITree7subjectsearch
-	*/
+   * foreign key
+	 * set subsearch tree7subjectParentsubjectid tablesearch
+	 * @param tree7subjectsearch: ITree7subjectsearch
+	 */
 	public void tree7subjectParentsubjectid(ITree7subjectsearch tree7subjectsearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch phototree7subject tablesearch
      * @param phototree7subjectsearch: IPhototree7subjectsearch
      */
     public void phototree7subject(IPhototree7subjectsearch phototree7subjectsearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch photo tablesearch
      * @param photosearch: IPhotosearch
      */
-    public void photo(IPhotosearch photosearch);
+    public void relphoto(IPhotosearch photosearch);
     
 }

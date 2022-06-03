@@ -5,9 +5,11 @@
 
 package film.logic;
 
+import film.interfaces.logicentity.ISecurityprofile;
 import film.logicentity.Securityprofile;
 import java.io.Serializable;
 import java.util.ArrayList;
+import sitesecurity.interfaces.logicentity.ISitegroup;
 
 /**
  *
@@ -19,8 +21,8 @@ public class Userprofile implements Serializable {
         public final static String EDITOR = "editor";
         public final static String PRIVATEUSER = "privateuser";
 
-        private ArrayList sitegroups;
-        private ArrayList profiles;
+        private ArrayList<ISitegroup> sitegroups;
+        private ArrayList<ISecurityprofile> profiles;
 
         //profiles
         private boolean admin = false;
@@ -30,16 +32,16 @@ public class Userprofile implements Serializable {
         //access flags
         private boolean privateaccess = false;
 
-        public Userprofile(ArrayList sitegroups, ArrayList profiles) {
+        public Userprofile(ArrayList<ISitegroup> sitegroups, ArrayList<ISecurityprofile> profiles) {
             this.sitegroups = sitegroups;
             this.profiles = profiles;
             Initialize();
         }
 
         private void Initialize() {
-            Securityprofile profile;
+            ISecurityprofile profile;
             for(int i=0; i<profiles.size(); i++) {
-                profile = (Securityprofile)profiles.get(i);
+                profile = profiles.get(i);
                 privateaccess = privateaccess || profile.getPrivateaccess();
                 if(profile.getPrimaryKey().getUserprofile().equals(ADMIN)) admin = true;
                 if(profile.getPrimaryKey().getUserprofile().equals(EDITOR)) editor = true;

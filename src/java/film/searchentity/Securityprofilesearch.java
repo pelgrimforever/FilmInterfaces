@@ -2,7 +2,7 @@
  * Securityprofilesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -27,6 +27,9 @@ public class Securityprofilesearch extends Tablesearch implements ISecurityprofi
 
     Stringsearch userprofile = new Stringsearch("securityprofile.userprofile");
     Booleansearch privateaccess = new Booleansearch("securityprofile.privateaccess");
+//foreign keys
+//external foreign keys
+    //foreign key
     Primarykeysearch securityuserprofilesearcher = new Primarykeysearch("securityuserprofile", ISecurityuserprofile.securityprofilePKfields, ISecurityuserprofile.securityprofileFKfields);
 
     /**
@@ -101,7 +104,7 @@ public class Securityprofilesearch extends Tablesearch implements ISecurityprofi
     }
     
     /**
-     * set subsearch securityuserprofile tablesearch
+     * set external key - foreign key subsearch ISecurityuserprofilesearch
      * @param securityuserprofilesearch: ISecurityuserprofilesearch
      */
     public void securityuserprofile(ISecurityuserprofilesearch securityuserprofilesearch) {
@@ -109,8 +112,8 @@ public class Securityprofilesearch extends Tablesearch implements ISecurityprofi
     }
     
     /**
-     * 
-     * @return Tablesearch for Securityprofile
+     * get external key - foreign key subsearch ISecurityuserprofilesearch
+     * @return Tablesearch for ISecurityuserprofilesearch
      */
     public ISecurityuserprofilesearch getSecurityuserprofilesearch() {
         if(securityuserprofilesearcher.used()) {

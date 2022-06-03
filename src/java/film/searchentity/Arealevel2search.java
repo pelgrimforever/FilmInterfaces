@@ -2,7 +2,7 @@
  * Arealevel2search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,10 @@ public class Arealevel2search extends Tablesearch implements IArealevel2search {
     Stringsearch bounds = new Stringsearch("arealevel2.bounds");
     Stringsearch viewport = new Stringsearch("arealevel2.viewport");
     Booleansearch approximate = new Booleansearch("arealevel2.approximate");
+//foreign keys
     Foreignkeysearch arealevel1searcher = new Foreignkeysearch("arealevel1", IArealevel2.arealevel1PKfields, IArealevel2.arealevel1FKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch arealevel3searcher = new Primarykeysearch("arealevel3", IArealevel3.arealevel2PKfields, IArealevel3.arealevel2FKfields);
 
     /**
@@ -191,7 +194,7 @@ public class Arealevel2search extends Tablesearch implements IArealevel2search {
     }
     
     /**
-     * set subsearch arealevel1 tablesearch
+     * set foreign key subsearch arealevel1 IArealevel1search
      * @param arealevel1search: IArealevel1search
      */
     public void arealevel1(IArealevel1search arealevel1search) {
@@ -199,7 +202,7 @@ public class Arealevel2search extends Tablesearch implements IArealevel2search {
     }
     
     /**
-     * 
+     * get foreign key subsearch arealevel1 IArealevel1search
      * @return Tablesearch for Arealevel2
      */
     public IArealevel1search getArealevel1search() {
@@ -220,7 +223,7 @@ public class Arealevel2search extends Tablesearch implements IArealevel2search {
     }
 
     /**
-     * set subsearch arealevel3 tablesearch
+     * set external key - foreign key subsearch IArealevel3search
      * @param arealevel3search: IArealevel3search
      */
     public void arealevel3(IArealevel3search arealevel3search) {
@@ -228,8 +231,8 @@ public class Arealevel2search extends Tablesearch implements IArealevel2search {
     }
     
     /**
-     * 
-     * @return Tablesearch for Arealevel2
+     * get external key - foreign key subsearch IArealevel3search
+     * @return Tablesearch for IArealevel3search
      */
     public IArealevel3search getArealevel3search() {
         if(arealevel3searcher.used()) {

@@ -2,7 +2,7 @@
  * Menusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -26,7 +26,10 @@ import java.sql.Timestamp;
 public class Menusearch extends Tablesearch implements IMenusearch {
 
     Stringsearch menu = new Stringsearch("menu.menu");
+//foreign keys
     Foreignkeysearch mainmenusearcher = new Foreignkeysearch("mainmenu", IMenu.mainmenuPKfields, IMenu.mainmenuFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch menuitemsearcher = new Primarykeysearch("menuitem", IMenuitem.menuPKfields, IMenuitem.menuFKfields);
 
     /**
@@ -93,7 +96,7 @@ public class Menusearch extends Tablesearch implements IMenusearch {
     }
     
     /**
-     * set subsearch mainmenu tablesearch
+     * set foreign key subsearch mainmenu IMainmenusearch
      * @param mainmenusearch: IMainmenusearch
      */
     public void mainmenu(IMainmenusearch mainmenusearch) {
@@ -101,7 +104,7 @@ public class Menusearch extends Tablesearch implements IMenusearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch mainmenu IMainmenusearch
      * @return Tablesearch for Menu
      */
     public IMainmenusearch getMainmenusearch() {
@@ -122,7 +125,7 @@ public class Menusearch extends Tablesearch implements IMenusearch {
     }
 
     /**
-     * set subsearch menuitem tablesearch
+     * set external key - foreign key subsearch IMenuitemsearch
      * @param menuitemsearch: IMenuitemsearch
      */
     public void menuitem(IMenuitemsearch menuitemsearch) {
@@ -130,8 +133,8 @@ public class Menusearch extends Tablesearch implements IMenusearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Menu
+     * get external key - foreign key subsearch IMenuitemsearch
+     * @return Tablesearch for IMenuitemsearch
      */
     public IMenuitemsearch getMenuitemsearch() {
         if(menuitemsearcher.used()) {

@@ -2,13 +2,11 @@
  * IFilmOperation.java
  *
  * Created on Dec 13, 2012, 12:22 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
 package film.interfaces.servlet;
-
-import base.interfaces.servlet.IDataServlet;
 
 /**
  * Interface IFilmOperation
@@ -17,7 +15,7 @@ import base.interfaces.servlet.IDataServlet;
  * Methods: 
  * @author Franky Laseure
  */
-public interface IFilmOperation extends IDataServlet {
+public interface IFilmOperation {
 
     //SELECT OPERATIONS
     public static final byte SELECT_COUNT = 0;

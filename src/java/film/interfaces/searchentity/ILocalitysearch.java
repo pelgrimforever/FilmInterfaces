@@ -2,7 +2,7 @@
  * ILocalitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -97,12 +97,14 @@ public interface ILocalitysearch extends Tablesearcher {
 	public void hassublocality(Boolean value);
 	
 	/**
-	* set subsearch postalcode tablesearch
-	* @param postalcodesearch: IPostalcodesearch
-	*/
+   * foreign key
+	 * set subsearch postalcode tablesearch
+	 * @param postalcodesearch: IPostalcodesearch
+	 */
 	public void postalcode(IPostalcodesearch postalcodesearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch sublocality tablesearch
      * @param sublocalitysearch: ISublocalitysearch
      */

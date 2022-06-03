@@ -2,7 +2,7 @@
  * ISubjectcatsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -72,12 +72,14 @@ public interface ISubjectcatsearch extends Tablesearcher {
 	public void description(String[] values, byte compare, byte andor);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */
     public void subjectCat1(ISubjectsearch subjectsearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */

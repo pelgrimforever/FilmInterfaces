@@ -2,7 +2,7 @@
  * ILocality.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public interface ILocality extends LogicEntity {
 
-	public ILocalityPK getPrimaryKey();
+    public ILocalityPK getPrimaryKey();
 	
     public static short COUNTRYCODE = 1;
     public static short POSTALCODE = 2;

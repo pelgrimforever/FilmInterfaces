@@ -2,7 +2,7 @@
  * IFilmsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -127,24 +127,28 @@ public interface IFilmsearch extends Tablesearcher {
 	public void backup(Boolean value);
 	
 	/**
-	* set subsearch filmtype tablesearch
-	* @param filmtypesearch: IFilmtypesearch
-	*/
+   * foreign key
+	 * set subsearch filmtype tablesearch
+	 * @param filmtypesearch: IFilmtypesearch
+	 */
 	public void filmtype(IFilmtypesearch filmtypesearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch filmsubjects tablesearch
      * @param filmsubjectssearch: IFilmsubjectssearch
      */
     public void filmsubjects(IFilmsubjectssearch filmsubjectssearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */
-    public void subject(ISubjectsearch subjectsearch);
+    public void relsubject(ISubjectsearch subjectsearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch photo tablesearch
      * @param photosearch: IPhotosearch
      */

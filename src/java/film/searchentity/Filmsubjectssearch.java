@@ -2,7 +2,7 @@
  * Filmsubjectssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -25,8 +25,10 @@ import java.sql.Timestamp;
  */
 public class Filmsubjectssearch extends Tablesearch implements IFilmsubjectssearch {
 
+//foreign keys
     Foreignkeysearch subjectsearcher = new Foreignkeysearch("subject", IFilmsubjects.subjectPKfields, IFilmsubjects.subjectFKfields);
     Foreignkeysearch filmsearcher = new Foreignkeysearch("film", IFilmsubjects.filmPKfields, IFilmsubjects.filmFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -71,7 +73,7 @@ public class Filmsubjectssearch extends Tablesearch implements IFilmsubjectssear
     }
 
     /**
-     * set subsearch subject tablesearch
+     * set foreign key subsearch subject ISubjectsearch
      * @param subjectsearch: ISubjectsearch
      */
     public void subject(ISubjectsearch subjectsearch) {
@@ -79,7 +81,7 @@ public class Filmsubjectssearch extends Tablesearch implements IFilmsubjectssear
     }
     
     /**
-     * 
+     * get foreign key subsearch subject ISubjectsearch
      * @return Tablesearch for Filmsubjects
      */
     public ISubjectsearch getSubjectsearch() {
@@ -100,7 +102,7 @@ public class Filmsubjectssearch extends Tablesearch implements IFilmsubjectssear
     }
 
     /**
-     * set subsearch film tablesearch
+     * set foreign key subsearch film IFilmsearch
      * @param filmsearch: IFilmsearch
      */
     public void film(IFilmsearch filmsearch) {
@@ -108,7 +110,7 @@ public class Filmsubjectssearch extends Tablesearch implements IFilmsubjectssear
     }
     
     /**
-     * 
+     * get foreign key subsearch film IFilmsearch
      * @return Tablesearch for Filmsubjects
      */
     public IFilmsearch getFilmsearch() {

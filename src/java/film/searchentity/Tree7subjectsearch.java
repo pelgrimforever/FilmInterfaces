@@ -2,7 +2,7 @@
  * Tree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -29,9 +29,13 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     Stringsearch tree7id = new Stringsearch("tree7subject.tree7id");
     Stringsearch subject = new Stringsearch("tree7subject.subject");
     Numbersearch treestep = new Numbersearch("tree7subject.treestep");
+//foreign keys
     Foreignkeysearch tree7subjectParentsubjectidsearcher = new Foreignkeysearch("tree7subject", ITree7subject.tree7subjectParentsubjectidPKfields, ITree7subject.tree7subjectParentsubjectidFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch phototree7subjectsearcher = new Primarykeysearch("phototree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
-    Relationalkeysearch photosearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields, "photo", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
+    //relational key
+    Relationalkeysearch relphotosearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields, "photo", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
 
     /**
      * @return tablename
@@ -69,7 +73,7 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
         addFieldsearcher(treestep);
         addKeysearcher(tree7subjectParentsubjectidsearcher);
         addKeysearcher(phototree7subjectsearcher);
-        addKeysearcher(photosearcher);
+        addKeysearcher(relphotosearcher);
     }
 
     /**
@@ -161,7 +165,7 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     }
     
     /**
-     * set subsearch tree7subjectParentsubjectid tablesearch
+     * set foreign key subsearch tree7subjectParentsubjectid ITree7subjectsearch
      * @param tree7subjectsearch: ITree7subjectsearch
      */
     public void tree7subjectParentsubjectid(ITree7subjectsearch tree7subjectsearch) {
@@ -169,7 +173,7 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     }
     
     /**
-     * 
+     * get foreign key subsearch tree7subjectParentsubjectid ITree7subjectsearch
      * @return Tablesearch for Tree7subject
      */
     public ITree7subjectsearch getTree7subjectparentsubjectidsearch() {
@@ -190,7 +194,7 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     }
 
     /**
-     * set subsearch phototree7subject tablesearch
+     * set external key - foreign key subsearch IPhototree7subjectsearch
      * @param phototree7subjectsearch: IPhototree7subjectsearch
      */
     public void phototree7subject(IPhototree7subjectsearch phototree7subjectsearch) {
@@ -198,8 +202,8 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     }
     
     /**
-     * 
-     * @return Tablesearch for Tree7subject
+     * get external key - foreign key subsearch IPhototree7subjectsearch
+     * @return Tablesearch for IPhototree7subjectsearch
      */
     public IPhototree7subjectsearch getPhototree7subjectsearch() {
         if(phototree7subjectsearcher.used()) {
@@ -210,20 +214,20 @@ public class Tree7subjectsearch extends Tablesearch implements ITree7subjectsear
     }
 
     /**
-     * set relational subsearch photo tablesearch
+     * set external key - relational subsearch photo tablesearch
      * @param photosearch: IPhotosearch
      */
-    public void photo(IPhotosearch photosearch) {
-        photosearcher.setTablesearch(photosearch);
+    public void relphoto(IPhotosearch photosearch) {
+        relphotosearcher.setTablesearch(photosearch);
     }
     
     /**
-     * 
-     * @return Tablesearch for Tree7subject
+     * get external key - relational subsearch IPhotosearch
+     * @return Tablesearch for IPhotosearch
      */
-    public IPhotosearch getPhotosearch() {
-        if(photosearcher.used()) {
-            return (IPhotosearch)photosearcher.getTablesearches().get(0);
+    public IPhotosearch getRelPhotosearch() {
+        if(relphotosearcher.used()) {
+            return (IPhotosearch)relphotosearcher.getTablesearches().get(0);
         } else {
             return null;
         }

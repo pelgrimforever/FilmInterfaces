@@ -2,7 +2,7 @@
  * Art_groupsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -27,6 +27,8 @@ public class Art_groupsearch extends Tablesearch implements IArt_groupsearch {
 
     Numbersearch groupid = new Numbersearch("art_group.groupid");
     Stringsearch groupname = new Stringsearch("art_group.groupname");
+//foreign keys
+//external foreign keys
 
     /**
      * @return tablename

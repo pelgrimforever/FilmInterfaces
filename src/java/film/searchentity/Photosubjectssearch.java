@@ -2,7 +2,7 @@
  * Photosubjectssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -25,8 +25,10 @@ import java.sql.Timestamp;
  */
 public class Photosubjectssearch extends Tablesearch implements IPhotosubjectssearch {
 
+//foreign keys
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
     Foreignkeysearch subjectsearcher = new Foreignkeysearch("subject", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -71,7 +73,7 @@ public class Photosubjectssearch extends Tablesearch implements IPhotosubjectsse
     }
 
     /**
-     * set subsearch photo tablesearch
+     * set foreign key subsearch photo IPhotosearch
      * @param photosearch: IPhotosearch
      */
     public void photo(IPhotosearch photosearch) {
@@ -79,7 +81,7 @@ public class Photosubjectssearch extends Tablesearch implements IPhotosubjectsse
     }
     
     /**
-     * 
+     * get foreign key subsearch photo IPhotosearch
      * @return Tablesearch for Photosubjects
      */
     public IPhotosearch getPhotosearch() {
@@ -100,7 +102,7 @@ public class Photosubjectssearch extends Tablesearch implements IPhotosubjectsse
     }
 
     /**
-     * set subsearch subject tablesearch
+     * set foreign key subsearch subject ISubjectsearch
      * @param subjectsearch: ISubjectsearch
      */
     public void subject(ISubjectsearch subjectsearch) {
@@ -108,7 +110,7 @@ public class Photosubjectssearch extends Tablesearch implements IPhotosubjectsse
     }
     
     /**
-     * 
+     * get foreign key subsearch subject ISubjectsearch
      * @return Tablesearch for Photosubjects
      */
     public ISubjectsearch getSubjectsearch() {

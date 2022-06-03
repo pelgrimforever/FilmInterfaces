@@ -2,13 +2,11 @@
  * IArealevel2Operation.java
  *
  * Created on Dec 13, 2012, 12:22 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
 package film.interfaces.servlet;
-
-import base.interfaces.servlet.IDataServlet;
 
 /**
  * Interface IArealevel2Operation
@@ -17,7 +15,7 @@ import base.interfaces.servlet.IDataServlet;
  * Methods: 
  * @author Franky Laseure
  */
-public interface IArealevel2Operation extends IDataServlet {
+public interface IArealevel2Operation {
 
     //SELECT OPERATIONS
     public static final byte SELECT_COUNT = 0;

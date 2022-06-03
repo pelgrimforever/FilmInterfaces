@@ -2,7 +2,7 @@
  * IRoutesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -105,9 +105,10 @@ public interface IRoutesearch extends Tablesearcher {
 	public void approximate(Boolean value);
 	
 	/**
-	* set subsearch sublocality tablesearch
-	* @param sublocalitysearch: ISublocalitysearch
-	*/
+   * foreign key
+	 * set subsearch sublocality tablesearch
+	 * @param sublocalitysearch: ISublocalitysearch
+	 */
 	public void sublocality(ISublocalitysearch sublocalitysearch);
 	
 }

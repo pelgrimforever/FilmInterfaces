@@ -2,7 +2,7 @@
  * Spatial_ref_syssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -30,6 +30,8 @@ public class Spatial_ref_syssearch extends Tablesearch implements ISpatial_ref_s
     Numbersearch auth_srid = new Numbersearch("spatial_ref_sys.auth_srid");
     Stringsearch srtext = new Stringsearch("spatial_ref_sys.srtext");
     Stringsearch proj4text = new Stringsearch("spatial_ref_sys.proj4text");
+//foreign keys
+//external foreign keys
 
     /**
      * @return tablename

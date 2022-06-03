@@ -2,7 +2,7 @@
  * Routesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,9 @@ public class Routesearch extends Tablesearch implements IRoutesearch {
     Stringsearch bounds = new Stringsearch("route.bounds");
     Stringsearch viewport = new Stringsearch("route.viewport");
     Booleansearch approximate = new Booleansearch("route.approximate");
+//foreign keys
     Foreignkeysearch sublocalitysearcher = new Foreignkeysearch("sublocality", IRoute.sublocalityPKfields, IRoute.sublocalityFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -189,7 +191,7 @@ public class Routesearch extends Tablesearch implements IRoutesearch {
     }
     
     /**
-     * set subsearch sublocality tablesearch
+     * set foreign key subsearch sublocality ISublocalitysearch
      * @param sublocalitysearch: ISublocalitysearch
      */
     public void sublocality(ISublocalitysearch sublocalitysearch) {
@@ -197,7 +199,7 @@ public class Routesearch extends Tablesearch implements IRoutesearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch sublocality ISublocalitysearch
      * @return Tablesearch for Route
      */
     public ISublocalitysearch getSublocalitysearch() {

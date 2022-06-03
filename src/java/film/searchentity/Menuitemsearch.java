@@ -2,7 +2,7 @@
  * Menuitemsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -29,7 +29,9 @@ public class Menuitemsearch extends Tablesearch implements IMenuitemsearch {
     Stringsearch tabpanel = new Stringsearch("menuitem.tabpanel");
     Stringsearch editpanel = new Stringsearch("menuitem.editpanel");
     Stringsearch servlet = new Stringsearch("menuitem.servlet");
+//foreign keys
     Foreignkeysearch menusearcher = new Foreignkeysearch("menu", IMenuitem.menuPKfields, IMenuitem.menuFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -157,7 +159,7 @@ public class Menuitemsearch extends Tablesearch implements IMenuitemsearch {
     }
     
     /**
-     * set subsearch menu tablesearch
+     * set foreign key subsearch menu IMenusearch
      * @param menusearch: IMenusearch
      */
     public void menu(IMenusearch menusearch) {
@@ -165,7 +167,7 @@ public class Menuitemsearch extends Tablesearch implements IMenuitemsearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch menu IMenusearch
      * @return Tablesearch for Menuitem
      */
     public IMenusearch getMenusearch() {

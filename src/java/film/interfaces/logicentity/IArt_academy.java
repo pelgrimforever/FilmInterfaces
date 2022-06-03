@@ -2,7 +2,7 @@
  * IArt_academy.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public interface IArt_academy extends LogicEntity {
 
-	public IArt_academyPK getPrimaryKey();
+    public IArt_academyPK getPrimaryKey();
 	
     public static short ACADEMYID = 1;
     public static short ACADEMY = 2;

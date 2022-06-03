@@ -2,7 +2,7 @@
  * IArt_photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -120,27 +120,31 @@ public interface IArt_photosearch extends Tablesearcher {
 	public void surrounddir(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch photo tablesearch
-	* @param photosearch: IPhotosearch
-	*/
+   * foreign key
+	 * set subsearch photo tablesearch
+	 * @param photosearch: IPhotosearch
+	 */
 	public void photo(IPhotosearch photosearch);
 	
 	/**
-	* set subsearch art_subgroup tablesearch
-	* @param art_subgroupsearch: IArt_subgroupsearch
-	*/
+   * foreign key
+	 * set subsearch art_subgroup tablesearch
+	 * @param art_subgroupsearch: IArt_subgroupsearch
+	 */
 	public void art_subgroup(IArt_subgroupsearch art_subgroupsearch);
 	
 	/**
-	* set subsearch art_academy tablesearch
-	* @param art_academysearch: IArt_academysearch
-	*/
+   * foreign key
+	 * set subsearch art_academy tablesearch
+	 * @param art_academysearch: IArt_academysearch
+	 */
 	public void art_academy(IArt_academysearch art_academysearch);
 	
 	/**
-	* set subsearch art_group tablesearch
-	* @param art_groupsearch: IArt_groupsearch
-	*/
+   * foreign key
+	 * set subsearch art_group tablesearch
+	 * @param art_groupsearch: IArt_groupsearch
+	 */
 	public void art_group(IArt_groupsearch art_groupsearch);
 	
 }

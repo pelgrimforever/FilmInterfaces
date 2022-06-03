@@ -2,7 +2,7 @@
  * Art_academysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,6 +28,8 @@ public class Art_academysearch extends Tablesearch implements IArt_academysearch
     Numbersearch academyid = new Numbersearch("art_academy.academyid");
     Stringsearch academy = new Stringsearch("art_academy.academy");
     Stringsearch academylocation = new Stringsearch("art_academy.academylocation");
+//foreign keys
+//external foreign keys
 
     /**
      * @return tablename

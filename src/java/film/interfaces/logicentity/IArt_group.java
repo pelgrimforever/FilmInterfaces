@@ -2,7 +2,7 @@
  * IArt_group.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public interface IArt_group extends LogicEntity {
 
-	public IArt_groupPK getPrimaryKey();
+    public IArt_groupPK getPrimaryKey();
 	
     public static short GROUPID = 1;
     public static short GROUPNAME = 2;

@@ -2,7 +2,7 @@
  * Sublocalitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -30,7 +30,10 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     Stringsearch bounds = new Stringsearch("sublocality.bounds");
     Stringsearch viewport = new Stringsearch("sublocality.viewport");
     Booleansearch approximate = new Booleansearch("sublocality.approximate");
+//foreign keys
     Foreignkeysearch localitysearcher = new Foreignkeysearch("locality", ISublocality.localityPKfields, ISublocality.localityFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch routesearcher = new Primarykeysearch("route", IRoute.sublocalityPKfields, IRoute.sublocalityFKfields);
 
     /**
@@ -169,7 +172,7 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     }
     
     /**
-     * set subsearch locality tablesearch
+     * set foreign key subsearch locality ILocalitysearch
      * @param localitysearch: ILocalitysearch
      */
     public void locality(ILocalitysearch localitysearch) {
@@ -177,7 +180,7 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     }
     
     /**
-     * 
+     * get foreign key subsearch locality ILocalitysearch
      * @return Tablesearch for Sublocality
      */
     public ILocalitysearch getLocalitysearch() {
@@ -198,7 +201,7 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     }
 
     /**
-     * set subsearch route tablesearch
+     * set external key - foreign key subsearch IRoutesearch
      * @param routesearch: IRoutesearch
      */
     public void route(IRoutesearch routesearch) {
@@ -206,8 +209,8 @@ public class Sublocalitysearch extends Tablesearch implements ISublocalitysearch
     }
     
     /**
-     * 
-     * @return Tablesearch for Sublocality
+     * get external key - foreign key subsearch IRoutesearch
+     * @return Tablesearch for IRoutesearch
      */
     public IRoutesearch getRoutesearch() {
         if(routesearcher.used()) {

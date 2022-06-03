@@ -2,7 +2,7 @@
  * ISecurityuserprofilesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -43,9 +43,10 @@ public interface ISecurityuserprofilesearch extends Tablesearcher {
 	public void siteusername(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch securityprofile tablesearch
-	* @param securityprofilesearch: ISecurityprofilesearch
-	*/
+   * foreign key
+	 * set subsearch securityprofile tablesearch
+	 * @param securityprofilesearch: ISecurityprofilesearch
+	 */
 	public void securityprofile(ISecurityprofilesearch securityprofilesearch);
 	
 }

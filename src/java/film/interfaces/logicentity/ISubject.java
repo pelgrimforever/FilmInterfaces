@@ -2,7 +2,7 @@
  * ISubject.java
  *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public interface ISubject extends LogicEntity {
 
-	public ISubjectPK getPrimaryKey();
+    public ISubjectPK getPrimaryKey();
 	
     public static short CAT1 = 1;
     public static short CAT2 = 2;

@@ -2,7 +2,7 @@
  * Photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -41,14 +41,22 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     Stringsearch reversegeocode = new Stringsearch("photo.reversegeocode");
     Stringsearch streetnumber = new Stringsearch("photo.streetnumber");
     Stringsearch formattedaddress = new Stringsearch("photo.formattedaddress");
+//foreign keys
     Foreignkeysearch routesearcher = new Foreignkeysearch("route", IPhoto.routePKfields, IPhoto.routeFKfields);
     Foreignkeysearch creatorsearcher = new Foreignkeysearch("creator", IPhoto.creatorPKfields, IPhoto.creatorFKfields);
     Foreignkeysearch filmsearcher = new Foreignkeysearch("film", IPhoto.filmPKfields, IPhoto.filmFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch phototree7subjectsearcher = new Primarykeysearch("phototree7subject", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
-    Relationalkeysearch tree7subjectsearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields, "tree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
+    //relational key
+    Relationalkeysearch reltree7subjectsearcher = new Relationalkeysearch("phototree7subject", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields, "tree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
+    //foreign key
     Primarykeysearch art_photosearcher = new Primarykeysearch("art_photo", IArt_photo.photoPKfields, IArt_photo.photoFKfields);
+    //foreign key
     Primarykeysearch photosubjectssearcher = new Primarykeysearch("photosubjects", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields);
-    Relationalkeysearch subjectsearcher = new Relationalkeysearch("photosubjects", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields, "subject", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
+    //relational key
+    Relationalkeysearch relsubjectsearcher = new Relationalkeysearch("photosubjects", IPhotosubjects.photoPKfields, IPhotosubjects.photoFKfields, "subject", IPhotosubjects.subjectPKfields, IPhotosubjects.subjectFKfields);
+    //foreign key
     Primarykeysearch phototagssearcher = new Primarykeysearch("phototags", IPhototags.photoPKfields, IPhototags.photoFKfields);
 
     /**
@@ -101,10 +109,10 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
         addKeysearcher(creatorsearcher);
         addKeysearcher(filmsearcher);
         addKeysearcher(phototree7subjectsearcher);
-        addKeysearcher(tree7subjectsearcher);
+        addKeysearcher(reltree7subjectsearcher);
         addKeysearcher(art_photosearcher);
         addKeysearcher(photosubjectssearcher);
-        addKeysearcher(subjectsearcher);
+        addKeysearcher(relsubjectsearcher);
         addKeysearcher(phototagssearcher);
     }
 
@@ -377,7 +385,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * set subsearch route tablesearch
+     * set foreign key subsearch route IRoutesearch
      * @param routesearch: IRoutesearch
      */
     public void route(IRoutesearch routesearch) {
@@ -385,7 +393,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch route IRoutesearch
      * @return Tablesearch for Photo
      */
     public IRoutesearch getRoutesearch() {
@@ -406,7 +414,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set subsearch creator tablesearch
+     * set foreign key subsearch creator ICreatorsearch
      * @param creatorsearch: ICreatorsearch
      */
     public void creator(ICreatorsearch creatorsearch) {
@@ -414,7 +422,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch creator ICreatorsearch
      * @return Tablesearch for Photo
      */
     public ICreatorsearch getCreatorsearch() {
@@ -435,7 +443,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set subsearch film tablesearch
+     * set foreign key subsearch film IFilmsearch
      * @param filmsearch: IFilmsearch
      */
     public void film(IFilmsearch filmsearch) {
@@ -443,7 +451,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch film IFilmsearch
      * @return Tablesearch for Photo
      */
     public IFilmsearch getFilmsearch() {
@@ -464,7 +472,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set subsearch phototree7subject tablesearch
+     * set external key - foreign key subsearch IPhototree7subjectsearch
      * @param phototree7subjectsearch: IPhototree7subjectsearch
      */
     public void phototree7subject(IPhototree7subjectsearch phototree7subjectsearch) {
@@ -472,8 +480,8 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - foreign key subsearch IPhototree7subjectsearch
+     * @return Tablesearch for IPhototree7subjectsearch
      */
     public IPhototree7subjectsearch getPhototree7subjectsearch() {
         if(phototree7subjectsearcher.used()) {
@@ -484,27 +492,27 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set relational subsearch tree7subject tablesearch
+     * set external key - relational subsearch tree7subject tablesearch
      * @param tree7subjectsearch: ITree7subjectsearch
      */
-    public void tree7subject(ITree7subjectsearch tree7subjectsearch) {
-        tree7subjectsearcher.setTablesearch(tree7subjectsearch);
+    public void reltree7subject(ITree7subjectsearch tree7subjectsearch) {
+        reltree7subjectsearcher.setTablesearch(tree7subjectsearch);
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - relational subsearch ITree7subjectsearch
+     * @return Tablesearch for ITree7subjectsearch
      */
-    public ITree7subjectsearch getTree7subjectsearch() {
-        if(tree7subjectsearcher.used()) {
-            return (ITree7subjectsearch)tree7subjectsearcher.getTablesearches().get(0);
+    public ITree7subjectsearch getRelTree7subjectsearch() {
+        if(reltree7subjectsearcher.used()) {
+            return (ITree7subjectsearch)reltree7subjectsearcher.getTablesearches().get(0);
         } else {
             return null;
         }
     }
 
     /**
-     * set subsearch art_photo tablesearch
+     * set external key - foreign key subsearch IArt_photosearch
      * @param art_photosearch: IArt_photosearch
      */
     public void art_photo(IArt_photosearch art_photosearch) {
@@ -512,8 +520,8 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - foreign key subsearch IArt_photosearch
+     * @return Tablesearch for IArt_photosearch
      */
     public IArt_photosearch getArt_photosearch() {
         if(art_photosearcher.used()) {
@@ -524,7 +532,7 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set subsearch photosubjects tablesearch
+     * set external key - foreign key subsearch IPhotosubjectssearch
      * @param photosubjectssearch: IPhotosubjectssearch
      */
     public void photosubjects(IPhotosubjectssearch photosubjectssearch) {
@@ -532,8 +540,8 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - foreign key subsearch IPhotosubjectssearch
+     * @return Tablesearch for IPhotosubjectssearch
      */
     public IPhotosubjectssearch getPhotosubjectssearch() {
         if(photosubjectssearcher.used()) {
@@ -544,27 +552,27 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
 
     /**
-     * set relational subsearch subject tablesearch
+     * set external key - relational subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */
-    public void subject(ISubjectsearch subjectsearch) {
-        subjectsearcher.setTablesearch(subjectsearch);
+    public void relsubject(ISubjectsearch subjectsearch) {
+        relsubjectsearcher.setTablesearch(subjectsearch);
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - relational subsearch ISubjectsearch
+     * @return Tablesearch for ISubjectsearch
      */
-    public ISubjectsearch getSubjectsearch() {
-        if(subjectsearcher.used()) {
-            return (ISubjectsearch)subjectsearcher.getTablesearches().get(0);
+    public ISubjectsearch getRelSubjectsearch() {
+        if(relsubjectsearcher.used()) {
+            return (ISubjectsearch)relsubjectsearcher.getTablesearches().get(0);
         } else {
             return null;
         }
     }
 
     /**
-     * set subsearch phototags tablesearch
+     * set external key - foreign key subsearch IPhototagssearch
      * @param phototagssearch: IPhototagssearch
      */
     public void phototags(IPhototagssearch phototagssearch) {
@@ -572,8 +580,8 @@ public class Photosearch extends Tablesearch implements IPhotosearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Photo
+     * get external key - foreign key subsearch IPhototagssearch
+     * @return Tablesearch for IPhototagssearch
      */
     public IPhototagssearch getPhototagssearch() {
         if(phototagssearcher.used()) {

@@ -2,7 +2,7 @@
  * Securityuserprofilesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -26,7 +26,9 @@ import java.sql.Timestamp;
 public class Securityuserprofilesearch extends Tablesearch implements ISecurityuserprofilesearch {
 
     Stringsearch siteusername = new Stringsearch("securityuserprofile.siteusername");
+//foreign keys
     Foreignkeysearch securityprofilesearcher = new Foreignkeysearch("securityprofile", ISecurityuserprofile.securityprofilePKfields, ISecurityuserprofile.securityprofileFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -91,7 +93,7 @@ public class Securityuserprofilesearch extends Tablesearch implements ISecurityu
     }
     
     /**
-     * set subsearch securityprofile tablesearch
+     * set foreign key subsearch securityprofile ISecurityprofilesearch
      * @param securityprofilesearch: ISecurityprofilesearch
      */
     public void securityprofile(ISecurityprofilesearch securityprofilesearch) {
@@ -99,7 +101,7 @@ public class Securityuserprofilesearch extends Tablesearch implements ISecurityu
     }
     
     /**
-     * 
+     * get foreign key subsearch securityprofile ISecurityprofilesearch
      * @return Tablesearch for Securityuserprofile
      */
     public ISecurityprofilesearch getSecurityprofilesearch() {

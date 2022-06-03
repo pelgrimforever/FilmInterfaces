@@ -2,7 +2,7 @@
  * Uploadsessionsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,9 @@ public class Uploadsessionsearch extends Tablesearch implements IUploadsessionse
     Stringsearch filmgroupid = new Stringsearch("uploadsession.filmgroupid");
     Stringsearch photosubjects = new Stringsearch("uploadsession.photosubjects");
     Stringsearch description = new Stringsearch("uploadsession.description");
+//foreign keys
     Foreignkeysearch creatorsearcher = new Foreignkeysearch("creator", IUploadsession.creatorPKfields, IUploadsession.creatorFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -189,7 +191,7 @@ public class Uploadsessionsearch extends Tablesearch implements IUploadsessionse
     }
     
     /**
-     * set subsearch creator tablesearch
+     * set foreign key subsearch creator ICreatorsearch
      * @param creatorsearch: ICreatorsearch
      */
     public void creator(ICreatorsearch creatorsearch) {
@@ -197,7 +199,7 @@ public class Uploadsessionsearch extends Tablesearch implements IUploadsessionse
     }
     
     /**
-     * 
+     * get foreign key subsearch creator ICreatorsearch
      * @return Tablesearch for Uploadsession
      */
     public ICreatorsearch getCreatorsearch() {

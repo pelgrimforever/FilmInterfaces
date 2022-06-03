@@ -2,7 +2,7 @@
  * Localitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,10 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     Stringsearch viewport = new Stringsearch("locality.viewport");
     Booleansearch approximate = new Booleansearch("locality.approximate");
     Booleansearch hassublocality = new Booleansearch("locality.hassublocality");
+//foreign keys
     Foreignkeysearch postalcodesearcher = new Foreignkeysearch("postalcode", ILocality.postalcodePKfields, ILocality.postalcodeFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch sublocalitysearcher = new Primarykeysearch("sublocality", ISublocality.localityPKfields, ISublocality.localityFKfields);
 
     /**
@@ -179,7 +182,7 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     }
     
     /**
-     * set subsearch postalcode tablesearch
+     * set foreign key subsearch postalcode IPostalcodesearch
      * @param postalcodesearch: IPostalcodesearch
      */
     public void postalcode(IPostalcodesearch postalcodesearch) {
@@ -187,7 +190,7 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch postalcode IPostalcodesearch
      * @return Tablesearch for Locality
      */
     public IPostalcodesearch getPostalcodesearch() {
@@ -208,7 +211,7 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     }
 
     /**
-     * set subsearch sublocality tablesearch
+     * set external key - foreign key subsearch ISublocalitysearch
      * @param sublocalitysearch: ISublocalitysearch
      */
     public void sublocality(ISublocalitysearch sublocalitysearch) {
@@ -216,8 +219,8 @@ public class Localitysearch extends Tablesearch implements ILocalitysearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Locality
+     * get external key - foreign key subsearch ISublocalitysearch
+     * @return Tablesearch for ISublocalitysearch
      */
     public ISublocalitysearch getSublocalitysearch() {
         if(sublocalitysearcher.used()) {

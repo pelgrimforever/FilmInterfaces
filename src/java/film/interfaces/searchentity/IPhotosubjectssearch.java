@@ -2,7 +2,7 @@
  * IPhotosubjectssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -29,15 +29,17 @@ public interface IPhotosubjectssearch extends Tablesearcher {
     public void addPrimarykey(IPhotosubjectsPK photosubjectsPK);
 
 	/**
-	* set subsearch photo tablesearch
-	* @param photosearch: IPhotosearch
-	*/
+   * foreign key
+	 * set subsearch photo tablesearch
+	 * @param photosearch: IPhotosearch
+	 */
 	public void photo(IPhotosearch photosearch);
 	
 	/**
-	* set subsearch subject tablesearch
-	* @param subjectsearch: ISubjectsearch
-	*/
+   * foreign key
+	 * set subsearch subject tablesearch
+	 * @param subjectsearch: ISubjectsearch
+	 */
 	public void subject(ISubjectsearch subjectsearch);
 	
 }

@@ -2,7 +2,7 @@
  * Art_subgroupsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,7 +28,9 @@ public class Art_subgroupsearch extends Tablesearch implements IArt_subgroupsear
     Numbersearch subgroupid = new Numbersearch("art_subgroup.subgroupid");
     Stringsearch subgroupname = new Stringsearch("art_subgroup.subgroupname");
     Numbersearch lastseqno = new Numbersearch("art_subgroup.lastseqno");
+//foreign keys
     Foreignkeysearch art_groupsearcher = new Foreignkeysearch("art_group", IArt_subgroup.art_groupPKfields, IArt_subgroup.art_groupFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -135,7 +137,7 @@ public class Art_subgroupsearch extends Tablesearch implements IArt_subgroupsear
     }
     
     /**
-     * set subsearch art_group tablesearch
+     * set foreign key subsearch art_group IArt_groupsearch
      * @param art_groupsearch: IArt_groupsearch
      */
     public void art_group(IArt_groupsearch art_groupsearch) {
@@ -143,7 +145,7 @@ public class Art_subgroupsearch extends Tablesearch implements IArt_subgroupsear
     }
     
     /**
-     * 
+     * get foreign key subsearch art_group IArt_groupsearch
      * @return Tablesearch for Art_subgroup
      */
     public IArt_groupsearch getArt_groupsearch() {

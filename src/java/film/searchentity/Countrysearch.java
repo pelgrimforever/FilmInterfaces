@@ -2,7 +2,7 @@
  * Countrysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -34,6 +34,9 @@ public class Countrysearch extends Tablesearch implements ICountrysearch {
     Booleansearch hasarealevel1 = new Booleansearch("country.hasarealevel1");
     Booleansearch hasarealevel2 = new Booleansearch("country.hasarealevel2");
     Booleansearch hasarealevel3 = new Booleansearch("country.hasarealevel3");
+//foreign keys
+//external foreign keys
+    //foreign key
     Primarykeysearch arealevel1searcher = new Primarykeysearch("arealevel1", IArealevel1.countryPKfields, IArealevel1.countryFKfields);
 
     /**
@@ -219,7 +222,7 @@ public class Countrysearch extends Tablesearch implements ICountrysearch {
     }
     
     /**
-     * set subsearch arealevel1 tablesearch
+     * set external key - foreign key subsearch IArealevel1search
      * @param arealevel1search: IArealevel1search
      */
     public void arealevel1(IArealevel1search arealevel1search) {
@@ -227,8 +230,8 @@ public class Countrysearch extends Tablesearch implements ICountrysearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Country
+     * get external key - foreign key subsearch IArealevel1search
+     * @return Tablesearch for IArealevel1search
      */
     public IArealevel1search getArealevel1search() {
         if(arealevel1searcher.used()) {

@@ -2,7 +2,7 @@
  * IUploadsessionsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -106,9 +106,10 @@ public interface IUploadsessionsearch extends Tablesearcher {
 	public void description(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch creator tablesearch
-	* @param creatorsearch: ICreatorsearch
-	*/
+   * foreign key
+	 * set subsearch creator tablesearch
+	 * @param creatorsearch: ICreatorsearch
+	 */
 	public void creator(ICreatorsearch creatorsearch);
 	
 }

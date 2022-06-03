@@ -2,7 +2,7 @@
  * Mainmenusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,6 +28,9 @@ public class Mainmenusearch extends Tablesearch implements IMainmenusearch {
     Stringsearch mainmenu = new Stringsearch("mainmenu.mainmenu");
     Stringsearch popuplabel = new Stringsearch("mainmenu.popuplabel");
     Stringsearch icon = new Stringsearch("mainmenu.icon");
+//foreign keys
+//external foreign keys
+    //foreign key
     Primarykeysearch menusearcher = new Primarykeysearch("menu", IMenu.mainmenuPKfields, IMenu.mainmenuFKfields);
 
     /**
@@ -135,7 +138,7 @@ public class Mainmenusearch extends Tablesearch implements IMainmenusearch {
     }
     
     /**
-     * set subsearch menu tablesearch
+     * set external key - foreign key subsearch IMenusearch
      * @param menusearch: IMenusearch
      */
     public void menu(IMenusearch menusearch) {
@@ -143,8 +146,8 @@ public class Mainmenusearch extends Tablesearch implements IMainmenusearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Mainmenu
+     * get external key - foreign key subsearch IMenusearch
+     * @return Tablesearch for IMenusearch
      */
     public IMenusearch getMenusearch() {
         if(menusearcher.used()) {

@@ -2,7 +2,7 @@
  * IMainmenusearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -71,6 +71,7 @@ public interface IMainmenusearch extends Tablesearcher {
 	public void icon(String[] values, byte compare, byte andor);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch menu tablesearch
      * @param menusearch: IMenusearch
      */

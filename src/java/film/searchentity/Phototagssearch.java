@@ -2,7 +2,7 @@
  * Phototagssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -28,7 +28,9 @@ public class Phototagssearch extends Tablesearch implements IPhototagssearch {
     Stringsearch tag = new Stringsearch("phototags.tag");
     Stringsearch tagformat = new Stringsearch("phototags.tagformat");
     Stringsearch tagvalue = new Stringsearch("phototags.tagvalue");
+//foreign keys
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhototags.photoPKfields, IPhototags.photoFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -135,7 +137,7 @@ public class Phototagssearch extends Tablesearch implements IPhototagssearch {
     }
     
     /**
-     * set subsearch photo tablesearch
+     * set foreign key subsearch photo IPhotosearch
      * @param photosearch: IPhotosearch
      */
     public void photo(IPhotosearch photosearch) {
@@ -143,7 +145,7 @@ public class Phototagssearch extends Tablesearch implements IPhototagssearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch photo IPhotosearch
      * @return Tablesearch for Phototags
      */
     public IPhotosearch getPhotosearch() {

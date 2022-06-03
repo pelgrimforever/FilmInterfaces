@@ -2,7 +2,7 @@
  * IFilmsubjectssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -29,15 +29,17 @@ public interface IFilmsubjectssearch extends Tablesearcher {
     public void addPrimarykey(IFilmsubjectsPK filmsubjectsPK);
 
 	/**
-	* set subsearch subject tablesearch
-	* @param subjectsearch: ISubjectsearch
-	*/
+   * foreign key
+	 * set subsearch subject tablesearch
+	 * @param subjectsearch: ISubjectsearch
+	 */
 	public void subject(ISubjectsearch subjectsearch);
 	
 	/**
-	* set subsearch film tablesearch
-	* @param filmsearch: IFilmsearch
-	*/
+   * foreign key
+	 * set subsearch film tablesearch
+	 * @param filmsearch: IFilmsearch
+	 */
 	public void film(IFilmsearch filmsearch);
 	
 }

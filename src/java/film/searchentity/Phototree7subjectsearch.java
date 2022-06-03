@@ -2,7 +2,7 @@
  * Phototree7subjectsearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -25,8 +25,10 @@ import java.sql.Timestamp;
  */
 public class Phototree7subjectsearch extends Tablesearch implements IPhototree7subjectsearch {
 
+//foreign keys
     Foreignkeysearch tree7subjectsearcher = new Foreignkeysearch("tree7subject", IPhototree7subject.tree7subjectPKfields, IPhototree7subject.tree7subjectFKfields);
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IPhototree7subject.photoPKfields, IPhototree7subject.photoFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -71,7 +73,7 @@ public class Phototree7subjectsearch extends Tablesearch implements IPhototree7s
     }
 
     /**
-     * set subsearch tree7subject tablesearch
+     * set foreign key subsearch tree7subject ITree7subjectsearch
      * @param tree7subjectsearch: ITree7subjectsearch
      */
     public void tree7subject(ITree7subjectsearch tree7subjectsearch) {
@@ -79,7 +81,7 @@ public class Phototree7subjectsearch extends Tablesearch implements IPhototree7s
     }
     
     /**
-     * 
+     * get foreign key subsearch tree7subject ITree7subjectsearch
      * @return Tablesearch for Phototree7subject
      */
     public ITree7subjectsearch getTree7subjectsearch() {
@@ -100,7 +102,7 @@ public class Phototree7subjectsearch extends Tablesearch implements IPhototree7s
     }
 
     /**
-     * set subsearch photo tablesearch
+     * set foreign key subsearch photo IPhotosearch
      * @param photosearch: IPhotosearch
      */
     public void photo(IPhotosearch photosearch) {
@@ -108,7 +110,7 @@ public class Phototree7subjectsearch extends Tablesearch implements IPhototree7s
     }
     
     /**
-     * 
+     * get foreign key subsearch photo IPhotosearch
      * @return Tablesearch for Phototree7subject
      */
     public IPhotosearch getPhotosearch() {

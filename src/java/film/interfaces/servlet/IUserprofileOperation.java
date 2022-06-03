@@ -5,13 +5,11 @@
 
 package film.interfaces.servlet;
 
-import base.interfaces.servlet.IDataServlet;
-
 /**
  *
  * @author pelgrim
  */
-public interface IUserprofileOperation extends IDataServlet {
+public interface IUserprofileOperation {
 
     //SELECT OPERATIONS
     public static final byte SELECT_ALL = 0;

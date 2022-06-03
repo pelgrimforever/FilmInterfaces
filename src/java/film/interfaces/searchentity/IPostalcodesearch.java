@@ -2,7 +2,7 @@
  * IPostalcodesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -105,12 +105,14 @@ public interface IPostalcodesearch extends Tablesearcher {
 	public void approximate(Boolean value);
 	
 	/**
-	* set subsearch arealevel3 tablesearch
-	* @param arealevel3search: IArealevel3search
-	*/
+   * foreign key
+	 * set subsearch arealevel3 tablesearch
+	 * @param arealevel3search: IArealevel3search
+	 */
 	public void arealevel3(IArealevel3search arealevel3search);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch locality tablesearch
      * @param localitysearch: ILocalitysearch
      */

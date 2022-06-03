@@ -2,7 +2,7 @@
  * Arealevel3search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,9 @@ public class Arealevel3search extends Tablesearch implements IArealevel3search {
     Stringsearch bounds = new Stringsearch("arealevel3.bounds");
     Stringsearch viewport = new Stringsearch("arealevel3.viewport");
     Booleansearch approximate = new Booleansearch("arealevel3.approximate");
+//foreign keys
     Foreignkeysearch arealevel2searcher = new Foreignkeysearch("arealevel2", IArealevel3.arealevel2PKfields, IArealevel3.arealevel2FKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -189,7 +191,7 @@ public class Arealevel3search extends Tablesearch implements IArealevel3search {
     }
     
     /**
-     * set subsearch arealevel2 tablesearch
+     * set foreign key subsearch arealevel2 IArealevel2search
      * @param arealevel2search: IArealevel2search
      */
     public void arealevel2(IArealevel2search arealevel2search) {
@@ -197,7 +199,7 @@ public class Arealevel3search extends Tablesearch implements IArealevel3search {
     }
     
     /**
-     * 
+     * get foreign key subsearch arealevel2 IArealevel2search
      * @return Tablesearch for Arealevel3
      */
     public IArealevel2search getArealevel2search() {

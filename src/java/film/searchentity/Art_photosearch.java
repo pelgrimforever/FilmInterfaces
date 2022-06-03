@@ -2,7 +2,7 @@
  * Art_photosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -33,10 +33,12 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     Booleansearch archive = new Booleansearch("art_photo.archive");
     Booleansearch surround = new Booleansearch("art_photo.surround");
     Stringsearch surrounddir = new Stringsearch("art_photo.surrounddir");
+//foreign keys
     Foreignkeysearch photosearcher = new Foreignkeysearch("photo", IArt_photo.photoPKfields, IArt_photo.photoFKfields);
     Foreignkeysearch art_subgroupsearcher = new Foreignkeysearch("art_subgroup", IArt_photo.art_subgroupPKfields, IArt_photo.art_subgroupFKfields);
     Foreignkeysearch art_academysearcher = new Foreignkeysearch("art_academy", IArt_photo.art_academyPKfields, IArt_photo.art_academyFKfields);
     Foreignkeysearch art_groupsearcher = new Foreignkeysearch("art_group", IArt_photo.art_groupPKfields, IArt_photo.art_groupFKfields);
+//external foreign keys
 
     /**
      * @return tablename
@@ -215,7 +217,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
     
     /**
-     * set subsearch photo tablesearch
+     * set foreign key subsearch photo IPhotosearch
      * @param photosearch: IPhotosearch
      */
     public void photo(IPhotosearch photosearch) {
@@ -223,7 +225,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch photo IPhotosearch
      * @return Tablesearch for Art_photo
      */
     public IPhotosearch getPhotosearch() {
@@ -244,7 +246,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
 
     /**
-     * set subsearch art_subgroup tablesearch
+     * set foreign key subsearch art_subgroup IArt_subgroupsearch
      * @param art_subgroupsearch: IArt_subgroupsearch
      */
     public void art_subgroup(IArt_subgroupsearch art_subgroupsearch) {
@@ -252,7 +254,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch art_subgroup IArt_subgroupsearch
      * @return Tablesearch for Art_photo
      */
     public IArt_subgroupsearch getArt_subgroupsearch() {
@@ -273,7 +275,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
 
     /**
-     * set subsearch art_academy tablesearch
+     * set foreign key subsearch art_academy IArt_academysearch
      * @param art_academysearch: IArt_academysearch
      */
     public void art_academy(IArt_academysearch art_academysearch) {
@@ -281,7 +283,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch art_academy IArt_academysearch
      * @return Tablesearch for Art_photo
      */
     public IArt_academysearch getArt_academysearch() {
@@ -302,7 +304,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
 
     /**
-     * set subsearch art_group tablesearch
+     * set foreign key subsearch art_group IArt_groupsearch
      * @param art_groupsearch: IArt_groupsearch
      */
     public void art_group(IArt_groupsearch art_groupsearch) {
@@ -310,7 +312,7 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch art_group IArt_groupsearch
      * @return Tablesearch for Art_photo
      */
     public IArt_groupsearch getArt_groupsearch() {

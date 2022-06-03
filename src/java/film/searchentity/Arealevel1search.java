@@ -2,7 +2,7 @@
  * Arealevel1search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,10 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     Stringsearch bounds = new Stringsearch("arealevel1.bounds");
     Stringsearch viewport = new Stringsearch("arealevel1.viewport");
     Booleansearch approximate = new Booleansearch("arealevel1.approximate");
+//foreign keys
     Foreignkeysearch countrysearcher = new Foreignkeysearch("country", IArealevel1.countryPKfields, IArealevel1.countryFKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch arealevel2searcher = new Primarykeysearch("arealevel2", IArealevel2.arealevel1PKfields, IArealevel2.arealevel1FKfields);
 
     /**
@@ -191,7 +194,7 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     }
     
     /**
-     * set subsearch country tablesearch
+     * set foreign key subsearch country ICountrysearch
      * @param countrysearch: ICountrysearch
      */
     public void country(ICountrysearch countrysearch) {
@@ -199,7 +202,7 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     }
     
     /**
-     * 
+     * get foreign key subsearch country ICountrysearch
      * @return Tablesearch for Arealevel1
      */
     public ICountrysearch getCountrysearch() {
@@ -220,7 +223,7 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     }
 
     /**
-     * set subsearch arealevel2 tablesearch
+     * set external key - foreign key subsearch IArealevel2search
      * @param arealevel2search: IArealevel2search
      */
     public void arealevel2(IArealevel2search arealevel2search) {
@@ -228,8 +231,8 @@ public class Arealevel1search extends Tablesearch implements IArealevel1search {
     }
     
     /**
-     * 
-     * @return Tablesearch for Arealevel1
+     * get external key - foreign key subsearch IArealevel2search
+     * @return Tablesearch for IArealevel2search
      */
     public IArealevel2search getArealevel2search() {
         if(arealevel2searcher.used()) {

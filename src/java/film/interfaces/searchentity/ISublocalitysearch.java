@@ -2,7 +2,7 @@
  * ISublocalitysearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -91,12 +91,14 @@ public interface ISublocalitysearch extends Tablesearcher {
 	public void approximate(Boolean value);
 	
 	/**
-	* set subsearch locality tablesearch
-	* @param localitysearch: ILocalitysearch
-	*/
+   * foreign key
+	 * set subsearch locality tablesearch
+	 * @param localitysearch: ILocalitysearch
+	 */
 	public void locality(ILocalitysearch localitysearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch route tablesearch
      * @param routesearch: IRoutesearch
      */

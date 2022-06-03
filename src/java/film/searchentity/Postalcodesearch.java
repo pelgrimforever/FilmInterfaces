@@ -2,7 +2,7 @@
  * Postalcodesearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -31,7 +31,10 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     Stringsearch bounds = new Stringsearch("postalcode.bounds");
     Stringsearch viewport = new Stringsearch("postalcode.viewport");
     Booleansearch approximate = new Booleansearch("postalcode.approximate");
+//foreign keys
     Foreignkeysearch arealevel3searcher = new Foreignkeysearch("arealevel3", IPostalcode.arealevel3PKfields, IPostalcode.arealevel3FKfields);
+//external foreign keys
+    //foreign key
     Primarykeysearch localitysearcher = new Primarykeysearch("locality", ILocality.postalcodePKfields, ILocality.postalcodeFKfields);
 
     /**
@@ -191,7 +194,7 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     }
     
     /**
-     * set subsearch arealevel3 tablesearch
+     * set foreign key subsearch arealevel3 IArealevel3search
      * @param arealevel3search: IArealevel3search
      */
     public void arealevel3(IArealevel3search arealevel3search) {
@@ -199,7 +202,7 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     }
     
     /**
-     * 
+     * get foreign key subsearch arealevel3 IArealevel3search
      * @return Tablesearch for Postalcode
      */
     public IArealevel3search getArealevel3search() {
@@ -220,7 +223,7 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     }
 
     /**
-     * set subsearch locality tablesearch
+     * set external key - foreign key subsearch ILocalitysearch
      * @param localitysearch: ILocalitysearch
      */
     public void locality(ILocalitysearch localitysearch) {
@@ -228,8 +231,8 @@ public class Postalcodesearch extends Tablesearch implements IPostalcodesearch {
     }
     
     /**
-     * 
-     * @return Tablesearch for Postalcode
+     * get external key - foreign key subsearch ILocalitysearch
+     * @return Tablesearch for ILocalitysearch
      */
     public ILocalitysearch getLocalitysearch() {
         if(localitysearcher.used()) {

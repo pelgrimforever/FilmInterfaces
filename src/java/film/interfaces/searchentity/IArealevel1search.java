@@ -2,7 +2,7 @@
  * IArealevel1search.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -105,12 +105,14 @@ public interface IArealevel1search extends Tablesearcher {
 	public void approximate(Boolean value);
 	
 	/**
-	* set subsearch country tablesearch
-	* @param countrysearch: ICountrysearch
-	*/
+   * foreign key
+	 * set subsearch country tablesearch
+	 * @param countrysearch: ICountrysearch
+	 */
 	public void country(ICountrysearch countrysearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch arealevel2 tablesearch
      * @param arealevel2search: IArealevel2search
      */

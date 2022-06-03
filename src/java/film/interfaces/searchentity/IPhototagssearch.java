@@ -2,7 +2,7 @@
  * IPhototagssearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -71,9 +71,10 @@ public interface IPhototagssearch extends Tablesearcher {
 	public void tagvalue(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch photo tablesearch
-	* @param photosearch: IPhotosearch
-	*/
+   * foreign key
+	 * set subsearch photo tablesearch
+	 * @param photosearch: IPhotosearch
+	 */
 	public void photo(IPhotosearch photosearch);
 	
 }

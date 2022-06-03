@@ -2,7 +2,7 @@
  * IPhotosearch.java
  *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 24.9.2021 14:50
+ * Generated on 1.5.2022 20:24
  *
  */
 
@@ -218,54 +218,63 @@ public interface IPhotosearch extends Tablesearcher {
 	public void formattedaddress(String[] values, byte compare, byte andor);
 	
 	/**
-	* set subsearch route tablesearch
-	* @param routesearch: IRoutesearch
-	*/
+   * foreign key
+	 * set subsearch route tablesearch
+	 * @param routesearch: IRoutesearch
+	 */
 	public void route(IRoutesearch routesearch);
 	
 	/**
-	* set subsearch creator tablesearch
-	* @param creatorsearch: ICreatorsearch
-	*/
+   * foreign key
+	 * set subsearch creator tablesearch
+	 * @param creatorsearch: ICreatorsearch
+	 */
 	public void creator(ICreatorsearch creatorsearch);
 	
 	/**
-	* set subsearch film tablesearch
-	* @param filmsearch: IFilmsearch
-	*/
+   * foreign key
+	 * set subsearch film tablesearch
+	 * @param filmsearch: IFilmsearch
+	 */
 	public void film(IFilmsearch filmsearch);
 	
     /**
+     * external foreign key - foreign key
      * set subsearch phototree7subject tablesearch
      * @param phototree7subjectsearch: IPhototree7subjectsearch
      */
     public void phototree7subject(IPhototree7subjectsearch phototree7subjectsearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch tree7subject tablesearch
      * @param tree7subjectsearch: ITree7subjectsearch
      */
-    public void tree7subject(ITree7subjectsearch tree7subjectsearch);
+    public void reltree7subject(ITree7subjectsearch tree7subjectsearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch art_photo tablesearch
      * @param art_photosearch: IArt_photosearch
      */
     public void art_photo(IArt_photosearch art_photosearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch photosubjects tablesearch
      * @param photosubjectssearch: IPhotosubjectssearch
      */
     public void photosubjects(IPhotosubjectssearch photosubjectssearch);
     
     /**
+     * external foreign key - relational key
      * set relational subsearch subject tablesearch
      * @param subjectsearch: ISubjectsearch
      */
-    public void subject(ISubjectsearch subjectsearch);
+    public void relsubject(ISubjectsearch subjectsearch);
     
     /**
+     * external foreign key - foreign key
      * set subsearch phototags tablesearch
      * @param phototagssearch: IPhototagssearch
      */
