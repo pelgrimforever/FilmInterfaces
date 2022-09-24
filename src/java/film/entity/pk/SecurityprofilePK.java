@@ -1,9 +1,7 @@
 /*
- * SecurityprofilePK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,36 +15,17 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class SecurityprofilePK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class SecurityprofilePK implements ISecurityprofilePK {
 
     private java.lang.String userprofile;
   
-    /** 
-     * Constructor
-     * Creates an empty SecurityprofilePK
-     */
     public SecurityprofilePK() {
     }
 
-    /**
-     * Constructor
-     * build an empty SecurityprofilePK with initialized field values
-     */
     public SecurityprofilePK(java.lang.String userprofile) {
         this.userprofile = userprofile;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"securityprofile.userprofile", userprofile}
@@ -54,10 +33,6 @@ public class SecurityprofilePK implements ISecurityprofilePK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISecurityprofile.USERPROFILE, userprofile}
@@ -65,37 +40,20 @@ public class SecurityprofilePK implements ISecurityprofilePK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return userprofile value
-     */
     public java.lang.String getUserprofile() {
         return this.userprofile;
     }
 
-    /**
-     * set userprofile value
-     * @param userprofile: new value
-     */
     public void setUserprofile(java.lang.String userprofile) {
         this.userprofile = userprofile;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getUserprofile()!=null) key += getUserprofile().length() + "_" + getUserprofile();
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return SecurityprofilePK constructed from keystring
-     */
     public static SecurityprofilePK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -108,11 +66,6 @@ public class SecurityprofilePK implements ISecurityprofilePK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param securityprofilePK2: SecurityprofilePK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ISecurityprofilePK securityprofilePK2) {
         boolean isequal = securityprofilePK2!=null;
         if(isequal) {

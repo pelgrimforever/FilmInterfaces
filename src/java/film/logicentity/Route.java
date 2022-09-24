@@ -1,9 +1,7 @@
 /*
- * Route.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.logicentity;
@@ -26,40 +24,18 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
-/**
- * Entity class Route
- *
- * Attributes: Database independent SQL-construction strings adjusments
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public class Route extends film.entity.eRoute implements IRoute {
 
 //Custom code, do not change this line
 //Custom code, do not change this line
 
-    /**
-     * Constructor
-     * Creates an empty Route entity
-     */
     public Route() {
     }
     
-    /**
-     * Constructor
-     * build an empty Route entity with initialized field values
-     */
     public Route(java.lang.String countrycode, java.lang.String postalcode, java.lang.String locality, java.lang.String sublocality, java.lang.String routecode) {
         super(countrycode, postalcode, locality, sublocality, routecode);
     }
 
-    /**
-     * Constructor
-     * build an empty Route entity with initialized Primarykey parameter
-     * @param routePK: Route Primarykey
-     */
     public Route(RoutePK routePK) {
         super(routePK);
     }

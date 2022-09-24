@@ -1,9 +1,7 @@
 /*
- * IArt_academy.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IArt_academy
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IArt_academy extends LogicEntity {
 
     public IArt_academyPK getPrimaryKey();
@@ -48,28 +38,12 @@ public interface IArt_academy extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return academy value
-     */
     public java.lang.String getAcademy();
 
-    /**
-     * set academy value
-     * @param academy: new value
-     */
     public void setAcademy(java.lang.String academy);
 
-    /**
-     * 
-     * @return academylocation value
-     */
     public java.lang.String getAcademylocation();
 
-    /**
-     * set academylocation value
-     * @param academylocation: new value
-     */
     public void setAcademylocation(java.lang.String academylocation);
 
     

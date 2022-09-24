@@ -1,9 +1,7 @@
 /*
- * SubjectPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,40 +15,21 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class SubjectPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class SubjectPK implements ISubjectPK {
 
     private ISubjectcatPK subjectcatCat1PK = new SubjectcatPK();
     private ISubjectcatPK subjectcatCat2PK = new SubjectcatPK();
     private int id;
   
-    /** 
-     * Constructor
-     * Creates an empty SubjectPK
-     */
     public SubjectPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty SubjectPK with initialized field values
-     */
     public SubjectPK(java.lang.String cat1, java.lang.String cat2, int id) {
         this.subjectcatCat1PK = new SubjectcatPK(cat1);
         this.subjectcatCat2PK = new SubjectcatPK(cat2);
         this.id = id;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"subject.cat1", subjectcatCat1PK.getCat()}, 
@@ -60,10 +39,6 @@ public class SubjectPK implements ISubjectPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISubject.CAT1, subjectcatCat1PK.getCat()}, 
@@ -73,90 +48,46 @@ public class SubjectPK implements ISubjectPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key subjectcatPK1, instance of ISubjectcatPK
-     */
     public ISubjectcatPK getSubjectcatcat1PK() {
         return this.subjectcatCat1PK;
     }
 
-    /**
-     * set foreign key subjectcatCat1PK
-     * @param subjectcatPK: instance of ISubjectcatPK
-     */
     public void setSubjectcatcat1PK(ISubjectcatPK subjectcatPK) {
         this.subjectcatCat1PK = subjectcatPK;
     }
 
-    /**
-     * 
-     * @return foreign key subjectcatPK, instance of ISubjectcatPK
-     */
     public ISubjectcatPK getSubjectcatcat2PK() {
         return this.subjectcatCat2PK;
     }
 
-    /**
-     * set foreign key subjectcatCat2PK
-     * @param subjectcatPK: instance of ISubjectcatPK
-     */
     public void setSubjectcatcat2PK(ISubjectcatPK subjectcatPK) {
         this.subjectcatCat2PK = subjectcatPK;
     }
 
-    /**
-     * 
-     * @return cat1 value
-     */
     public java.lang.String getCat1() {
         return this.subjectcatCat1PK.getCat();
     }
 
-    /**
-     * set cat1 value
-     * @param cat1: new value
-     */
     public void setCat1(java.lang.String cat1) {
         this.subjectcatCat1PK.setCat(cat1);
     }
 
-    /**
-     * 
-     * @return cat2 value
-     */
     public java.lang.String getCat2() {
         return this.subjectcatCat2PK.getCat();
     }
 
-    /**
-     * set cat2 value
-     * @param cat2: new value
-     */
     public void setCat2(java.lang.String cat2) {
         this.subjectcatCat2PK.setCat(cat2);
     }
 
-    /**
-     * 
-     * @return id value
-     */
     public int getId() {
         return this.id;
     }
 
-    /**
-     * set id value
-     * @param id: new value
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getCat1()!=null) key += getCat1().length() + "_" + getCat1();
@@ -169,11 +100,6 @@ public class SubjectPK implements ISubjectPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return SubjectPK constructed from keystring
-     */
     public static SubjectPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -199,11 +125,6 @@ public class SubjectPK implements ISubjectPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param subjectPK2: SubjectPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ISubjectPK subjectPK2) {
         boolean isequal = subjectPK2!=null;
         if(isequal) {

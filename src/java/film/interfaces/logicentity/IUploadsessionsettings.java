@@ -1,9 +1,7 @@
 /*
- * IUploadsessionsettings.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IUploadsessionsettings
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IUploadsessionsettings extends LogicEntity {
 
     public IUploadsessionsettingsPK getPrimaryKey();
@@ -56,64 +46,24 @@ public interface IUploadsessionsettings extends LogicEntity {
     public static final String MODE_COPYPROPERTIES = "copyproperties";    
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return uploadtype value
-     */
     public java.lang.String getUploadtype();
 
-    /**
-     * set uploadtype value
-     * @param uploadtype: new value
-     */
     public void setUploadtype(java.lang.String uploadtype);
 
-    /**
-     * 
-     * @return filmgroups value
-     */
     public java.lang.String getFilmgroups();
 
-    /**
-     * set filmgroups value
-     * @param filmgroups: new value
-     */
     public void setFilmgroups(java.lang.String filmgroups);
 
-    /**
-     * 
-     * @return lastposition value
-     */
     public int getLastposition();
 
-    /**
-     * set lastposition value
-     * @param lastposition: new value
-     */
     public void setLastposition(int lastposition);
 
-    /**
-     * 
-     * @return copymode value
-     */
     public java.lang.String getCopymode();
 
-    /**
-     * set copymode value
-     * @param copymode: new value
-     */
     public void setCopymode(java.lang.String copymode);
 
-    /**
-     * 
-     * @return uploadingposition value
-     */
     public int getUploadingposition();
 
-    /**
-     * set uploadingposition value
-     * @param uploadingposition: new value
-     */
     public void setUploadingposition(int uploadingposition);
 
     

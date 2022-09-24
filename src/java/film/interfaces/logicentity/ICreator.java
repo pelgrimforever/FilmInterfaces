@@ -1,9 +1,7 @@
 /*
- * ICreator.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface ICreator
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface ICreator extends LogicEntity {
 
     public ICreatorPK getPrimaryKey();
@@ -48,28 +38,12 @@ public interface ICreator extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return name value
-     */
     public java.lang.String getName();
 
-    /**
-     * set name value
-     * @param name: new value
-     */
     public void setName(java.lang.String name);
 
-    /**
-     * 
-     * @return surname value
-     */
     public java.lang.String getSurname();
 
-    /**
-     * set surname value
-     * @param surname: new value
-     */
     public void setSurname(java.lang.String surname);
 
     

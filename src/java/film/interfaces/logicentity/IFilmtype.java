@@ -1,9 +1,7 @@
 /*
- * IFilmtype.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IFilmtype
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IFilmtype extends LogicEntity {
 
     public IFilmtypePK getPrimaryKey();
@@ -46,16 +36,8 @@ public interface IFilmtype extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return description value
-     */
     public java.lang.String getDescription();
 
-    /**
-     * set description value
-     * @param description: new value
-     */
     public void setDescription(java.lang.String description);
 
     

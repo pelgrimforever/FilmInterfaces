@@ -1,9 +1,7 @@
 /*
- * ISubject.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface ISubject
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface ISubject extends LogicEntity {
 
     public ISubjectPK getPrimaryKey();
@@ -60,40 +50,16 @@ public interface ISubject extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return subject value
-     */
     public java.lang.String getSubject();
 
-    /**
-     * set subject value
-     * @param subject: new value
-     */
     public void setSubject(java.lang.String subject);
 
-    /**
-     * 
-     * @return description value
-     */
     public java.lang.String getDescription();
 
-    /**
-     * set description value
-     * @param description: new value
-     */
     public void setDescription(java.lang.String description);
 
-    /**
-     * 
-     * @return foreign key tree7subjectPK, instance of Tree7subjectPK
-     */
     public ITree7subjectPK getTree7subjectPK();
 
-    /**
-     * set foreign key tree7subject
-     * @param tree7subjectPK: instance of Tree7subjectPK
-     */
     public void setTree7subjectPK(ITree7subjectPK tree7subjectPK);
 
     

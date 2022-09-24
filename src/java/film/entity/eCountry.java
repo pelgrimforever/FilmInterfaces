@@ -1,9 +1,7 @@
 /*
- * eCountry.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity;
@@ -26,15 +24,6 @@ import film.interfaces.entity.pk.*;
 import db.Entityvalues;
 import db.SQLparameters;
 
-/**
- * Entity class Country
- * 
- * Attributes: primary key, foreign keys en fields
- * Attributes: Database independent SQL-construction strings
- * Conversion methods for java.sql.ResultSet ==> Country Entity
- * 
- * @author Franky Laseure
- */
 public class eCountry extends AbstractEntity implements filmDatabaseproperties, Entity {
 
     protected CountryPK countryPK;
@@ -57,87 +46,45 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         return ICountry.fieldtypes[fieldconstant-1];
     }
         
-    /**
-     * @return database tool name
-     */
     @Override
     public String getDbtool() {
         return eCountry.databasetool;
     }
     
-    /**
-     * @return connection pool name
-     */
     @Override
     public String getConnectionpool() {
         return eCountry.connectionpool;
     }
     
-    /**
-     * 
-     * @return table name for Country
-     */
     public String getTable() { return table; }
 
-    /**
-     * 
-     * @return Country class name
-     */
     public String getClassName() { return this.getClass().getName(); };
 	  
-    /** 
-     * Constructor
-     * Creates an empty Country entity
-     */
     public eCountry() {
     }
 
-    /**
-     * Constructor
-     * build an empty Country entity with initialized field values
-     */
     public eCountry(java.lang.String code) {
         this.countryPK = new CountryPK(code);
     }
   
-    /**
-     * Constructor
-     * build an empty Country entity with initialized Primarykey parameter
-     * @param countryPK: Country Primarykey
-     */
     public eCountry(CountryPK countryPK) {
         this.countryPK = countryPK;
     }
 
-    /**
-     * @return is Country Empty ?
-     */
     public boolean isEmpty() {
         return this.countryPK == null;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     @Override
     public SQLparameters getSQLprimarykey() {
         return this.countryPK.getSQLprimarykey();	  
     }
   
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     @Override
     public Entityvalues getPrimarykeyvalues() {
         return this.countryPK.getPrimarykeyvalues();	  
     }
   
-    /**
-     * 
-     * @return all fields (fieldname, value)
-     */
     @Override
     public Entityvalues getAll() {
         updates.put(ICountry.NAME, name);
@@ -151,42 +98,24 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         return getAllFields();
     }
 	
-    /**
-     * @return CountryPK
-     */
     @Override
     public Object getKey() {
         return this.getPrimaryKey();
     }
   
-    /**
-     * @return CountryPK
-     */
     @Override
     public CountryPK getPrimaryKey() {
         return this.countryPK;
     }
 
-    /**
-     * 
-     * @return name value
-     */
     public java.lang.String getName() {
         return this.name;
     }
 
-    /**
-     * set name value
-     * @param name: new value
-     */
     public void initName(java.lang.String name) {
         this.name = name;
     }
 
-    /**
-     * set name value
-     * @param name: new value
-     */
     public void setName(java.lang.String name) {
 	if(name==null && name!=this.name || name!=null && !name.equals(this.name)) {
             updates.put(ICountry.NAME, name);
@@ -194,26 +123,14 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         this.name = name;
     }
 
-    /**
-     * 
-     * @return location value
-     */
     public piShape getLocation() {
         return this.location;
     }
 
-    /**
-     * set location value
-     * @param location: new value
-     */
     public void initLocation(piShape location) {
         this.location = location;
     }
 
-    /**
-     * set location value
-     * @param location: new value
-     */
     public void setLocation(piShape location) {
 	if(location==null && location!=this.location || location!=null && !location.equals(this.location)) {
             updates.put(ICountry.LOCATION, location);
@@ -221,26 +138,14 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         this.location = location;
     }
 
-    /**
-     * 
-     * @return bounds value
-     */
     public piShape getBounds() {
         return this.bounds;
     }
 
-    /**
-     * set bounds value
-     * @param bounds: new value
-     */
     public void initBounds(piShape bounds) {
         this.bounds = bounds;
     }
 
-    /**
-     * set bounds value
-     * @param bounds: new value
-     */
     public void setBounds(piShape bounds) {
 	if(bounds==null && bounds!=this.bounds || bounds!=null && !bounds.equals(this.bounds)) {
             updates.put(ICountry.BOUNDS, bounds);
@@ -248,26 +153,14 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         this.bounds = bounds;
     }
 
-    /**
-     * 
-     * @return viewport value
-     */
     public piShape getViewport() {
         return this.viewport;
     }
 
-    /**
-     * set viewport value
-     * @param viewport: new value
-     */
     public void initViewport(piShape viewport) {
         this.viewport = viewport;
     }
 
-    /**
-     * set viewport value
-     * @param viewport: new value
-     */
     public void setViewport(piShape viewport) {
 	if(viewport==null && viewport!=this.viewport || viewport!=null && !viewport.equals(this.viewport)) {
             updates.put(ICountry.VIEWPORT, viewport);
@@ -275,110 +168,58 @@ public class eCountry extends AbstractEntity implements filmDatabaseproperties, 
         this.viewport = viewport;
     }
 
-    /**
-     * 
-     * @return approximate value
-     */
     public boolean getApproximate() {
         return this.approximate;
     }
 
-    /**
-     * set approximate value
-     * @param approximate: new value
-     */
     public void initApproximate(boolean approximate) {
         this.approximate = approximate;
     }
 
-    /**
-     * set approximate value
-     * @param approximate: new value
-     */
     public void setApproximate(boolean approximate) {
         updates.put(ICountry.APPROXIMATE, approximate);
         this.approximate = approximate;
     }
 
-    /**
-     * 
-     * @return hasarealevel1 value
-     */
     public boolean getHasarealevel1() {
         return this.hasarealevel1;
     }
 
-    /**
-     * set hasarealevel1 value
-     * @param hasarealevel1: new value
-     */
     public void initHasarealevel1(boolean hasarealevel1) {
         this.hasarealevel1 = hasarealevel1;
     }
 
-    /**
-     * set hasarealevel1 value
-     * @param hasarealevel1: new value
-     */
     public void setHasarealevel1(boolean hasarealevel1) {
         updates.put(ICountry.HASAREALEVEL1, hasarealevel1);
         this.hasarealevel1 = hasarealevel1;
     }
 
-    /**
-     * 
-     * @return hasarealevel2 value
-     */
     public boolean getHasarealevel2() {
         return this.hasarealevel2;
     }
 
-    /**
-     * set hasarealevel2 value
-     * @param hasarealevel2: new value
-     */
     public void initHasarealevel2(boolean hasarealevel2) {
         this.hasarealevel2 = hasarealevel2;
     }
 
-    /**
-     * set hasarealevel2 value
-     * @param hasarealevel2: new value
-     */
     public void setHasarealevel2(boolean hasarealevel2) {
         updates.put(ICountry.HASAREALEVEL2, hasarealevel2);
         this.hasarealevel2 = hasarealevel2;
     }
 
-    /**
-     * 
-     * @return hasarealevel3 value
-     */
     public boolean getHasarealevel3() {
         return this.hasarealevel3;
     }
 
-    /**
-     * set hasarealevel3 value
-     * @param hasarealevel3: new value
-     */
     public void initHasarealevel3(boolean hasarealevel3) {
         this.hasarealevel3 = hasarealevel3;
     }
 
-    /**
-     * set hasarealevel3 value
-     * @param hasarealevel3: new value
-     */
     public void setHasarealevel3(boolean hasarealevel3) {
         updates.put(ICountry.HASAREALEVEL3, hasarealevel3);
         this.hasarealevel3 = hasarealevel3;
     }
 
-    /**
-     * 
-     * @return Primarykey string value
-     */
     @Override
     public String toString() {
         return this.getPrimaryKey().getKeystring();

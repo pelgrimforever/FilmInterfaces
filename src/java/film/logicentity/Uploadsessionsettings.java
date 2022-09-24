@@ -1,9 +1,7 @@
 /*
- * Uploadsessionsettings.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.logicentity;
@@ -26,40 +24,18 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
-/**
- * Entity class Uploadsessionsettings
- *
- * Attributes: Database independent SQL-construction strings adjusments
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public class Uploadsessionsettings extends film.entity.eUploadsessionsettings implements IUploadsessionsettings {
 
 //Custom code, do not change this line
 //Custom code, do not change this line
 
-    /**
-     * Constructor
-     * Creates an empty Uploadsessionsettings entity
-     */
     public Uploadsessionsettings() {
     }
     
-    /**
-     * Constructor
-     * build an empty Uploadsessionsettings entity with initialized field values
-     */
     public Uploadsessionsettings(java.lang.String directory) {
         super(directory);
     }
 
-    /**
-     * Constructor
-     * build an empty Uploadsessionsettings entity with initialized Primarykey parameter
-     * @param uploadsessionsettingsPK: Uploadsessionsettings Primarykey
-     */
     public Uploadsessionsettings(UploadsessionsettingsPK uploadsessionsettingsPK) {
         super(uploadsessionsettingsPK);
     }

@@ -1,9 +1,7 @@
 /*
- * PostalcodePK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class PostalcodePK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class PostalcodePK implements IPostalcodePK {
 
     private java.lang.String countrycode;
     private java.lang.String postalcode;
   
-    /** 
-     * Constructor
-     * Creates an empty PostalcodePK
-     */
     public PostalcodePK() {
     }
 
-    /**
-     * Constructor
-     * build an empty PostalcodePK with initialized field values
-     */
     public PostalcodePK(java.lang.String countrycode, java.lang.String postalcode) {
         this.countrycode = countrycode;
         this.postalcode = postalcode;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"postalcode.countrycode", countrycode}, 
@@ -57,10 +36,6 @@ public class PostalcodePK implements IPostalcodePK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IPostalcode.COUNTRYCODE, countrycode}, 
@@ -69,42 +44,22 @@ public class PostalcodePK implements IPostalcodePK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return countrycode value
-     */
     public java.lang.String getCountrycode() {
         return this.countrycode;
     }
 
-    /**
-     * set countrycode value
-     * @param countrycode: new value
-     */
     public void setCountrycode(java.lang.String countrycode) {
         this.countrycode = countrycode;
     }
 
-    /**
-     * 
-     * @return postalcode value
-     */
     public java.lang.String getPostalcode() {
         return this.postalcode;
     }
 
-    /**
-     * set postalcode value
-     * @param postalcode: new value
-     */
     public void setPostalcode(java.lang.String postalcode) {
         this.postalcode = postalcode;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getCountrycode()!=null) key += getCountrycode().length() + "_" + getCountrycode();
@@ -114,11 +69,6 @@ public class PostalcodePK implements IPostalcodePK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return PostalcodePK constructed from keystring
-     */
     public static PostalcodePK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -136,11 +86,6 @@ public class PostalcodePK implements IPostalcodePK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param postalcodePK2: PostalcodePK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(IPostalcodePK postalcodePK2) {
         boolean isequal = postalcodePK2!=null;
         if(isequal) {

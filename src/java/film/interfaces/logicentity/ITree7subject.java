@@ -1,9 +1,7 @@
 /*
- * ITree7subject.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface ITree7subject
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface ITree7subject extends LogicEntity {
 
     public ITree7subjectPK getPrimaryKey();
@@ -54,52 +44,20 @@ public interface ITree7subject extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return tree7id value
-     */
     public java.lang.String getTree7id();
 
-    /**
-     * set tree7id value
-     * @param tree7id: new value
-     */
     public void setTree7id(java.lang.String tree7id);
 
-    /**
-     * 
-     * @return subject value
-     */
     public java.lang.String getSubject();
 
-    /**
-     * set subject value
-     * @param subject: new value
-     */
     public void setSubject(java.lang.String subject);
 
-    /**
-     * 
-     * @return treestep value
-     */
     public int getTreestep();
 
-    /**
-     * set treestep value
-     * @param treestep: new value
-     */
     public void setTreestep(int treestep);
 
-    /**
-     * 
-     * @return foreign key tree7subjectParentsubjectidPK, instance of Tree7subjectPK
-     */
     public ITree7subjectPK getTree7subjectparentsubjectidPK();
 
-    /**
-     * set foreign key tree7subject
-     * @param tree7subjectParentsubjectidPK: instance of Tree7subjectPK
-     */
     public void setTree7subjectparentsubjectidPK(ITree7subjectPK tree7subjectParentsubjectidPK);
 
     

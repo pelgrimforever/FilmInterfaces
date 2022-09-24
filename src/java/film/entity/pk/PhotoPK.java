@@ -1,9 +1,7 @@
 /*
- * PhotoPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class PhotoPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class PhotoPK implements IPhotoPK {
 
     private IFilmPK filmPK = new FilmPK();
     private int id;
   
-    /** 
-     * Constructor
-     * Creates an empty PhotoPK
-     */
     public PhotoPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty PhotoPK with initialized field values
-     */
     public PhotoPK(java.lang.String film, int id) {
         this.filmPK = new FilmPK(film);
         this.id = id;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"photo.film", filmPK.getId()}, 
@@ -57,10 +36,6 @@ public class PhotoPK implements IPhotoPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IPhoto.FILM, filmPK.getId()}, 
@@ -69,58 +44,30 @@ public class PhotoPK implements IPhotoPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key filmPK, instance of IFilmPK
-     */
     public IFilmPK getFilmPK() {
         return this.filmPK;
     }
 
-    /**
-     * set foreign key filmPK
-     * @param filmPK: instance of IFilmPK
-     */
     public void setFilmPK(IFilmPK filmPK) {
         this.filmPK = filmPK;
     }
 
-    /**
-     * 
-     * @return film value
-     */
     public java.lang.String getFilm() {
         return this.filmPK.getId();
     }
 
-    /**
-     * set film value
-     * @param film: new value
-     */
     public void setFilm(java.lang.String film) {
         this.filmPK.setId(film);
     }
 
-    /**
-     * 
-     * @return id value
-     */
     public int getId() {
         return this.id;
     }
 
-    /**
-     * set id value
-     * @param id: new value
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getFilm()!=null) key += getFilm().length() + "_" + getFilm();
@@ -130,11 +77,6 @@ public class PhotoPK implements IPhotoPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return PhotoPK constructed from keystring
-     */
     public static PhotoPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -155,11 +97,6 @@ public class PhotoPK implements IPhotoPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param photoPK2: PhotoPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(IPhotoPK photoPK2) {
         boolean isequal = photoPK2!=null;
         if(isequal) {

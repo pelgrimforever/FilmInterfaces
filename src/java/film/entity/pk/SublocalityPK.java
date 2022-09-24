@@ -1,9 +1,7 @@
 /*
- * SublocalityPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class SublocalityPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class SublocalityPK implements ISublocalityPK {
 
     private ILocalityPK localityPK = new LocalityPK();
     private java.lang.String sublocality;
   
-    /** 
-     * Constructor
-     * Creates an empty SublocalityPK
-     */
     public SublocalityPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty SublocalityPK with initialized field values
-     */
     public SublocalityPK(java.lang.String countrycode, java.lang.String postalcode, java.lang.String locality, java.lang.String sublocality) {
         this.localityPK = new LocalityPK(countrycode, postalcode, locality);
         this.sublocality = sublocality;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"sublocality.countrycode", localityPK.getCountrycode()}, 
@@ -59,10 +38,6 @@ public class SublocalityPK implements ISublocalityPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISublocality.COUNTRYCODE, localityPK.getCountrycode()}, 
@@ -73,90 +48,46 @@ public class SublocalityPK implements ISublocalityPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key localityPK, instance of ILocalityPK
-     */
     public ILocalityPK getLocalityPK() {
         return this.localityPK;
     }
 
-    /**
-     * set foreign key localityPK
-     * @param localityPK: instance of ILocalityPK
-     */
     public void setLocalityPK(ILocalityPK localityPK) {
         this.localityPK = localityPK;
     }
 
-    /**
-     * 
-     * @return countrycode value
-     */
     public java.lang.String getCountrycode() {
         return this.localityPK.getCountrycode();
     }
 
-    /**
-     * set countrycode value
-     * @param countrycode: new value
-     */
     public void setCountrycode(java.lang.String countrycode) {
         this.localityPK.setCountrycode(countrycode);
     }
 
-    /**
-     * 
-     * @return postalcode value
-     */
     public java.lang.String getPostalcode() {
         return this.localityPK.getPostalcode();
     }
 
-    /**
-     * set postalcode value
-     * @param postalcode: new value
-     */
     public void setPostalcode(java.lang.String postalcode) {
         this.localityPK.setPostalcode(postalcode);
     }
 
-    /**
-     * 
-     * @return locality value
-     */
     public java.lang.String getLocality() {
         return this.localityPK.getLocality();
     }
 
-    /**
-     * set locality value
-     * @param locality: new value
-     */
     public void setLocality(java.lang.String locality) {
         this.localityPK.setLocality(locality);
     }
 
-    /**
-     * 
-     * @return sublocality value
-     */
     public java.lang.String getSublocality() {
         return this.sublocality;
     }
 
-    /**
-     * set sublocality value
-     * @param sublocality: new value
-     */
     public void setSublocality(java.lang.String sublocality) {
         this.sublocality = sublocality;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getCountrycode()!=null) key += getCountrycode().length() + "_" + getCountrycode();
@@ -172,11 +103,6 @@ public class SublocalityPK implements ISublocalityPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return SublocalityPK constructed from keystring
-     */
     public static SublocalityPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -204,11 +130,6 @@ public class SublocalityPK implements ISublocalityPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param sublocalityPK2: SublocalityPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ISublocalityPK sublocalityPK2) {
         boolean isequal = sublocalityPK2!=null;
         if(isequal) {

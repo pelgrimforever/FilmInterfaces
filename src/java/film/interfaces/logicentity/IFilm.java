@@ -1,9 +1,7 @@
 /*
- * IFilm.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IFilm
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IFilm extends LogicEntity {
 
     public IFilmPK getPrimaryKey();
@@ -62,100 +52,36 @@ public interface IFilm extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return iso value
-     */
     public java.lang.String getIso();
 
-    /**
-     * set iso value
-     * @param iso: new value
-     */
     public void setIso(java.lang.String iso);
 
-    /**
-     * 
-     * @return startdate value
-     */
     public java.sql.Date getStartdate();
 
-    /**
-     * set startdate value
-     * @param startdate: new value
-     */
     public void setStartdate(java.sql.Date startdate);
 
-    /**
-     * 
-     * @return enddate value
-     */
     public java.sql.Date getEnddate();
 
-    /**
-     * set enddate value
-     * @param enddate: new value
-     */
     public void setEnddate(java.sql.Date enddate);
 
-    /**
-     * 
-     * @return owner value
-     */
     public java.lang.String getOwner();
 
-    /**
-     * set owner value
-     * @param owner: new value
-     */
     public void setOwner(java.lang.String owner);
 
-    /**
-     * 
-     * @return cd value
-     */
     public java.lang.String getCd();
 
-    /**
-     * set cd value
-     * @param cd: new value
-     */
     public void setCd(java.lang.String cd);
 
-    /**
-     * 
-     * @return publicf_ value
-     */
     public boolean getPublic();
 
-    /**
-     * set public value
-     * @param publicf_: new value
-     */
     public void setPublic(boolean publicf_);
 
-    /**
-     * 
-     * @return backup value
-     */
     public boolean getBackup();
 
-    /**
-     * set backup value
-     * @param backup: new value
-     */
     public void setBackup(boolean backup);
 
-    /**
-     * 
-     * @return foreign key filmtypePK, instance of FilmtypePK
-     */
     public IFilmtypePK getFilmtypePK();
 
-    /**
-     * set foreign key filmtype
-     * @param filmtypePK: instance of FilmtypePK
-     */
     public void setFilmtypePK(IFilmtypePK filmtypePK);
 
     

@@ -1,9 +1,7 @@
 /*
- * IArt_photo.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IArt_photo
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IArt_photo extends LogicEntity {
 
     public IArt_photoPK getPrimaryKey();
@@ -76,136 +66,48 @@ public interface IArt_photo extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return selection value
-     */
     public boolean getSelection();
 
-    /**
-     * set selection value
-     * @param selection: new value
-     */
     public void setSelection(boolean selection);
 
-    /**
-     * 
-     * @return width value
-     */
     public int getWidth();
 
-    /**
-     * set width value
-     * @param width: new value
-     */
     public void setWidth(int width);
 
-    /**
-     * 
-     * @return height value
-     */
     public int getHeight();
 
-    /**
-     * set height value
-     * @param height: new value
-     */
     public void setHeight(int height);
 
-    /**
-     * 
-     * @return comment value
-     */
     public java.lang.String getComment();
 
-    /**
-     * set comment value
-     * @param comment: new value
-     */
     public void setComment(java.lang.String comment);
 
-    /**
-     * 
-     * @return seqno value
-     */
     public int getSeqno();
 
-    /**
-     * set seqno value
-     * @param seqno: new value
-     */
     public void setSeqno(int seqno);
 
-    /**
-     * 
-     * @return archive value
-     */
     public boolean getArchive();
 
-    /**
-     * set archive value
-     * @param archive: new value
-     */
     public void setArchive(boolean archive);
 
-    /**
-     * 
-     * @return surround value
-     */
     public boolean getSurround();
 
-    /**
-     * set surround value
-     * @param surround: new value
-     */
     public void setSurround(boolean surround);
 
-    /**
-     * 
-     * @return surrounddir value
-     */
     public java.lang.String getSurrounddir();
 
-    /**
-     * set surrounddir value
-     * @param surrounddir: new value
-     */
     public void setSurrounddir(java.lang.String surrounddir);
 
-    /**
-     * 
-     * @return foreign key art_subgroupPK, instance of Art_subgroupPK
-     */
     public IArt_subgroupPK getArt_subgroupPK();
 
-    /**
-     * set foreign key art_subgroup
-     * @param art_subgroupPK: instance of Art_subgroupPK
-     */
     public void setArt_subgroupPK(IArt_subgroupPK art_subgroupPK);
 
-    /**
-     * 
-     * @return foreign key art_academyPK, instance of Art_academyPK
-     */
     public IArt_academyPK getArt_academyPK();
 
-    /**
-     * set foreign key art_academy
-     * @param art_academyPK: instance of Art_academyPK
-     */
     public void setArt_academyPK(IArt_academyPK art_academyPK);
 
-    /**
-     * 
-     * @return foreign key art_groupPK, instance of Art_groupPK
-     */
     public IArt_groupPK getArt_groupPK();
 
-    /**
-     * set foreign key art_group
-     * @param art_groupPK: instance of Art_groupPK
-     */
     public void setArt_groupPK(IArt_groupPK art_groupPK);
 
     

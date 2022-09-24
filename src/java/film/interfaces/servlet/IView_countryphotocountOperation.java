@@ -1,20 +1,11 @@
 /*
- * IView_countryphotocountOperation.java
- *
  * Created on Dec 13, 2012, 12:22 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.servlet;
 
-/**
- * Interface IView_countryphotocountOperation
- * 
- * Attributes: Defines the possible operations for the specified view
- * Methods: 
- * @author Franky Laseure
- */
 public interface IView_countryphotocountOperation {
 
     //SELECT OPERATIONS
@@ -22,7 +13,7 @@ public interface IView_countryphotocountOperation {
     public static final byte SELECT_ALL = 1;
 //Custom code, do not change this line
 //add here custom operations
-    public static final byte SELECT_ALLSECURE = 2;
+    public static final byte SELECT_ALLPRIVATE = 2;
 //Custom code, do not change this line
 }
 

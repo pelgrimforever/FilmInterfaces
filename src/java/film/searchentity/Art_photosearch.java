@@ -1,9 +1,7 @@
 /*
- * Art_photosearch.java
- *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.searchentity;
@@ -18,11 +16,6 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-/**
- * Search class for Art_photo table
- * construct sql where part and parameter array from search parameters
- * @author Franky Laseure
- */
 public class Art_photosearch extends Tablesearch implements IArt_photosearch {
 
     Booleansearch selection = new Booleansearch("art_photo.selection");
@@ -40,35 +33,19 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
     Foreignkeysearch art_groupsearcher = new Foreignkeysearch("art_group", IArt_photo.art_groupPKfields, IArt_photo.art_groupFKfields);
 //external foreign keys
 
-    /**
-     * @return tablename
-     */
     public String getTable() {
         return Art_photo.table;
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     */
     public Art_photosearch() {
         setFieldsearchers();
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     * set andor parameter
-     * @param andor: containts AND or OR contant, indicates all conditions must apply or only one
-     */
     public Art_photosearch(byte andor) {
         super(andor);
         setFieldsearchers();
     }
 
-    /**
-     * add IFieldsearcher classes for all relevant fields
-     */
     private void setFieldsearchers() {
         addFieldsearcher(selection);
         addFieldsearcher(width);
@@ -84,150 +61,73 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
         addKeysearcher(art_groupsearcher);
     }
 
-    /**
-     * add a primary key instance to search for
-     * @param art_photoPK: Art_photo primery key
-     */
     public void addPrimarykey(IArt_photoPK art_photoPK) {
         super.addPrimarykey(art_photoPK);
     }
 
-    /**
-     * add Boolean search values for field selection
-     * @param value: true or false
-     */
     public void selection(Boolean value) {
         addBooleanvalue(selection, value);
     }
     
-    /**
-     * add Numeric search values for field width, default OR operator is used
-     * @param values: Array of numeric search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void width(Double[] values, byte[] operators) {
         addNumbervalues(width, values, operators);
     }
     
-    /**
-     * add Numeric search values for field width
-     * @param values: Array of String search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void width(Double[] values, byte[] operators, byte andor) {
         addNumbervalues(width, values, operators);
         width.setAndoroperator(andor);
     }
     
-    /**
-     * add Numeric search values for field height, default OR operator is used
-     * @param values: Array of numeric search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void height(Double[] values, byte[] operators) {
         addNumbervalues(height, values, operators);
     }
     
-    /**
-     * add Numeric search values for field height
-     * @param values: Array of String search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void height(Double[] values, byte[] operators, byte andor) {
         addNumbervalues(height, values, operators);
         height.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field comment, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void comment(String[] values) {
         addStringvalues(comment, values);
     }
     
-    /**
-     * add String search values for field comment
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void comment(String[] values, byte compare, byte andor) {
         addStringvalues(comment, values);
         comment.setCompareoperator(compare);
         comment.setAndoroperator(andor);
     }
     
-    /**
-     * add Numeric search values for field seqno, default OR operator is used
-     * @param values: Array of numeric search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void seqno(Double[] values, byte[] operators) {
         addNumbervalues(seqno, values, operators);
     }
     
-    /**
-     * add Numeric search values for field seqno
-     * @param values: Array of String search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void seqno(Double[] values, byte[] operators, byte andor) {
         addNumbervalues(seqno, values, operators);
         seqno.setAndoroperator(andor);
     }
     
-    /**
-     * add Boolean search values for field archive
-     * @param value: true or false
-     */
     public void archive(Boolean value) {
         addBooleanvalue(archive, value);
     }
     
-    /**
-     * add Boolean search values for field surround
-     * @param value: true or false
-     */
     public void surround(Boolean value) {
         addBooleanvalue(surround, value);
     }
     
-    /**
-     * add String search values for field surrounddir, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void surrounddir(String[] values) {
         addStringvalues(surrounddir, values);
     }
     
-    /**
-     * add String search values for field surrounddir
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void surrounddir(String[] values, byte compare, byte andor) {
         addStringvalues(surrounddir, values);
         surrounddir.setCompareoperator(compare);
         surrounddir.setAndoroperator(andor);
     }
     
-    /**
-     * set foreign key subsearch photo IPhotosearch
-     * @param photosearch: IPhotosearch
-     */
     public void photo(IPhotosearch photosearch) {
         photosearcher.setTablesearch(photosearch);
     }
     
-    /**
-     * get foreign key subsearch photo IPhotosearch
-     * @return Tablesearch for Art_photo
-     */
     public IPhotosearch getPhotosearch() {
         if(photosearcher.used()) {
             return (IPhotosearch)photosearcher.getTablesearches().get(0);
@@ -236,27 +136,14 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
         }
     }
 
-    /**
-     * force to return inner join statement
-     * ignore if photosearcher is not used
-     * @return inner join statement
-     */
     public String getPhotoInnerjoin() {
         return photosearcher.getInnerjoin();
     }
 
-    /**
-     * set foreign key subsearch art_subgroup IArt_subgroupsearch
-     * @param art_subgroupsearch: IArt_subgroupsearch
-     */
     public void art_subgroup(IArt_subgroupsearch art_subgroupsearch) {
         art_subgroupsearcher.setTablesearch(art_subgroupsearch);
     }
     
-    /**
-     * get foreign key subsearch art_subgroup IArt_subgroupsearch
-     * @return Tablesearch for Art_photo
-     */
     public IArt_subgroupsearch getArt_subgroupsearch() {
         if(art_subgroupsearcher.used()) {
             return (IArt_subgroupsearch)art_subgroupsearcher.getTablesearches().get(0);
@@ -265,27 +152,14 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
         }
     }
 
-    /**
-     * force to return inner join statement
-     * ignore if art_subgroupsearcher is not used
-     * @return inner join statement
-     */
     public String getArt_subgroupInnerjoin() {
         return art_subgroupsearcher.getInnerjoin();
     }
 
-    /**
-     * set foreign key subsearch art_academy IArt_academysearch
-     * @param art_academysearch: IArt_academysearch
-     */
     public void art_academy(IArt_academysearch art_academysearch) {
         art_academysearcher.setTablesearch(art_academysearch);
     }
     
-    /**
-     * get foreign key subsearch art_academy IArt_academysearch
-     * @return Tablesearch for Art_photo
-     */
     public IArt_academysearch getArt_academysearch() {
         if(art_academysearcher.used()) {
             return (IArt_academysearch)art_academysearcher.getTablesearches().get(0);
@@ -294,27 +168,14 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
         }
     }
 
-    /**
-     * force to return inner join statement
-     * ignore if art_academysearcher is not used
-     * @return inner join statement
-     */
     public String getArt_academyInnerjoin() {
         return art_academysearcher.getInnerjoin();
     }
 
-    /**
-     * set foreign key subsearch art_group IArt_groupsearch
-     * @param art_groupsearch: IArt_groupsearch
-     */
     public void art_group(IArt_groupsearch art_groupsearch) {
         art_groupsearcher.setTablesearch(art_groupsearch);
     }
     
-    /**
-     * get foreign key subsearch art_group IArt_groupsearch
-     * @return Tablesearch for Art_photo
-     */
     public IArt_groupsearch getArt_groupsearch() {
         if(art_groupsearcher.used()) {
             return (IArt_groupsearch)art_groupsearcher.getTablesearches().get(0);
@@ -323,11 +184,6 @@ public class Art_photosearch extends Tablesearch implements IArt_photosearch {
         }
     }
 
-    /**
-     * force to return inner join statement
-     * ignore if art_groupsearcher is not used
-     * @return inner join statement
-     */
     public String getArt_groupInnerjoin() {
         return art_groupsearcher.getInnerjoin();
     }

@@ -1,9 +1,7 @@
 /*
- * Art_group.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.logicentity;
@@ -26,40 +24,18 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
-/**
- * Entity class Art_group
- *
- * Attributes: Database independent SQL-construction strings adjusments
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public class Art_group extends film.entity.eArt_group implements IArt_group {
 
 //Custom code, do not change this line
 //Custom code, do not change this line
 
-    /**
-     * Constructor
-     * Creates an empty Art_group entity
-     */
     public Art_group() {
     }
     
-    /**
-     * Constructor
-     * build an empty Art_group entity with initialized field values
-     */
     public Art_group(long groupid) {
         super(groupid);
     }
 
-    /**
-     * Constructor
-     * build an empty Art_group entity with initialized Primarykey parameter
-     * @param art_groupPK: Art_group Primarykey
-     */
     public Art_group(Art_groupPK art_groupPK) {
         super(art_groupPK);
     }

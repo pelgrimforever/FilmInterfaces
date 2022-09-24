@@ -1,9 +1,7 @@
 /*
- * IPhoto.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IPhoto
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IPhoto extends LogicEntity {
 
     public IPhotoPK getPrimaryKey();
@@ -94,208 +84,72 @@ public interface IPhoto extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return format value
-     */
     public java.lang.String getFormat();
 
-    /**
-     * set format value
-     * @param format: new value
-     */
     public void setFormat(java.lang.String format);
 
-    /**
-     * 
-     * @return description value
-     */
     public java.lang.String getDescription();
 
-    /**
-     * set description value
-     * @param description: new value
-     */
     public void setDescription(java.lang.String description);
 
-    /**
-     * 
-     * @return photodate value
-     */
     public java.sql.Date getPhotodate();
 
-    /**
-     * set photodate value
-     * @param photodate: new value
-     */
     public void setPhotodate(java.sql.Date photodate);
 
-    /**
-     * 
-     * @return phototime value
-     */
     public java.sql.Time getPhototime();
 
-    /**
-     * set phototime value
-     * @param phototime: new value
-     */
     public void setPhototime(java.sql.Time phototime);
 
-    /**
-     * 
-     * @return publicf_ value
-     */
     public boolean getPublic();
 
-    /**
-     * set public value
-     * @param publicf_: new value
-     */
     public void setPublic(boolean publicf_);
 
-    /**
-     * 
-     * @return composition value
-     */
     public boolean getComposition();
 
-    /**
-     * set composition value
-     * @param composition: new value
-     */
     public void setComposition(boolean composition);
 
-    /**
-     * 
-     * @return rotation value
-     */
     public float getRotation();
 
-    /**
-     * set rotation value
-     * @param rotation: new value
-     */
     public void setRotation(float rotation);
 
-    /**
-     * 
-     * @return backup value
-     */
     public boolean getBackup();
 
-    /**
-     * set backup value
-     * @param backup: new value
-     */
     public void setBackup(boolean backup);
 
-    /**
-     * 
-     * @return imagebackup value
-     */
     public boolean getImagebackup();
 
-    /**
-     * set imagebackup value
-     * @param imagebackup: new value
-     */
     public void setImagebackup(boolean imagebackup);
 
-    /**
-     * 
-     * @return location value
-     */
     public piShape getLocation();
 
-    /**
-     * set location value
-     * @param location: new value
-     */
     public void setLocation(piShape location);
 
-    /**
-     * 
-     * @return exactlocation value
-     */
     public boolean getExactlocation();
 
-    /**
-     * set exactlocation value
-     * @param exactlocation: new value
-     */
     public void setExactlocation(boolean exactlocation);
 
-    /**
-     * 
-     * @return locationradius value
-     */
     public double getLocationradius();
 
-    /**
-     * set locationradius value
-     * @param locationradius: new value
-     */
     public void setLocationradius(double locationradius);
 
-    /**
-     * 
-     * @return reversegeocode value
-     */
     public java.lang.String getReversegeocode();
 
-    /**
-     * set reversegeocode value
-     * @param reversegeocode: new value
-     */
     public void setReversegeocode(java.lang.String reversegeocode);
 
-    /**
-     * 
-     * @return streetnumber value
-     */
     public java.lang.String getStreetnumber();
 
-    /**
-     * set streetnumber value
-     * @param streetnumber: new value
-     */
     public void setStreetnumber(java.lang.String streetnumber);
 
-    /**
-     * 
-     * @return formattedaddress value
-     */
     public java.lang.String getFormattedaddress();
 
-    /**
-     * set formattedaddress value
-     * @param formattedaddress: new value
-     */
     public void setFormattedaddress(java.lang.String formattedaddress);
 
-    /**
-     * 
-     * @return foreign key routePK, instance of RoutePK
-     */
     public IRoutePK getRoutePK();
 
-    /**
-     * set foreign key route
-     * @param routePK: instance of RoutePK
-     */
     public void setRoutePK(IRoutePK routePK);
 
-    /**
-     * 
-     * @return foreign key creatorPK, instance of CreatorPK
-     */
     public ICreatorPK getCreatorPK();
 
-    /**
-     * set foreign key creator
-     * @param creatorPK: instance of CreatorPK
-     */
     public void setCreatorPK(ICreatorPK creatorPK);
 
     

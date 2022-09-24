@@ -1,9 +1,7 @@
 /*
- * Tree7subjectPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,36 +15,17 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class Tree7subjectPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class Tree7subjectPK implements ITree7subjectPK {
 
     private long subjectid;
   
-    /** 
-     * Constructor
-     * Creates an empty Tree7subjectPK
-     */
     public Tree7subjectPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty Tree7subjectPK with initialized field values
-     */
     public Tree7subjectPK(long subjectid) {
         this.subjectid = subjectid;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"tree7subject.subjectid", subjectid}
@@ -54,10 +33,6 @@ public class Tree7subjectPK implements ITree7subjectPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ITree7subject.SUBJECTID, subjectid}
@@ -65,37 +40,20 @@ public class Tree7subjectPK implements ITree7subjectPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return subjectid value
-     */
     public long getSubjectid() {
         return this.subjectid;
     }
 
-    /**
-     * set subjectid value
-     * @param subjectid: new value
-     */
     public void setSubjectid(long subjectid) {
         this.subjectid = subjectid;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         key += getSubjectid();
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return Tree7subjectPK constructed from keystring
-     */
     public static Tree7subjectPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -111,11 +69,6 @@ public class Tree7subjectPK implements ITree7subjectPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param tree7subjectPK2: Tree7subjectPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ITree7subjectPK tree7subjectPK2) {
         boolean isequal = tree7subjectPK2!=null;
         if(isequal) {

@@ -1,9 +1,7 @@
 /*
- * IPhototags.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IPhototags
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IPhototags extends LogicEntity {
 
     public IPhototagsPK getPrimaryKey();
@@ -54,28 +44,12 @@ public interface IPhototags extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return tagformat value
-     */
     public java.lang.String getTagformat();
 
-    /**
-     * set tagformat value
-     * @param tagformat: new value
-     */
     public void setTagformat(java.lang.String tagformat);
 
-    /**
-     * 
-     * @return tagvalue value
-     */
     public java.lang.String getTagvalue();
 
-    /**
-     * set tagvalue value
-     * @param tagvalue: new value
-     */
     public void setTagvalue(java.lang.String tagvalue);
 
     

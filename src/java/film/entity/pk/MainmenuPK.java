@@ -1,9 +1,7 @@
 /*
- * MainmenuPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,36 +15,17 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class MainmenuPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class MainmenuPK implements IMainmenuPK {
 
     private java.lang.String mainmenu;
   
-    /** 
-     * Constructor
-     * Creates an empty MainmenuPK
-     */
     public MainmenuPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty MainmenuPK with initialized field values
-     */
     public MainmenuPK(java.lang.String mainmenu) {
         this.mainmenu = mainmenu;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"mainmenu.mainmenu", mainmenu}
@@ -54,10 +33,6 @@ public class MainmenuPK implements IMainmenuPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IMainmenu.MAINMENU, mainmenu}
@@ -65,37 +40,20 @@ public class MainmenuPK implements IMainmenuPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return mainmenu value
-     */
     public java.lang.String getMainmenu() {
         return this.mainmenu;
     }
 
-    /**
-     * set mainmenu value
-     * @param mainmenu: new value
-     */
     public void setMainmenu(java.lang.String mainmenu) {
         this.mainmenu = mainmenu;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getMainmenu()!=null) key += getMainmenu().length() + "_" + getMainmenu();
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return MainmenuPK constructed from keystring
-     */
     public static MainmenuPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -108,11 +66,6 @@ public class MainmenuPK implements IMainmenuPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param mainmenuPK2: MainmenuPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(IMainmenuPK mainmenuPK2) {
         boolean isequal = mainmenuPK2!=null;
         if(isequal) {

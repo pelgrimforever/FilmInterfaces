@@ -1,9 +1,7 @@
 /*
- * SecurityuserprofilePK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class SecurityuserprofilePK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class SecurityuserprofilePK implements ISecurityuserprofilePK {
 
     private ISecurityprofilePK securityprofilePK = new SecurityprofilePK();
     private java.lang.String siteusername;
   
-    /** 
-     * Constructor
-     * Creates an empty SecurityuserprofilePK
-     */
     public SecurityuserprofilePK() {
     }
 
-    /**
-     * Constructor
-     * build an empty SecurityuserprofilePK with initialized field values
-     */
     public SecurityuserprofilePK(java.lang.String siteusername, java.lang.String userprofile) {
         this.securityprofilePK = new SecurityprofilePK(userprofile);
         this.siteusername = siteusername;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"securityuserprofile.userprofile", securityprofilePK.getUserprofile()}, 
@@ -57,10 +36,6 @@ public class SecurityuserprofilePK implements ISecurityuserprofilePK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISecurityuserprofile.USERPROFILE, securityprofilePK.getUserprofile()}, 
@@ -69,58 +44,30 @@ public class SecurityuserprofilePK implements ISecurityuserprofilePK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key securityprofilePK, instance of ISecurityprofilePK
-     */
     public ISecurityprofilePK getSecurityprofilePK() {
         return this.securityprofilePK;
     }
 
-    /**
-     * set foreign key securityprofilePK
-     * @param securityprofilePK: instance of ISecurityprofilePK
-     */
     public void setSecurityprofilePK(ISecurityprofilePK securityprofilePK) {
         this.securityprofilePK = securityprofilePK;
     }
 
-    /**
-     * 
-     * @return userprofile value
-     */
     public java.lang.String getUserprofile() {
         return this.securityprofilePK.getUserprofile();
     }
 
-    /**
-     * set userprofile value
-     * @param userprofile: new value
-     */
     public void setUserprofile(java.lang.String userprofile) {
         this.securityprofilePK.setUserprofile(userprofile);
     }
 
-    /**
-     * 
-     * @return siteusername value
-     */
     public java.lang.String getSiteusername() {
         return this.siteusername;
     }
 
-    /**
-     * set siteusername value
-     * @param siteusername: new value
-     */
     public void setSiteusername(java.lang.String siteusername) {
         this.siteusername = siteusername;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getSiteusername()!=null) key += getSiteusername().length() + "_" + getSiteusername();
@@ -130,11 +77,6 @@ public class SecurityuserprofilePK implements ISecurityuserprofilePK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return SecurityuserprofilePK constructed from keystring
-     */
     public static SecurityuserprofilePK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -152,11 +94,6 @@ public class SecurityuserprofilePK implements ISecurityuserprofilePK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param securityuserprofilePK2: SecurityuserprofilePK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ISecurityuserprofilePK securityuserprofilePK2) {
         boolean isequal = securityuserprofilePK2!=null;
         if(isequal) {

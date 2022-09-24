@@ -1,9 +1,7 @@
 /*
- * Filmsearch.java
- *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.searchentity;
@@ -18,11 +16,6 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-/**
- * Search class for Film table
- * construct sql where part and parameter array from search parameters
- * @author Franky Laseure
- */
 public class Filmsearch extends Tablesearch implements IFilmsearch {
 
     Stringsearch id = new Stringsearch("film.id");
@@ -43,35 +36,19 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
     //foreign key
     Primarykeysearch photosearcher = new Primarykeysearch("photo", IPhoto.filmPKfields, IPhoto.filmFKfields);
 
-    /**
-     * @return tablename
-     */
     public String getTable() {
         return Film.table;
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     */
     public Filmsearch() {
         setFieldsearchers();
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     * set andor parameter
-     * @param andor: containts AND or OR contant, indicates all conditions must apply or only one
-     */
     public Filmsearch(byte andor) {
         super(andor);
         setFieldsearchers();
     }
 
-    /**
-     * add IFieldsearcher classes for all relevant fields
-     */
     private void setFieldsearchers() {
         addFieldsearcher(id);
         addFieldsearcher(iso);
@@ -87,162 +64,80 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
         addKeysearcher(photosearcher);
     }
 
-    /**
-     * add a primary key instance to search for
-     * @param filmPK: Film primery key
-     */
     public void addPrimarykey(IFilmPK filmPK) {
         super.addPrimarykey(filmPK);
     }
 
-    /**
-     * add String search values for field id, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void id(String[] values) {
         addStringvalues(id, values);
     }
     
-    /**
-     * add String search values for field id
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void id(String[] values, byte compare, byte andor) {
         addStringvalues(id, values);
         id.setCompareoperator(compare);
         id.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field iso, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void iso(String[] values) {
         addStringvalues(iso, values);
     }
     
-    /**
-     * add String search values for field iso
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void iso(String[] values, byte compare, byte andor) {
         addStringvalues(iso, values);
         iso.setCompareoperator(compare);
         iso.setAndoroperator(andor);
     }
     
-    /**
-     * add Date search values for field startdate, default OR operator is used
-     * @param values: Array of date search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void startdate(Date[] values, byte[] operators) {
         addDatevalues(startdate, values, operators);
     }
     
-    /**
-     * add Date search values for field startdate
-     * @param values: Array of date search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void startdate(Date[] values, byte[] operators, byte andor) {
         addDatevalues(startdate, values, operators);
         startdate.setAndoroperator(andor);
     }
     
-    /**
-     * add Date search values for field enddate, default OR operator is used
-     * @param values: Array of date search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void enddate(Date[] values, byte[] operators) {
         addDatevalues(enddate, values, operators);
     }
     
-    /**
-     * add Date search values for field enddate
-     * @param values: Array of date search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void enddate(Date[] values, byte[] operators, byte andor) {
         addDatevalues(enddate, values, operators);
         enddate.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field owner, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void owner(String[] values) {
         addStringvalues(owner, values);
     }
     
-    /**
-     * add String search values for field owner
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void owner(String[] values, byte compare, byte andor) {
         addStringvalues(owner, values);
         owner.setCompareoperator(compare);
         owner.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field cd, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void cd(String[] values) {
         addStringvalues(cd, values);
     }
     
-    /**
-     * add String search values for field cd
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void cd(String[] values, byte compare, byte andor) {
         addStringvalues(cd, values);
         cd.setCompareoperator(compare);
         cd.setAndoroperator(andor);
     }
     
-    /**
-     * add Boolean search values for field public
-     * @param value: true or false
-     */
     public void publicf_(Boolean value) {
         addBooleanvalue(publicf_, value);
     }
     
-    /**
-     * add Boolean search values for field backup
-     * @param value: true or false
-     */
     public void backup(Boolean value) {
         addBooleanvalue(backup, value);
     }
     
-    /**
-     * set foreign key subsearch filmtype IFilmtypesearch
-     * @param filmtypesearch: IFilmtypesearch
-     */
     public void filmtype(IFilmtypesearch filmtypesearch) {
         filmtypesearcher.setTablesearch(filmtypesearch);
     }
     
-    /**
-     * get foreign key subsearch filmtype IFilmtypesearch
-     * @return Tablesearch for Film
-     */
     public IFilmtypesearch getFilmtypesearch() {
         if(filmtypesearcher.used()) {
             return (IFilmtypesearch)filmtypesearcher.getTablesearches().get(0);
@@ -251,27 +146,14 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
         }
     }
 
-    /**
-     * force to return inner join statement
-     * ignore if filmtypesearcher is not used
-     * @return inner join statement
-     */
     public String getFilmtypeInnerjoin() {
         return filmtypesearcher.getInnerjoin();
     }
 
-    /**
-     * set external key - foreign key subsearch IFilmsubjectssearch
-     * @param filmsubjectssearch: IFilmsubjectssearch
-     */
     public void filmsubjects(IFilmsubjectssearch filmsubjectssearch) {
         filmsubjectssearcher.setTablesearch(filmsubjectssearch);
     }
     
-    /**
-     * get external key - foreign key subsearch IFilmsubjectssearch
-     * @return Tablesearch for IFilmsubjectssearch
-     */
     public IFilmsubjectssearch getFilmsubjectssearch() {
         if(filmsubjectssearcher.used()) {
             return (IFilmsubjectssearch)filmsubjectssearcher.getTablesearches().get(0);
@@ -280,18 +162,10 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
         }
     }
 
-    /**
-     * set external key - relational subsearch subject tablesearch
-     * @param subjectsearch: ISubjectsearch
-     */
     public void relsubject(ISubjectsearch subjectsearch) {
         relsubjectsearcher.setTablesearch(subjectsearch);
     }
     
-    /**
-     * get external key - relational subsearch ISubjectsearch
-     * @return Tablesearch for ISubjectsearch
-     */
     public ISubjectsearch getRelSubjectsearch() {
         if(relsubjectsearcher.used()) {
             return (ISubjectsearch)relsubjectsearcher.getTablesearches().get(0);
@@ -300,18 +174,10 @@ public class Filmsearch extends Tablesearch implements IFilmsearch {
         }
     }
 
-    /**
-     * set external key - foreign key subsearch IPhotosearch
-     * @param photosearch: IPhotosearch
-     */
     public void photo(IPhotosearch photosearch) {
         photosearcher.setTablesearch(photosearch);
     }
     
-    /**
-     * get external key - foreign key subsearch IPhotosearch
-     * @return Tablesearch for IPhotosearch
-     */
     public IPhotosearch getPhotosearch() {
         if(photosearcher.used()) {
             return (IPhotosearch)photosearcher.getTablesearches().get(0);

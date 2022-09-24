@@ -1,9 +1,7 @@
 /*
- * IUploadsession.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IUploadsession
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IUploadsession extends LogicEntity {
 
     public IUploadsessionPK getPrimaryKey();
@@ -58,76 +48,28 @@ public interface IUploadsession extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return upload value
-     */
     public boolean getUpload();
 
-    /**
-     * set upload value
-     * @param upload: new value
-     */
     public void setUpload(boolean upload);
 
-    /**
-     * 
-     * @return rotation value
-     */
     public float getRotation();
 
-    /**
-     * set rotation value
-     * @param rotation: new value
-     */
     public void setRotation(float rotation);
 
-    /**
-     * 
-     * @return filmgroupid value
-     */
     public java.lang.String getFilmgroupid();
 
-    /**
-     * set filmgroupid value
-     * @param filmgroupid: new value
-     */
     public void setFilmgroupid(java.lang.String filmgroupid);
 
-    /**
-     * 
-     * @return photosubjects value
-     */
     public java.lang.String getPhotosubjects();
 
-    /**
-     * set photosubjects value
-     * @param photosubjects: new value
-     */
     public void setPhotosubjects(java.lang.String photosubjects);
 
-    /**
-     * 
-     * @return description value
-     */
     public java.lang.String getDescription();
 
-    /**
-     * set description value
-     * @param description: new value
-     */
     public void setDescription(java.lang.String description);
 
-    /**
-     * 
-     * @return foreign key creatorPK, instance of CreatorPK
-     */
     public ICreatorPK getCreatorPK();
 
-    /**
-     * set foreign key creator
-     * @param creatorPK: instance of CreatorPK
-     */
     public void setCreatorPK(ICreatorPK creatorPK);
 
     

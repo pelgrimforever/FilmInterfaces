@@ -1,9 +1,7 @@
 /*
- * PhototagsPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class PhototagsPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class PhototagsPK implements IPhototagsPK {
 
     private IPhotoPK photoPK = new PhotoPK();
     private java.lang.String tag;
   
-    /** 
-     * Constructor
-     * Creates an empty PhototagsPK
-     */
     public PhototagsPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty PhototagsPK with initialized field values
-     */
     public PhototagsPK(java.lang.String film, int id, java.lang.String tag) {
         this.photoPK = new PhotoPK(film, id);
         this.tag = tag;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"phototags.film", photoPK.getFilm()}, 
@@ -58,10 +37,6 @@ public class PhototagsPK implements IPhototagsPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IPhototags.FILM, photoPK.getFilm()}, 
@@ -71,74 +46,38 @@ public class PhototagsPK implements IPhototagsPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key photoPK, instance of IPhotoPK
-     */
     public IPhotoPK getPhotoPK() {
         return this.photoPK;
     }
 
-    /**
-     * set foreign key photoPK
-     * @param photoPK: instance of IPhotoPK
-     */
     public void setPhotoPK(IPhotoPK photoPK) {
         this.photoPK = photoPK;
     }
 
-    /**
-     * 
-     * @return film value
-     */
     public java.lang.String getFilm() {
         return this.photoPK.getFilm();
     }
 
-    /**
-     * set film value
-     * @param film: new value
-     */
     public void setFilm(java.lang.String film) {
         this.photoPK.setFilm(film);
     }
 
-    /**
-     * 
-     * @return id value
-     */
     public int getId() {
         return this.photoPK.getId();
     }
 
-    /**
-     * set id value
-     * @param id: new value
-     */
     public void setId(int id) {
         this.photoPK.setId(id);
     }
 
-    /**
-     * 
-     * @return tag value
-     */
     public java.lang.String getTag() {
         return this.tag;
     }
 
-    /**
-     * set tag value
-     * @param tag: new value
-     */
     public void setTag(java.lang.String tag) {
         this.tag = tag;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getFilm()!=null) key += getFilm().length() + "_" + getFilm();
@@ -151,11 +90,6 @@ public class PhototagsPK implements IPhototagsPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return PhototagsPK constructed from keystring
-     */
     public static PhototagsPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -181,11 +115,6 @@ public class PhototagsPK implements IPhototagsPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param phototagsPK2: PhototagsPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(IPhototagsPK phototagsPK2) {
         boolean isequal = phototagsPK2!=null;
         if(isequal) {

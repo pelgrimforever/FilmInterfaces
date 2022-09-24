@@ -1,9 +1,7 @@
 /*
- * View_subjects_for_filmsearch.java
- *
  * Created on Feb 29, 2012, 18:15 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.searchentity;
@@ -17,11 +15,6 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-/**
- * Search class for View_subjects_for_film table
- * construct sql where part and parameter array from search parameters
- * @author Franky Laseure
- */
 public class View_subjects_for_filmsearch extends Tablesearch implements IView_subjects_for_filmsearch {
 
     Stringsearch film = new Stringsearch("view_subjects_for_film.film");
@@ -31,35 +24,19 @@ public class View_subjects_for_filmsearch extends Tablesearch implements IView_s
     Stringsearch subject = new Stringsearch("view_subjects_for_film.subject");
     Stringsearch description = new Stringsearch("view_subjects_for_film.description");
 
-    /**
-     * @return viewname
-     */
     public String getTable() {
         return View_subjects_for_film.table;
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     */
     public View_subjects_for_filmsearch() {
         setFieldsearchers();
     }
 
-    /**
-     * Constructor
-     * add IFieldsearcher classes for all relevant fields
-     * set andor parameter
-     * @param andor: containts AND or OR contant, indicates all conditions must apply or only one
-     */
     public View_subjects_for_filmsearch(byte andor) {
         super(andor);
         setFieldsearchers();
     }
 
-    /**
-     * add IFieldsearcher classes for all relevant fields
-     */
     private void setFieldsearchers() {
         addFieldsearcher(film);
         addFieldsearcher(cat1);
@@ -69,120 +46,59 @@ public class View_subjects_for_filmsearch extends Tablesearch implements IView_s
         addFieldsearcher(description);
     }
 
-    /**
-     * add String search values for field film, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void film(String[] values) {
         addStringvalues(film, values);
     }
     
-    /**
-     * add String search values for field film
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void film(String[] values, byte compare, byte andor) {
         addStringvalues(film, values);
         film.setCompareoperator(compare);
         film.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field cat1, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void cat1(String[] values) {
         addStringvalues(cat1, values);
     }
     
-    /**
-     * add String search values for field cat1
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void cat1(String[] values, byte compare, byte andor) {
         addStringvalues(cat1, values);
         cat1.setCompareoperator(compare);
         cat1.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field cat2, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void cat2(String[] values) {
         addStringvalues(cat2, values);
     }
     
-    /**
-     * add String search values for field cat2
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void cat2(String[] values, byte compare, byte andor) {
         addStringvalues(cat2, values);
         cat2.setCompareoperator(compare);
         cat2.setAndoroperator(andor);
     }
     
-    /**
-     * add Numeric search values for field id, default OR operator is used
-     * @param values: Array of numeric search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     */
     public void id(Double[] values, byte[] operators) {
         addNumbervalues(id, values, operators);
     }
     
-    /**
-     * add Numeric search values for field id
-     * @param values: Array of String search values
-     * @param operators: Array of byte contants for comparison (= < <= > >=)
-     * @param andor; AND/OR constant
-     */
     public void id(Double[] values, byte[] operators, byte andor) {
         addNumbervalues(id, values, operators);
         id.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field subject, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void subject(String[] values) {
         addStringvalues(subject, values);
     }
     
-    /**
-     * add String search values for field subject
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void subject(String[] values, byte compare, byte andor) {
         addStringvalues(subject, values);
         subject.setCompareoperator(compare);
         subject.setAndoroperator(andor);
     }
     
-    /**
-     * add String search values for field description, default OR and LIKE operators are used
-     * @param values: Array of String search values
-     */
     public void description(String[] values) {
         addStringvalues(description, values);
     }
     
-    /**
-     * add String search values for field description
-     * @param values: Array of String search values
-     * @param andor; AND/OR constant
-     * @param compare: EQUAL/LIKE constant
-     */
     public void description(String[] values, byte compare, byte andor) {
         addStringvalues(description, values);
         description.setCompareoperator(compare);

@@ -1,9 +1,7 @@
 /*
- * ISublocality.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface ISublocality
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface ISublocality extends LogicEntity {
 
     public ISublocalityPK getPrimaryKey();
@@ -60,52 +50,20 @@ public interface ISublocality extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return location value
-     */
     public piShape getLocation();
 
-    /**
-     * set location value
-     * @param location: new value
-     */
     public void setLocation(piShape location);
 
-    /**
-     * 
-     * @return bounds value
-     */
     public piShape getBounds();
 
-    /**
-     * set bounds value
-     * @param bounds: new value
-     */
     public void setBounds(piShape bounds);
 
-    /**
-     * 
-     * @return viewport value
-     */
     public piShape getViewport();
 
-    /**
-     * set viewport value
-     * @param viewport: new value
-     */
     public void setViewport(piShape viewport);
 
-    /**
-     * 
-     * @return approximate value
-     */
     public boolean getApproximate();
 
-    /**
-     * set approximate value
-     * @param approximate: new value
-     */
     public void setApproximate(boolean approximate);
 
     

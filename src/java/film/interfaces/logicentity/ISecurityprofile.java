@@ -1,9 +1,7 @@
 /*
- * ISecurityprofile.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface ISecurityprofile
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface ISecurityprofile extends LogicEntity {
 
     public ISecurityprofilePK getPrimaryKey();
@@ -46,16 +36,8 @@ public interface ISecurityprofile extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return privateaccess value
-     */
     public boolean getPrivateaccess();
 
-    /**
-     * set privateaccess value
-     * @param privateaccess: new value
-     */
     public void setPrivateaccess(boolean privateaccess);
 
     

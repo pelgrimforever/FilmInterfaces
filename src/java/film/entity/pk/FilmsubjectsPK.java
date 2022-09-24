@@ -1,9 +1,7 @@
 /*
- * FilmsubjectsPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class FilmsubjectsPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class FilmsubjectsPK implements IFilmsubjectsPK {
 
     private ISubjectPK subjectPK = new SubjectPK();
     private IFilmPK filmPK = new FilmPK();
   
-    /** 
-     * Constructor
-     * Creates an empty FilmsubjectsPK
-     */
     public FilmsubjectsPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty FilmsubjectsPK with initialized field values
-     */
     public FilmsubjectsPK(java.lang.String film, java.lang.String cat1, java.lang.String cat2, int subject) {
         this.subjectPK = new SubjectPK(cat1, cat2, subject);
         this.filmPK = new FilmPK(film);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"filmsubjects.film", filmPK.getId()}, 
@@ -59,10 +38,6 @@ public class FilmsubjectsPK implements IFilmsubjectsPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {IFilmsubjects.FILM, filmPK.getId()}, 
@@ -73,106 +48,54 @@ public class FilmsubjectsPK implements IFilmsubjectsPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key subjectPK, instance of ISubjectPK
-     */
     public ISubjectPK getSubjectPK() {
         return this.subjectPK;
     }
 
-    /**
-     * set foreign key subjectPK
-     * @param subjectPK: instance of ISubjectPK
-     */
     public void setSubjectPK(ISubjectPK subjectPK) {
         this.subjectPK = subjectPK;
     }
 
-    /**
-     * 
-     * @return foreign key filmPK, instance of IFilmPK
-     */
     public IFilmPK getFilmPK() {
         return this.filmPK;
     }
 
-    /**
-     * set foreign key filmPK
-     * @param filmPK: instance of IFilmPK
-     */
     public void setFilmPK(IFilmPK filmPK) {
         this.filmPK = filmPK;
     }
 
-    /**
-     * 
-     * @return film value
-     */
     public java.lang.String getFilm() {
         return this.filmPK.getId();
     }
 
-    /**
-     * set film value
-     * @param film: new value
-     */
     public void setFilm(java.lang.String film) {
         this.filmPK.setId(film);
     }
 
-    /**
-     * 
-     * @return cat1 value
-     */
     public java.lang.String getCat1() {
         return this.subjectPK.getCat1();
     }
 
-    /**
-     * set cat1 value
-     * @param cat1: new value
-     */
     public void setCat1(java.lang.String cat1) {
         this.subjectPK.setCat1(cat1);
     }
 
-    /**
-     * 
-     * @return cat2 value
-     */
     public java.lang.String getCat2() {
         return this.subjectPK.getCat2();
     }
 
-    /**
-     * set cat2 value
-     * @param cat2: new value
-     */
     public void setCat2(java.lang.String cat2) {
         this.subjectPK.setCat2(cat2);
     }
 
-    /**
-     * 
-     * @return subject value
-     */
     public int getSubject() {
         return this.subjectPK.getId();
     }
 
-    /**
-     * set subject value
-     * @param subject: new value
-     */
     public void setSubject(int subject) {
         this.subjectPK.setId(subject);
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getFilm()!=null) key += getFilm().length() + "_" + getFilm();
@@ -188,11 +111,6 @@ public class FilmsubjectsPK implements IFilmsubjectsPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return FilmsubjectsPK constructed from keystring
-     */
     public static FilmsubjectsPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -223,11 +141,6 @@ public class FilmsubjectsPK implements IFilmsubjectsPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param filmsubjectsPK2: FilmsubjectsPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(IFilmsubjectsPK filmsubjectsPK2) {
         boolean isequal = filmsubjectsPK2!=null;
         if(isequal) {

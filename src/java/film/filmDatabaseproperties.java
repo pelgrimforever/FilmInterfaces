@@ -1,15 +1,10 @@
 /*
- * filmDatabaseproperties.java
- *
  * Created on Okt 7, 2021
- * Generated on 27.6.2022 16:45
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 package film;
 
-/**
- * Database properties
- * @author Franky Laseure
- */
 public interface filmDatabaseproperties {
     
     public static final String connectionpool = "jdbc/film";

@@ -1,9 +1,7 @@
 /*
- * IPostalcode.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.logicentity;
@@ -21,14 +19,6 @@ import java.sql.SQLException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Entity Interface IPostalcode
- *
- * extended attributes and methods possibility:
- * table level programming is done here
- *
- * @author Franky Laseure
- */
 public interface IPostalcode extends LogicEntity {
 
     public IPostalcodePK getPrimaryKey();
@@ -62,64 +52,24 @@ public interface IPostalcode extends LogicEntity {
 //Put custom variables here
 //Custom code, do not change this line
 
-    /**
-     * 
-     * @return location value
-     */
     public piShape getLocation();
 
-    /**
-     * set location value
-     * @param location: new value
-     */
     public void setLocation(piShape location);
 
-    /**
-     * 
-     * @return bounds value
-     */
     public piShape getBounds();
 
-    /**
-     * set bounds value
-     * @param bounds: new value
-     */
     public void setBounds(piShape bounds);
 
-    /**
-     * 
-     * @return viewport value
-     */
     public piShape getViewport();
 
-    /**
-     * set viewport value
-     * @param viewport: new value
-     */
     public void setViewport(piShape viewport);
 
-    /**
-     * 
-     * @return approximate value
-     */
     public boolean getApproximate();
 
-    /**
-     * set approximate value
-     * @param approximate: new value
-     */
     public void setApproximate(boolean approximate);
 
-    /**
-     * 
-     * @return foreign key arealevel3PK, instance of Arealevel3PK
-     */
     public IArealevel3PK getArealevel3PK();
 
-    /**
-     * set foreign key arealevel3
-     * @param arealevel3PK: instance of Arealevel3PK
-     */
     public void setArealevel3PK(IArealevel3PK arealevel3PK);
 
     

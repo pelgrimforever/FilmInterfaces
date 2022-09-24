@@ -1,9 +1,7 @@
 /*
- * WSIPhotosubjects.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.webservice;
@@ -13,11 +11,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
-/**
- *
- * @author Franky Laseure
- */
-//Service Endpoint Interface
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use=SOAPBinding.Use.LITERAL)
 public interface WSIPhotosubjects {

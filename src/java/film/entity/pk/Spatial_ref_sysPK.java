@@ -1,9 +1,7 @@
 /*
- * Spatial_ref_sysPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,36 +15,17 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class Spatial_ref_sysPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class Spatial_ref_sysPK implements ISpatial_ref_sysPK {
 
     private int srid;
   
-    /** 
-     * Constructor
-     * Creates an empty Spatial_ref_sysPK
-     */
     public Spatial_ref_sysPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty Spatial_ref_sysPK with initialized field values
-     */
     public Spatial_ref_sysPK(int srid) {
         this.srid = srid;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"spatial_ref_sys.srid", srid}
@@ -54,10 +33,6 @@ public class Spatial_ref_sysPK implements ISpatial_ref_sysPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ISpatial_ref_sys.SRID, srid}
@@ -65,37 +40,20 @@ public class Spatial_ref_sysPK implements ISpatial_ref_sysPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return srid value
-     */
     public int getSrid() {
         return this.srid;
     }
 
-    /**
-     * set srid value
-     * @param srid: new value
-     */
     public void setSrid(int srid) {
         this.srid = srid;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         key += getSrid();
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return Spatial_ref_sysPK constructed from keystring
-     */
     public static Spatial_ref_sysPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -111,11 +69,6 @@ public class Spatial_ref_sysPK implements ISpatial_ref_sysPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param spatial_ref_sysPK2: Spatial_ref_sysPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ISpatial_ref_sysPK spatial_ref_sysPK2) {
         boolean isequal = spatial_ref_sysPK2!=null;
         if(isequal) {

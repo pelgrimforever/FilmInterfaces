@@ -1,9 +1,7 @@
 /*
- * LocalityPK.java
- *
  * Created on March 26, 2007, 5:44 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.entity.pk;
@@ -17,38 +15,19 @@ import java.sql.Timestamp;
 import db.SQLparameters;
 import db.Entityvalues;
 
-/**
- * Primarykey class LocalityPK
- * 
- * Attributes: primary key fields and foreign keys
- * Methods: conversion to and from string for use in GUI
- * @author Franky Laseure
- */
 public class LocalityPK implements ILocalityPK {
 
     private IPostalcodePK postalcodePK = new PostalcodePK();
     private java.lang.String locality;
   
-    /** 
-     * Constructor
-     * Creates an empty LocalityPK
-     */
     public LocalityPK() {
     }
 
-    /**
-     * Constructor
-     * build an empty LocalityPK with initialized field values
-     */
     public LocalityPK(java.lang.String countrycode, java.lang.String postalcode, java.lang.String locality) {
         this.postalcodePK = new PostalcodePK(countrycode, postalcode);
         this.locality = locality;
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldname, value) as a SQLparameters object
-     */
     public SQLparameters getSQLprimarykey() {
         Object[][] keyfields = { 
             {"locality.countrycode", postalcodePK.getCountrycode()}, 
@@ -58,10 +37,6 @@ public class LocalityPK implements ILocalityPK {
         return new SQLparameters(keyfields);
     }
 
-    /**
-     * 
-     * @return primarykey fields (fieldreference, value) as Entityvalues
-     */
     public Entityvalues getPrimarykeyvalues() {
         Object[][] keyfields = { 
             {ILocality.COUNTRYCODE, postalcodePK.getCountrycode()}, 
@@ -71,74 +46,38 @@ public class LocalityPK implements ILocalityPK {
         return new Entityvalues(keyfields);
     }
 
-    /**
-     * 
-     * @return foreign key postalcodePK, instance of IPostalcodePK
-     */
     public IPostalcodePK getPostalcodePK() {
         return this.postalcodePK;
     }
 
-    /**
-     * set foreign key postalcodePK
-     * @param postalcodePK: instance of IPostalcodePK
-     */
     public void setPostalcodePK(IPostalcodePK postalcodePK) {
         this.postalcodePK = postalcodePK;
     }
 
-    /**
-     * 
-     * @return countrycode value
-     */
     public java.lang.String getCountrycode() {
         return this.postalcodePK.getCountrycode();
     }
 
-    /**
-     * set countrycode value
-     * @param countrycode: new value
-     */
     public void setCountrycode(java.lang.String countrycode) {
         this.postalcodePK.setCountrycode(countrycode);
     }
 
-    /**
-     * 
-     * @return postalcode value
-     */
     public java.lang.String getPostalcode() {
         return this.postalcodePK.getPostalcode();
     }
 
-    /**
-     * set postalcode value
-     * @param postalcode: new value
-     */
     public void setPostalcode(java.lang.String postalcode) {
         this.postalcodePK.setPostalcode(postalcode);
     }
 
-    /**
-     * 
-     * @return locality value
-     */
     public java.lang.String getLocality() {
         return this.locality;
     }
 
-    /**
-     * set locality value
-     * @param locality: new value
-     */
     public void setLocality(java.lang.String locality) {
         this.locality = locality;
     }
 
-    /**
-     * 
-     * @return primary key in one formatted string
-     */
     public String getKeystring() {
         String key = "";
         if(getCountrycode()!=null) key += getCountrycode().length() + "_" + getCountrycode();
@@ -151,11 +90,6 @@ public class LocalityPK implements ILocalityPK {
         return key;
     }
 
-    /**
-     * 
-     * @param keystring: formated string from getKeystring() method
-     * @return LocalityPK constructed from keystring
-     */
     public static LocalityPK getKey(String keystring) {
         if(keystring==null || keystring.length()==0) return null;
         else {
@@ -178,11 +112,6 @@ public class LocalityPK implements ILocalityPK {
         }
     }
 
-    /**
-     * compare this primary key with second primary key
-     * @param localityPK2: LocalityPK instance
-     * @return true if all fields and foreign keys are equal
-     */
     public boolean equals(ILocalityPK localityPK2) {
         boolean isequal = localityPK2!=null;
         if(isequal) {

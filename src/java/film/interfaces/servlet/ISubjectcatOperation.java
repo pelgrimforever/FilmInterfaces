@@ -1,20 +1,11 @@
 /*
- * ISubjectcatOperation.java
- *
  * Created on Dec 13, 2012, 12:22 PM
- * Generated on 5.5.2022 10:44
- *
+ * Generated on 23.8.2022 15:19
+ * @author Franky Laseure
  */
 
 package film.interfaces.servlet;
 
-/**
- * Interface ISubjectcatOperation
- * 
- * Attributes: Defines the possible operations for the specified table
- * Methods: 
- * @author Franky Laseure
- */
 public interface ISubjectcatOperation {
 
     //SELECT OPERATIONS
